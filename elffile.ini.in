@@ -35,4 +35,4 @@ simple_mem_system.memseg_origin_01=@MEM_RAM_ORIGIN@
 simple_mem_system.memseg_length_01=@MEM_RAM_LENGTH@
 
 [StringConfigurations]
-vp.elf_file=@CMAKE_INSTALL_PREFIX@/bin/@PRJ_NAME@
+vp.elf_file=@CMAKE_INSTALL_PREFIX@/bin/@BIN_NAME@

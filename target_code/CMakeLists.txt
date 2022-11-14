@@ -3,6 +3,7 @@ macro(add_executable_etiss TARGET)
 
 	add_executable(${TARGET} ${SRC_FILES})
 	add_dependencies(${TARGET} etiss_crt0)
+	set(BIN_NAME ${TARGET})
 
 	configure_file(${ETISS_ELFINI} ${TARGET}.ini @ONLY)
 
