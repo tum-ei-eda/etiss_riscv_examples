@@ -53,7 +53,7 @@ int main()
 
     try
     {
-        // throw 5;
+        throw 5;
     }
     catch (int i)
     {
