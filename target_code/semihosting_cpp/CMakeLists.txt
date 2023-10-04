@@ -1,1 +1,1 @@
-add_executable(semihosting_cpp main.cpp)
+add_executable_etiss(semihosting_cpp main.cpp)
