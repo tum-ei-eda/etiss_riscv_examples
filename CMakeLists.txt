@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(riscv_examples)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+project(riscv_examples LANGUAGES ASM C CXX)
 
 set(MEM_ROM_ORIGIN 0x10000000)
 set(MEM_ROM_LENGTH 0x00400000)
