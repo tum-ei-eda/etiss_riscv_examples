@@ -13,12 +13,14 @@ CMake is used to automatically generate appropriate linker scripts and ETISS ini
 * This repository, cloned to `<etiss examples>`
 
 ## Building
+Starting in `<etiss examples>`, run the following commands:
+
 	mkdir build
 	cd build
 	cmake -DCMAKE_TOOLCHAIN_FILE=rv32gc-toolchain.cmake -DRISCV_TOOLCHAIN_PREFIX=<toolchain prefix> -DCMAKE_INSTALL_PREFIX=../install ..
 	make install
 
-`rv32gc-toolchain.cmake` can be substituted by `rv64gc-toolchain.cmake` if desired. N.b.: ETISS currently only executes RV64 correctly with the `gcc` JIT backend. You will have to fix the generated ini files manually: replace `TCCJIT` by `GCCJIT`. Expect a notable performance impact.
+`rv32gc-toolchain.cmake` can be substituted by `rv64gc-toolchain.cmake` if desired.
 
 ## Running
 	<etiss prefix>/bin/bare_etiss_processor -i<etiss examples>/install/ini/<config>.ini
