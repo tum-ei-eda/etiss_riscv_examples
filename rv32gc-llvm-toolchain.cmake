@@ -7,12 +7,12 @@ set(RISCV_ABI "ilp32d" CACHE STRING "RISC-V ABI (-mabi)")
 set(RISCV_TOOLCHAIN_PREFIX "" CACHE STRING "optional prefix for the riscv toolchain in case it is not on the path")
 set(RISCV_TOOLCHAIN_BASENAME "riscv64-unknown-elf" CACHE STRING "base name of the toolchain executables")
 
-set(CMAKE_C_COMPILER clang-16)
-set(CMAKE_CXX_COMPILER clang++-16)
-set(CMAKE_ASM_COMPILER clang-16)
+set(CMAKE_C_COMPILER clang)
+set(CMAKE_CXX_COMPILER clang++)
+set(CMAKE_ASM_COMPILER clang)
 
-set(CMAKE_OBJCOPY llvm-objcopy-16)
-set(CMAKE_OBJDUMP llvm-objdump-16)
+set(CMAKE_OBJCOPY llvm-objcopy)
+set(CMAKE_OBJDUMP llvm-objdump)
 
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D__riscv__ -march=${RISCV_ARCH} -mabi=${RISCV_ABI} --target=riscv32")
