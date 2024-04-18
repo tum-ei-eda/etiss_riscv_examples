@@ -1,4 +1,4 @@
-set(EMBENCH_DIR /work/git/karsten/embench-iot/)
+set(EMBENCH_DIR ${CMAKE_CURRENT_SOURCE_DIR}/embench-iot/)
 
 macro(add_embench_program PROGRAM)
 	set(SRC_FILES "${ARGN}")
