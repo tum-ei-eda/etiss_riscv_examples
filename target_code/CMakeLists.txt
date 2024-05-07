@@ -3,6 +3,7 @@ macro(add_executable_etiss TARGET)
 
 	add_executable(${TARGET} ${SRC_FILES})
 	add_dependencies(${TARGET} etiss_crt0)
+	target_include_directories(${TARGET} PRIVATE ${CMAKE_SOURCE_DIR}/riscv_crt0)
 	set(BIN_NAME ${TARGET})
 
 	configure_file(${ETISS_ELFINI} ${TARGET}.ini @ONLY)
@@ -16,4 +17,5 @@ add_subdirectory(test_cases)
 add_subdirectory(interactive)
 add_subdirectory(semihosting_cpp)
 add_subdirectory(cpp)
+add_subdirectory(c)
 add_subdirectory(dhry)
