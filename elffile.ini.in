@@ -1,10 +1,13 @@
 [StringConfigurations]
 etiss.output_path_prefix=
-jit.type=TCCJIT
+# TCC does not support int128 vars
+# jit.type=TCCJIT
+jit.type=GCCJIT
 
 [BoolConfigurations]
 arch.or1k.ignore_sr_iee=false
 jit.gcc.cleanup=true
+# jit.gcc.cleanup=false
 jit.verify=false
 etiss.load_integrated_libraries=true
 jit.debug=false
@@ -14,6 +17,7 @@ etiss.log_pc=false
 [IntConfigurations]
 arch.or1k.if_stall_cycles=0
 etiss.max_block_size=100
+# etiss.max_block_size=1
 arch.cpu_cycle_time_ps=31250
 ETISS::CPU_quantum_ps=100000
 ETISS::write_pc_trace_from_time_us=0
@@ -36,3 +40,5 @@ simple_mem_system.memseg_length_01=@MEM_RAM_LENGTH@
 
 [StringConfigurations]
 vp.elf_file=@CMAKE_INSTALL_PREFIX@/bin/@BIN_NAME@
+
+# [Plugin PrintInstruction]
