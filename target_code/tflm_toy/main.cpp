@@ -54,7 +54,7 @@ int run_test()
         }
         sum /= toy_input_data_len[i];
 
-        uint32_t diff = abs(sum - toy_output_data_ref[i]);
+        uint32_t diff = abs((int32_t)sum - (int32_t)toy_output_data_ref[i]);
         if (diff > 1)
         {
             printf("ERROR: at #%d, sum %d ref %d diff %d \n", i, sum, toy_output_data_ref[i], diff);
