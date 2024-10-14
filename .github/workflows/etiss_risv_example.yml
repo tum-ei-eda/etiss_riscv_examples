@@ -40,7 +40,7 @@ jobs:
       with:
         name: demo-install
         github-token: ${{ secrets.REPO_ACCESS_TOKEN }}   
-        repository: bkebianyor/seal5
+        repository: kebi-be/seal5
         path: /home/runner/work/seal5_prebuilt
         run-id: 11291507122 #${{ github.event.client_payload.triggered_run_id }}
         
@@ -94,7 +94,7 @@ jobs:
           name: etiss_prebuilt
           github-token: ${{ secrets.REPO_ACCESS_TOKEN }}
           path: /home/runner/work/etiss_prebuilt
-          repository: bkebianyor/etiss_wysiwyng
+          repository: kebi-be/etiss_wysiwyng
           #get run-id from payload of seal5-event 
           run-id: ${{ github.event.client_payload.etiss_run_id }}
 
