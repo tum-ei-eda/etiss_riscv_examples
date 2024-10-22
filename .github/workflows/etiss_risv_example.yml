@@ -90,7 +90,7 @@ jobs:
           name: etiss_prebuilt
           github-token: ${{ secrets.REPO_ACCESS_TOKEN }}
           path: /home/runner/work/etiss_prebuilt
-          repository: kebi-be/etiss_wysiwyng
+          repository: kebi-be/etiss
           #get run-id from payload of seal5-event 
           run-id: ${{ github.event.client_payload.etiss_run_id }}
 
