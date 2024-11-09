@@ -8,8 +8,8 @@ macro(add_executable_etiss TARGET)
 
 	configure_file(${ETISS_ELFINI} ${TARGET}.ini @ONLY)
 
-	install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${TARGET}.ini DESTINATION ini)
-	install(TARGETS ${TARGET} DESTINATION bin)
+	install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${TARGET}.ini DESTINATION ini OPTIONAL)
+	install(TARGETS ${TARGET} DESTINATION bin OPTIONAL)
 endmacro()
 
 add_subdirectory(hello_world)
