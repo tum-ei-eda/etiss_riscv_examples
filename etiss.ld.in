@@ -42,9 +42,6 @@ SECTIONS
     *(.srodata .srodata.*)
   } > ROM
 
-  .eh_frame : {
-    KEEP (*(.eh_frame))
-  } > ROM
 
 
   /* ================ RAM ================ */
@@ -62,7 +59,11 @@ SECTIONS
 
   .gcc_except_table : {
     *(.gcc_except_table .gcc_except_table.*)
-  } > ROM
+  } > RAM
+
+  .eh_frame : {
+    KEEP (*(.eh_frame))
+  } > RAM
 
   __data_start = .;
   .data : {
