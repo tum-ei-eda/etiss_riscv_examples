@@ -17,6 +17,10 @@
 
 #include "dhry.h"
 
+#ifndef NUM_RUNS
+#define NUM_RUNS 1
+#endif
+
 /* Global Variables: */
 
 Rec_Pointer     Ptr_Glob,
@@ -118,7 +122,8 @@ main ()
   {
     int n;
     /*scanf ("%d", &n);*/
-    Number_Of_Runs = 1000000;
+    // Number_Of_Runs = 1000000 * NUM_RUNS;
+    Number_Of_Runs = 10000 * NUM_RUNS;
   }
   printf ("\n");
 
