@@ -28,6 +28,9 @@
 #error __SIZEOF_POINTER__ neither 4 nor 8
 #endif
 
+#ifndef SIMULATION_RUNS
+#define SIMULATION_RUNS 1
+#endif
 .text
 
 .global _start
@@ -64,6 +67,13 @@ _start:
   # Run global initialization functions
   call    __libc_init_array
 
+  # load simulation runs count.
+  li s11, SIMULATION_RUNS
+
+simulation_loop:
+
+  beqz s11, end_simulation_loop
+
   # call user code
   # main(int argc, char *argv[]);
   # main(0, 0);
@@ -73,6 +83,11 @@ _start:
   li      a2, 0 # set envp = NULL just in case
   call    main
 
+  addi s11, s11, -1
+
+  bnez s11, simulation_loop
+
+end_simulation_loop:
   tail    exit
 
 .p2align 2 # align on 4-byte boundary
