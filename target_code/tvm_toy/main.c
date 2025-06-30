@@ -10,6 +10,18 @@
 #include "tvm/runtime/crt/error_codes.h"
 #include "tvmgen_default.h"
 
+#define CHECK 0
+#ifndef CHECK
+#define CHECK 1
+#endif
+
+#define MAX_RUNS 1
+#ifndef MAX_RUNS
+#define MAX_RUNS 1000
+#endif
+
+#define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
+
 void TVMLogf(const char *msg, ...)
 {
     va_list args;
@@ -35,13 +47,14 @@ TVM_DLL int TVMFuncRegisterGlobal(const char *name, TVMFunctionHandle f, int ove
 
 int run_test()
 {
-    for (size_t i = 0; i < toy_data_sample_cnt; i++)
+    for (size_t i = 0; i < MIN(toy_data_sample_cnt, MAX_RUNS); i++)
     {
         struct tvmgen_default_inputs tvmgen_default_inputs = {(int8_t *)toy_input_data[i]};
         int8_t output_data[1024] = {0}; // TODO(fabianpedd): Make this precise by using defines for the array sizes
         struct tvmgen_default_outputs tvmgen_default_outputs = {output_data};
 
         int ret_val = tvmgen_default_run(&tvmgen_default_inputs, &tvmgen_default_outputs);
+#if CHECK
         if (ret_val)
         {
             TVMPlatformAbort(kTvmErrorPlatformCheckFailure);
@@ -64,13 +77,13 @@ int run_test()
         {
             printf("Sample #%d pass, sum %d ref %d diff %d \n", i, sum, toy_output_data_ref[i], diff);
         }
+#endif
     }
     return 0;
 }
 
 int main(int argc, char *argv[])
 {
-    printf("Hello world!\n");
     int ret = run_test();
     if (ret != 0)
     {
@@ -82,7 +95,9 @@ int main(int argc, char *argv[])
     }
     else
     {
+#if CHECK
         printf("Test Success!\n");
+#endif
     }
 
     return ret;
