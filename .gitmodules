@@ -1,3 +1,6 @@
 [submodule "target_code/embench/embench-iot"]
 	path = target_code/embench/embench-iot
 	url = https://github.com/embench/embench-iot
+[submodule "3rdparty/muriscv-nn"]
+	path = 3rdparty/muriscv-nn
+	url = https://github.com/tum-ei-eda/muriscv-nn.git

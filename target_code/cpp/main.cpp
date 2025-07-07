@@ -3,7 +3,9 @@
 #include <iostream>
 #include <memory>
 #include <chrono>
+#ifdef __riscv_a
 #include <atomic>
+#endif  // __riscv_a
 
 class Foo
 {
@@ -69,11 +71,13 @@ int main()
         std::cout << "time elapsed: " << (duration_cast<milliseconds>(diff)).count() << "ms\n";
     }
 
+#ifdef __riscv_a
     std::atomic_int ai;
     ai = 5;
     int expected = 5;
     if (ai.compare_exchange_strong(expected, 6))
         printf("got expected atomic\n");
+#endif  // __riscv_a
 
     // Correctly terminates with pure virtual call error.
     // VooDoo vd;

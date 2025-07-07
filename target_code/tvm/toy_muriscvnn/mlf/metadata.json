@@ -1,0 +1,149 @@
+{
+  "modules": {
+    "default": {
+      "executors": [
+        "aot"
+      ],
+      "export_datetime": "2024-06-25 09:31:48Z",
+      "external_dependencies": [
+        {
+          "short_name": "tvm_standalone_crt",
+          "url": "./runtime",
+          "url_type": "mlf_path",
+          "version_spec": "0.11.1"
+        }
+      ],
+      "memory": {
+        "functions": {
+          "main": [
+            {
+              "constants_size_bytes": 270880,
+              "device": 1,
+              "inputs": {
+                "input_1": {
+                  "dtype": "int8",
+                  "size": 640
+                }
+              },
+              "io_size_bytes": 274864,
+              "outputs": {
+                "output": {
+                  "dtype": "int8",
+                  "size": 640
+                }
+              },
+              "workspace_size_bytes": 768
+            }
+          ],
+          "operator_functions": [
+            {
+              "function_name": "tvmgen_default_cmsis_nn_main_8",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_cmsis_nn_main_0",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_fused_reshape",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_cmsis_nn_main_4",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_cmsis_nn_main_3",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_cmsis_nn_main_2",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_cmsis_nn_main_6",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_cmsis_nn_main_7",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_cmsis_nn_main_5",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_cmsis_nn_main_9",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_cmsis_nn_main_1",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "model_name": "default",
+      "style": "full-model",
+      "target": [
+        "c -keys=cpu -constants-byte-alignment=4 -workspace-byte-alignment=4"
+      ]
+    }
+  },
+  "version": 7
+}
