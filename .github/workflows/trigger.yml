@@ -28,9 +28,9 @@ on:
       - 3rdparty/**
       - cmake/**
       - CMakeLists.txt
-      - *.cmake
-      - *.in
-      - *.specs
+      - "*.cmake"
+      - "*.in"
+      - "*.specs"
       - .github/workflows/**
       - .github/actions/**
 
