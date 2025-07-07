@@ -1,12 +1,14 @@
-add_executable_etiss(tvm_ic)
+project(tvm_ic)
 
-target_include_directories(tvm_ic PRIVATE
+add_executable_etiss(${PROJECT_NAME})
+
+target_include_directories(${PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}/mlf/runtime/include
   ${CMAKE_CURRENT_SOURCE_DIR}/mlf/codegen/host/include
 )
 
-target_sources(tvm_ic PRIVATE
+target_sources(${PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/main.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mlf/codegen/host/src/default_lib0.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mlf/codegen/host/src/default_lib1.c
@@ -18,4 +20,4 @@ target_sources(tvm_ic PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/ic_data/ic_output_data_ref.h
 )
 
-target_link_libraries(tvm_ic PRIVATE m)
+target_link_libraries(${PROJECT_NAME} PRIVATE m)

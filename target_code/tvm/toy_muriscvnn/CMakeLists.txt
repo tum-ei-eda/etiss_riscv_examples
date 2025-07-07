@@ -23,14 +23,6 @@ target_sources(${PROJECT_NAME} PRIVATE
 
 target_link_libraries(${PROJECT_NAME} PRIVATE m)
 
-set(MURISCVNN_DIR ${CMAKE_CURRENT_LIST_DIR}/../../../3rdparty/muriscv-nn)
-# set(CMAKE_MODULE_PATH ${MURISCVNN_DIR}/CMake)
-# set(CMAKE_MODULE_PATH ${MURISCVNN_DIR}/CMake)
-set(muriscvnn_DIR ${MURISCVNN_DIR}/CMake)
-message(STATUS "CMAKE_MODULE_PATH=${CMAKE_MODULE_PATH}")
-find_package(muriscvnn REQUIRED)
-
-
 find_package(muriscvnn REQUIRED)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC muriscvnn::muriscvnn)

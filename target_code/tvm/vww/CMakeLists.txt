@@ -1,12 +1,14 @@
-add_executable_etiss(tvm_vww)
+project(tvm_vww)
 
-target_include_directories(tvm_vww PRIVATE
+add_executable_etiss(${PROJECT_NAME})
+
+target_include_directories(${PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}/mlf/runtime/include
   ${CMAKE_CURRENT_SOURCE_DIR}/mlf/codegen/host/include
 )
 
-target_sources(tvm_vww PRIVATE
+target_sources(${PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/main.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mlf/codegen/host/src/default_lib0.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mlf/codegen/host/src/default_lib1.c
@@ -18,4 +20,4 @@ target_sources(tvm_vww PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/vww_data/vww_output_data_ref.h
 )
 
-target_link_libraries(tvm_vww PRIVATE m)
+target_link_libraries(${PROJECT_NAME} PRIVATE m)

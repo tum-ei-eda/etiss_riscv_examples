@@ -1,12 +1,14 @@
-add_executable_etiss(tvm_toy)
+project(tvm_toy)
 
-target_include_directories(tvm_toy PRIVATE
+add_executable_etiss(${PROJECT_NAME})
+
+target_include_directories(${PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}/mlf/runtime/include
   ${CMAKE_CURRENT_SOURCE_DIR}/mlf/codegen/host/include
 )
 
-target_sources(tvm_toy PRIVATE
+target_sources(${PROJECT_NAME} PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/main.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mlf/codegen/host/src/default_lib0.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mlf/codegen/host/src/default_lib1.c
@@ -18,4 +20,4 @@ target_sources(tvm_toy PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/toy_data/toy_output_data_ref.h
 )
 
-target_link_libraries(tvm_toy PRIVATE m)
+target_link_libraries(${PROJECT_NAME} PRIVATE m)
