@@ -9,17 +9,10 @@ if(NOT DEFINED tflm_ROOT)
   set(tflm_ROOT "${CMAKE_CURRENT_LIST_DIR}/../3rdparty/tflm/")
 endif()
 
-add_definitions(-DTF_LITE_USE_GLOBAL_MAX)
-add_definitions(-DTF_LITE_USE_GLOBAL_MIN)
-add_definitions(-DTF_LITE_USE_GLOBAL_CMATH_FUNCTIONS)
-add_definitions(-DTF_LITE_STATIC_MEMORY)
-add_definitions(-DTFLITE_EMULATE_FLOAT)
-add_definitions(-DTF_LITE_STRIP_ERROR_STRINGS)
-
 set(TFLM_SRCS
   ${tflm_ROOT}/tensorflow/lite/core/c/common.cc
   # ${tflm_ROOT}/tensorflow/lite/c/common.c
-  ${tflm_ROOT}/tensorflow/lite/schema/schema_utils.cc
+  ${tflm_ROOT}/tensorflow/compiler/mlir/lite/schema/schema_utils.cc
   ${tflm_ROOT}/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc
   ${tflm_ROOT}/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc
   ${tflm_ROOT}/tensorflow/lite/micro/memory_planner/non_persistent_buffer_planner_shim.cc
@@ -190,6 +183,14 @@ if(NOT TARGET tflm::tflm)
   )
 
   target_link_libraries(tflm PUBLIC m)
+  target_compile_definitions(tflm PRIVATE
+    -DTF_LITE_USE_GLOBAL_MAX
+    -DTF_LITE_USE_GLOBAL_MIN
+    -DTF_LITE_USE_GLOBAL_CMATH_FUNCTIONS
+    -DTF_LITE_STATIC_MEMORY
+    -DTFLITE_EMULATE_FLOAT
+    -DTF_LITE_STRIP_ERROR_STRINGS
+  )
 
   add_library(tflm::tflm ALIAS tflm)
 endif()
