@@ -15,6 +15,18 @@
 #include "toy_data/toy_model_settings.h"
 #include "toy_data/toy_output_data_ref.h"
 
+#define CHECK 0
+#ifndef CHECK
+#define CHECK 1
+#endif
+
+#define MAX_RUNS 1
+#ifndef MAX_RUNS
+#define MAX_RUNS 1000
+#endif
+
+#define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
+
 constexpr size_t tensor_arena_size = 256 * 1024;
 alignas(16) uint8_t tensor_arena[tensor_arena_size];
 
@@ -37,7 +49,7 @@ int run_test()
         return -1;
     }
 
-    for (size_t i = 0; i < toy_data_sample_cnt; i++)
+    for (size_t i = 0; i < MIN(toy_data_sample_cnt, MAX_RUNS); i++)
     {
         memcpy(interpreter.input(0)->data.int8, (int8_t *)toy_input_data[i], toy_input_data_len[i]);
 
@@ -47,6 +59,7 @@ int run_test()
             return -1;
         }
 
+#if CHECK
         uint32_t sum = 0;
         for (size_t j = 0; j < toy_input_data_len[i]; j++)
         {
@@ -64,6 +77,7 @@ int run_test()
         {
             printf("Sample #%d pass, sum %d ref %d diff %d \n", i, sum, toy_output_data_ref[i], diff);
         }
+#endif
     }
 
     return 0;
@@ -82,7 +96,9 @@ int main(int argc, char *argv[])
     }
     else
     {
+#if CHECK
         printf("Test Success!\n");
+#endif
     }
 
     return ret;

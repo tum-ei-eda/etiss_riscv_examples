@@ -124,6 +124,7 @@ set(TFLM_MURISCVNN_SRCS
   ${tflm_muriscvnn_ROOT}/tensorflow/lite/micro/kernels/call_once.cc
   ${tflm_muriscvnn_ROOT}/tensorflow/lite/micro/kernels/prelu.cc
   ${tflm_muriscvnn_ROOT}/tensorflow/lite/micro/kernels/reshape.cc
+  ${tflm_muriscvnn_ROOT}/tensorflow/lite/micro/kernels/reshape_common.cc
   ${tflm_muriscvnn_ROOT}/tensorflow/lite/micro/kernels/zeros_like.cc
   ${tflm_muriscvnn_ROOT}/tensorflow/lite/micro/kernels/neg.cc
   ${tflm_muriscvnn_ROOT}/tensorflow/lite/micro/kernels/elementwise.cc

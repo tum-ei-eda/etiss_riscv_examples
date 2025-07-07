@@ -124,6 +124,7 @@ set(TFLM_SRCS
   ${tflm_ROOT}/tensorflow/lite/micro/kernels/call_once.cc
   ${tflm_ROOT}/tensorflow/lite/micro/kernels/prelu.cc
   ${tflm_ROOT}/tensorflow/lite/micro/kernels/reshape.cc
+  ${tflm_ROOT}/tensorflow/lite/micro/kernels/reshape_common.cc
   ${tflm_ROOT}/tensorflow/lite/micro/kernels/zeros_like.cc
   ${tflm_ROOT}/tensorflow/lite/micro/kernels/neg.cc
   ${tflm_ROOT}/tensorflow/lite/micro/kernels/elementwise.cc
