@@ -1,0 +1,122 @@
+def @main(%input_1: Tensor[(1, 640), int8] /* ty=Tensor[(1, 640), int8] */, output_tensor_names=["Identity"]) -> Tensor[(1, 640), int8] {
+  %0 = reshape(%input_1, newshape=[-1, 640]) /* ty=Tensor[(1, 640), int8] */;
+  %1 = @tvmgen_default_cmsis_nn_main_0(%0, meta[relay.Constant][0] /* ty=Tensor[(128, 640), int8] */, meta[relay.Constant][1] /* ty=Tensor[(128), int32] */) /* ty=Tensor[(1, 128), int8] */;
+  %2 = reshape(%1, newshape=[-1, 128]) /* ty=Tensor[(1, 128), int8] */;
+  %3 = @tvmgen_default_cmsis_nn_main_1(%2, meta[relay.Constant][2] /* ty=Tensor[(128, 128), int8] */, meta[relay.Constant][3] /* ty=Tensor[(128), int32] */) /* ty=Tensor[(1, 128), int8] */;
+  %4 = reshape(%3, newshape=[-1, 128]) /* ty=Tensor[(1, 128), int8] */;
+  %5 = @tvmgen_default_cmsis_nn_main_2(%4, meta[relay.Constant][4] /* ty=Tensor[(128, 128), int8] */, meta[relay.Constant][5] /* ty=Tensor[(128), int32] */) /* ty=Tensor[(1, 128), int8] */;
+  %6 = reshape(%5, newshape=[-1, 128]) /* ty=Tensor[(1, 128), int8] */;
+  %7 = @tvmgen_default_cmsis_nn_main_3(%6, meta[relay.Constant][6] /* ty=Tensor[(128, 128), int8] */, meta[relay.Constant][7] /* ty=Tensor[(128), int32] */) /* ty=Tensor[(1, 128), int8] */;
+  %8 = reshape(%7, newshape=[-1, 128]) /* ty=Tensor[(1, 128), int8] */;
+  %9 = @tvmgen_default_cmsis_nn_main_4(%8, meta[relay.Constant][8] /* ty=Tensor[(8, 128), int8] */, meta[relay.Constant][9] /* ty=Tensor[(8), int32] */) /* ty=Tensor[(1, 8), int8] */;
+  %10 = reshape(%9, newshape=[-1, 8]) /* ty=Tensor[(1, 8), int8] */;
+  %11 = @tvmgen_default_cmsis_nn_main_5(%10, meta[relay.Constant][10] /* ty=Tensor[(128, 8), int8] */, meta[relay.Constant][11] /* ty=Tensor[(128), int32] */) /* ty=Tensor[(1, 128), int8] */;
+  %12 = reshape(%11, newshape=[-1, 128]) /* ty=Tensor[(1, 128), int8] */;
+  %13 = @tvmgen_default_cmsis_nn_main_6(%12, meta[relay.Constant][12] /* ty=Tensor[(128, 128), int8] */, meta[relay.Constant][13] /* ty=Tensor[(128), int32] */) /* ty=Tensor[(1, 128), int8] */;
+  %14 = reshape(%13, newshape=[-1, 128]) /* ty=Tensor[(1, 128), int8] */;
+  %15 = @tvmgen_default_cmsis_nn_main_7(%14, meta[relay.Constant][14] /* ty=Tensor[(128, 128), int8] */, meta[relay.Constant][15] /* ty=Tensor[(128), int32] */) /* ty=Tensor[(1, 128), int8] */;
+  %16 = reshape(%15, newshape=[-1, 128]) /* ty=Tensor[(1, 128), int8] */;
+  %17 = @tvmgen_default_cmsis_nn_main_8(%16, meta[relay.Constant][16] /* ty=Tensor[(128, 128), int8] */, meta[relay.Constant][17] /* ty=Tensor[(128), int32] */) /* ty=Tensor[(1, 128), int8] */;
+  %18 = reshape(%17, newshape=[-1, 128]) /* ty=Tensor[(1, 128), int8] */;
+  @tvmgen_default_cmsis_nn_main_9(%18, meta[relay.Constant][18] /* ty=Tensor[(640, 128), int8] */, meta[relay.Constant][19] /* ty=Tensor[(640), int32] */) /* ty=Tensor[(1, 640), int8] */
+}
+
+def @tvmgen_default_cmsis_nn_main_0(%cmsis-nn_0_i0: Tensor[(1, 640), int8] /* ty=Tensor[(1, 640), int8] */, %tvm_var_extract_const_2: Tensor[(128, 640), int8] /* ty=Tensor[(128, 640), int8] */, %tvm_var_extract_const_3: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, Inline=1, Compiler="cmsis-nn", global_symbol="tvmgen_default_cmsis_nn_main_0", Primitive=1) -> Tensor[(1, 128), int8] {
+  %22 = fn (%FunctionVar_9_0: Tensor[(1, 640), int8] /* ty=Tensor[(1, 640), int8] */, %tvm_var_extract_const_0: Tensor[(128, 640), int8] /* ty=Tensor[(128, 640), int8] */, %tvm_var_extract_const_1: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, PartitionedFromPattern="qnn.dense_nn.bias_add_qnn.requantize_clip_", Composite="cmsis-nn.qnn_fully_connected") -> Tensor[(1, 128), int8] {
+    %19 = qnn.dense(%FunctionVar_9_0, %tvm_var_extract_const_0, 89 /* ty=int32 */, 0 /* ty=int32 */, 0.391015f /* ty=float32 */, 0.000376875f /* ty=float32 */, units=128, out_dtype="int32") /* ty=Tensor[(1, 128), int32] */;
+    %20 = nn.bias_add(%19, %tvm_var_extract_const_1) /* ty=Tensor[(1, 128), int32] */;
+    %21 = qnn.requantize(%20, 0.000147364f /* ty=float32 */, 0 /* ty=int32 */, 0.0494591f /* ty=float32 */, -128 /* ty=int32 */, out_dtype="int8") /* ty=Tensor[(1, 128), int8] */;
+    clip(%21, a_min=-128f, a_max=127f) /* ty=Tensor[(1, 128), int8] */
+  } /* ty=fn (Tensor[(1, 640), int8], Tensor[(128, 640), int8], Tensor[(128), int32]) -> Tensor[(1, 128), int8] */;
+  %22(%cmsis-nn_0_i0, %tvm_var_extract_const_2, %tvm_var_extract_const_3) /* ty=Tensor[(1, 128), int8] */
+}
+
+def @tvmgen_default_cmsis_nn_main_1(%cmsis-nn_1_i0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_8: Tensor[(128, 128), int8] /* ty=Tensor[(128, 128), int8] */, %tvm_var_extract_const_9: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, Inline=1, Compiler="cmsis-nn", global_symbol="tvmgen_default_cmsis_nn_main_1", Primitive=1) -> Tensor[(1, 128), int8] {
+  %26 = fn (%FunctionVar_8_0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_6: Tensor[(128, 128), int8] /* ty=Tensor[(128, 128), int8] */, %tvm_var_extract_const_7: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, PartitionedFromPattern="qnn.dense_nn.bias_add_qnn.requantize_clip_", Composite="cmsis-nn.qnn_fully_connected") -> Tensor[(1, 128), int8] {
+    %23 = qnn.dense(%FunctionVar_8_0, %tvm_var_extract_const_6, -128 /* ty=int32 */, 0 /* ty=int32 */, 0.0494591f /* ty=float32 */, 0.0150283f /* ty=float32 */, units=128, out_dtype="int32") /* ty=Tensor[(1, 128), int32] */;
+    %24 = nn.bias_add(%23, %tvm_var_extract_const_7) /* ty=Tensor[(1, 128), int32] */;
+    %25 = qnn.requantize(%24, 0.000743288f /* ty=float32 */, 0 /* ty=int32 */, 0.0354057f /* ty=float32 */, -128 /* ty=int32 */, out_dtype="int8") /* ty=Tensor[(1, 128), int8] */;
+    clip(%25, a_min=-128f, a_max=127f) /* ty=Tensor[(1, 128), int8] */
+  } /* ty=fn (Tensor[(1, 128), int8], Tensor[(128, 128), int8], Tensor[(128), int32]) -> Tensor[(1, 128), int8] */;
+  %26(%cmsis-nn_1_i0, %tvm_var_extract_const_8, %tvm_var_extract_const_9) /* ty=Tensor[(1, 128), int8] */
+}
+
+def @tvmgen_default_cmsis_nn_main_2(%cmsis-nn_2_i0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_14: Tensor[(128, 128), int8] /* ty=Tensor[(128, 128), int8] */, %tvm_var_extract_const_15: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, Inline=1, Compiler="cmsis-nn", global_symbol="tvmgen_default_cmsis_nn_main_2", Primitive=1) -> Tensor[(1, 128), int8] {
+  %30 = fn (%FunctionVar_7_0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_12: Tensor[(128, 128), int8] /* ty=Tensor[(128, 128), int8] */, %tvm_var_extract_const_13: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, PartitionedFromPattern="qnn.dense_nn.bias_add_qnn.requantize_clip_", Composite="cmsis-nn.qnn_fully_connected") -> Tensor[(1, 128), int8] {
+    %27 = qnn.dense(%FunctionVar_7_0, %tvm_var_extract_const_12, -128 /* ty=int32 */, 0 /* ty=int32 */, 0.0354057f /* ty=float32 */, 0.0535004f /* ty=float32 */, units=128, out_dtype="int32") /* ty=Tensor[(1, 128), int32] */;
+    %28 = nn.bias_add(%27, %tvm_var_extract_const_13) /* ty=Tensor[(1, 128), int32] */;
+    %29 = qnn.requantize(%28, 0.00189422f /* ty=float32 */, 0 /* ty=int32 */, 0.0137307f /* ty=float32 */, -128 /* ty=int32 */, out_dtype="int8") /* ty=Tensor[(1, 128), int8] */;
+    clip(%29, a_min=-128f, a_max=127f) /* ty=Tensor[(1, 128), int8] */
+  } /* ty=fn (Tensor[(1, 128), int8], Tensor[(128, 128), int8], Tensor[(128), int32]) -> Tensor[(1, 128), int8] */;
+  %30(%cmsis-nn_2_i0, %tvm_var_extract_const_14, %tvm_var_extract_const_15) /* ty=Tensor[(1, 128), int8] */
+}
+
+def @tvmgen_default_cmsis_nn_main_3(%cmsis-nn_3_i0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_20: Tensor[(128, 128), int8] /* ty=Tensor[(128, 128), int8] */, %tvm_var_extract_const_21: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, Inline=1, Compiler="cmsis-nn", global_symbol="tvmgen_default_cmsis_nn_main_3", Primitive=1) -> Tensor[(1, 128), int8] {
+  %34 = fn (%FunctionVar_6_0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_18: Tensor[(128, 128), int8] /* ty=Tensor[(128, 128), int8] */, %tvm_var_extract_const_19: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, PartitionedFromPattern="qnn.dense_nn.bias_add_qnn.requantize_clip_", Composite="cmsis-nn.qnn_fully_connected") -> Tensor[(1, 128), int8] {
+    %31 = qnn.dense(%FunctionVar_6_0, %tvm_var_extract_const_18, -128 /* ty=int32 */, 0 /* ty=int32 */, 0.0137307f /* ty=float32 */, 0.0720354f /* ty=float32 */, units=128, out_dtype="int32") /* ty=Tensor[(1, 128), int32] */;
+    %32 = nn.bias_add(%31, %tvm_var_extract_const_19) /* ty=Tensor[(1, 128), int32] */;
+    %33 = qnn.requantize(%32, 0.0009891f /* ty=float32 */, 0 /* ty=int32 */, 0.0236038f /* ty=float32 */, -128 /* ty=int32 */, out_dtype="int8") /* ty=Tensor[(1, 128), int8] */;
+    clip(%33, a_min=-128f, a_max=127f) /* ty=Tensor[(1, 128), int8] */
+  } /* ty=fn (Tensor[(1, 128), int8], Tensor[(128, 128), int8], Tensor[(128), int32]) -> Tensor[(1, 128), int8] */;
+  %34(%cmsis-nn_3_i0, %tvm_var_extract_const_20, %tvm_var_extract_const_21) /* ty=Tensor[(1, 128), int8] */
+}
+
+def @tvmgen_default_cmsis_nn_main_4(%cmsis-nn_4_i0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_26: Tensor[(8, 128), int8] /* ty=Tensor[(8, 128), int8] */, %tvm_var_extract_const_27: Tensor[(8), int32] /* ty=Tensor[(8), int32] */, Inline=1, Compiler="cmsis-nn", global_symbol="tvmgen_default_cmsis_nn_main_4", Primitive=1) -> Tensor[(1, 8), int8] {
+  %38 = fn (%FunctionVar_5_0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_24: Tensor[(8, 128), int8] /* ty=Tensor[(8, 128), int8] */, %tvm_var_extract_const_25: Tensor[(8), int32] /* ty=Tensor[(8), int32] */, PartitionedFromPattern="qnn.dense_nn.bias_add_qnn.requantize_clip_", Composite="cmsis-nn.qnn_fully_connected") -> Tensor[(1, 8), int8] {
+    %35 = qnn.dense(%FunctionVar_5_0, %tvm_var_extract_const_24, -128 /* ty=int32 */, 0 /* ty=int32 */, 0.0236038f /* ty=float32 */, 0.00834463f /* ty=float32 */, units=8, out_dtype="int32") /* ty=Tensor[(1, 8), int32] */;
+    %36 = nn.bias_add(%35, %tvm_var_extract_const_25) /* ty=Tensor[(1, 8), int32] */;
+    %37 = qnn.requantize(%36, 0.000196965f /* ty=float32 */, 0 /* ty=int32 */, 0.0249295f /* ty=float32 */, -128 /* ty=int32 */, out_dtype="int8") /* ty=Tensor[(1, 8), int8] */;
+    clip(%37, a_min=-128f, a_max=127f) /* ty=Tensor[(1, 8), int8] */
+  } /* ty=fn (Tensor[(1, 128), int8], Tensor[(8, 128), int8], Tensor[(8), int32]) -> Tensor[(1, 8), int8] */;
+  %38(%cmsis-nn_4_i0, %tvm_var_extract_const_26, %tvm_var_extract_const_27) /* ty=Tensor[(1, 8), int8] */
+}
+
+def @tvmgen_default_cmsis_nn_main_5(%cmsis-nn_5_i0: Tensor[(1, 8), int8] /* ty=Tensor[(1, 8), int8] */, %tvm_var_extract_const_32: Tensor[(128, 8), int8] /* ty=Tensor[(128, 8), int8] */, %tvm_var_extract_const_33: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, Inline=1, Compiler="cmsis-nn", global_symbol="tvmgen_default_cmsis_nn_main_5", Primitive=1) -> Tensor[(1, 128), int8] {
+  %42 = fn (%FunctionVar_4_0: Tensor[(1, 8), int8] /* ty=Tensor[(1, 8), int8] */, %tvm_var_extract_const_30: Tensor[(128, 8), int8] /* ty=Tensor[(128, 8), int8] */, %tvm_var_extract_const_31: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, PartitionedFromPattern="qnn.dense_nn.bias_add_qnn.requantize_clip_", Composite="cmsis-nn.qnn_fully_connected") -> Tensor[(1, 128), int8] {
+    %39 = qnn.dense(%FunctionVar_4_0, %tvm_var_extract_const_30, -128 /* ty=int32 */, 0 /* ty=int32 */, 0.0249295f /* ty=float32 */, 0.0267345f /* ty=float32 */, units=128, out_dtype="int32") /* ty=Tensor[(1, 128), int32] */;
+    %40 = nn.bias_add(%39, %tvm_var_extract_const_31) /* ty=Tensor[(1, 128), int32] */;
+    %41 = qnn.requantize(%40, 0.000666477f /* ty=float32 */, 0 /* ty=int32 */, 0.0317562f /* ty=float32 */, -128 /* ty=int32 */, out_dtype="int8") /* ty=Tensor[(1, 128), int8] */;
+    clip(%41, a_min=-128f, a_max=127f) /* ty=Tensor[(1, 128), int8] */
+  } /* ty=fn (Tensor[(1, 8), int8], Tensor[(128, 8), int8], Tensor[(128), int32]) -> Tensor[(1, 128), int8] */;
+  %42(%cmsis-nn_5_i0, %tvm_var_extract_const_32, %tvm_var_extract_const_33) /* ty=Tensor[(1, 128), int8] */
+}
+
+def @tvmgen_default_cmsis_nn_main_6(%cmsis-nn_6_i0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_38: Tensor[(128, 128), int8] /* ty=Tensor[(128, 128), int8] */, %tvm_var_extract_const_39: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, Inline=1, Compiler="cmsis-nn", global_symbol="tvmgen_default_cmsis_nn_main_6", Primitive=1) -> Tensor[(1, 128), int8] {
+  %46 = fn (%FunctionVar_3_0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_36: Tensor[(128, 128), int8] /* ty=Tensor[(128, 128), int8] */, %tvm_var_extract_const_37: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, PartitionedFromPattern="qnn.dense_nn.bias_add_qnn.requantize_clip_", Composite="cmsis-nn.qnn_fully_connected") -> Tensor[(1, 128), int8] {
+    %43 = qnn.dense(%FunctionVar_3_0, %tvm_var_extract_const_36, -128 /* ty=int32 */, 0 /* ty=int32 */, 0.0317562f /* ty=float32 */, 0.0193354f /* ty=float32 */, units=128, out_dtype="int32") /* ty=Tensor[(1, 128), int32] */;
+    %44 = nn.bias_add(%43, %tvm_var_extract_const_37) /* ty=Tensor[(1, 128), int32] */;
+    %45 = qnn.requantize(%44, 0.000614019f /* ty=float32 */, 0 /* ty=int32 */, 0.0320712f /* ty=float32 */, -128 /* ty=int32 */, out_dtype="int8") /* ty=Tensor[(1, 128), int8] */;
+    clip(%45, a_min=-128f, a_max=127f) /* ty=Tensor[(1, 128), int8] */
+  } /* ty=fn (Tensor[(1, 128), int8], Tensor[(128, 128), int8], Tensor[(128), int32]) -> Tensor[(1, 128), int8] */;
+  %46(%cmsis-nn_6_i0, %tvm_var_extract_const_38, %tvm_var_extract_const_39) /* ty=Tensor[(1, 128), int8] */
+}
+
+def @tvmgen_default_cmsis_nn_main_7(%cmsis-nn_7_i0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_44: Tensor[(128, 128), int8] /* ty=Tensor[(128, 128), int8] */, %tvm_var_extract_const_45: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, Inline=1, Compiler="cmsis-nn", global_symbol="tvmgen_default_cmsis_nn_main_7", Primitive=1) -> Tensor[(1, 128), int8] {
+  %50 = fn (%FunctionVar_2_0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_42: Tensor[(128, 128), int8] /* ty=Tensor[(128, 128), int8] */, %tvm_var_extract_const_43: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, PartitionedFromPattern="qnn.dense_nn.bias_add_qnn.requantize_clip_", Composite="cmsis-nn.qnn_fully_connected") -> Tensor[(1, 128), int8] {
+    %47 = qnn.dense(%FunctionVar_2_0, %tvm_var_extract_const_42, -128 /* ty=int32 */, 0 /* ty=int32 */, 0.0320712f /* ty=float32 */, 0.0128027f /* ty=float32 */, units=128, out_dtype="int32") /* ty=Tensor[(1, 128), int32] */;
+    %48 = nn.bias_add(%47, %tvm_var_extract_const_43) /* ty=Tensor[(1, 128), int32] */;
+    %49 = qnn.requantize(%48, 0.000410599f /* ty=float32 */, 0 /* ty=int32 */, 0.028296f /* ty=float32 */, -128 /* ty=int32 */, out_dtype="int8") /* ty=Tensor[(1, 128), int8] */;
+    clip(%49, a_min=-128f, a_max=127f) /* ty=Tensor[(1, 128), int8] */
+  } /* ty=fn (Tensor[(1, 128), int8], Tensor[(128, 128), int8], Tensor[(128), int32]) -> Tensor[(1, 128), int8] */;
+  %50(%cmsis-nn_7_i0, %tvm_var_extract_const_44, %tvm_var_extract_const_45) /* ty=Tensor[(1, 128), int8] */
+}
+
+def @tvmgen_default_cmsis_nn_main_8(%cmsis-nn_8_i0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_50: Tensor[(128, 128), int8] /* ty=Tensor[(128, 128), int8] */, %tvm_var_extract_const_51: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, Inline=1, Compiler="cmsis-nn", global_symbol="tvmgen_default_cmsis_nn_main_8", Primitive=1) -> Tensor[(1, 128), int8] {
+  %54 = fn (%FunctionVar_1_0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_48: Tensor[(128, 128), int8] /* ty=Tensor[(128, 128), int8] */, %tvm_var_extract_const_49: Tensor[(128), int32] /* ty=Tensor[(128), int32] */, PartitionedFromPattern="qnn.dense_nn.bias_add_qnn.requantize_clip_", Composite="cmsis-nn.qnn_fully_connected") -> Tensor[(1, 128), int8] {
+    %51 = qnn.dense(%FunctionVar_1_0, %tvm_var_extract_const_48, -128 /* ty=int32 */, 0 /* ty=int32 */, 0.028296f /* ty=float32 */, 0.00704988f /* ty=float32 */, units=128, out_dtype="int32") /* ty=Tensor[(1, 128), int32] */;
+    %52 = nn.bias_add(%51, %tvm_var_extract_const_49) /* ty=Tensor[(1, 128), int32] */;
+    %53 = qnn.requantize(%52, 0.000199483f /* ty=float32 */, 0 /* ty=int32 */, 0.0247909f /* ty=float32 */, -128 /* ty=int32 */, out_dtype="int8") /* ty=Tensor[(1, 128), int8] */;
+    clip(%53, a_min=-128f, a_max=127f) /* ty=Tensor[(1, 128), int8] */
+  } /* ty=fn (Tensor[(1, 128), int8], Tensor[(128, 128), int8], Tensor[(128), int32]) -> Tensor[(1, 128), int8] */;
+  %54(%cmsis-nn_8_i0, %tvm_var_extract_const_50, %tvm_var_extract_const_51) /* ty=Tensor[(1, 128), int8] */
+}
+
+def @tvmgen_default_cmsis_nn_main_9(%cmsis-nn_9_i0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_56: Tensor[(640, 128), int8] /* ty=Tensor[(640, 128), int8] */, %tvm_var_extract_const_57: Tensor[(640), int32] /* ty=Tensor[(640), int32] */, Inline=1, Compiler="cmsis-nn", global_symbol="tvmgen_default_cmsis_nn_main_9", Primitive=1) -> Tensor[(1, 640), int8] {
+  %57 = fn (%FunctionVar_0_0: Tensor[(1, 128), int8] /* ty=Tensor[(1, 128), int8] */, %tvm_var_extract_const_54: Tensor[(640, 128), int8] /* ty=Tensor[(640, 128), int8] */, %tvm_var_extract_const_55: Tensor[(640), int32] /* ty=Tensor[(640), int32] */, PartitionedFromPattern="qnn.dense_nn.bias_add_qnn.requantize_", Composite="cmsis-nn.qnn_fully_connected") -> Tensor[(1, 640), int8] {
+    %55 = qnn.dense(%FunctionVar_0_0, %tvm_var_extract_const_54, -128 /* ty=int32 */, 0 /* ty=int32 */, 0.0247909f /* ty=float32 */, 0.0195567f /* ty=float32 */, units=640, out_dtype="int32") /* ty=Tensor[(1, 640), int32] */;
+    %56 = nn.bias_add(%55, %tvm_var_extract_const_55) /* ty=Tensor[(1, 640), int32] */;
+    qnn.requantize(%56, 0.000484828f /* ty=float32 */, 0 /* ty=int32 */, 0.364498f /* ty=float32 */, 96 /* ty=int32 */, out_dtype="int8") /* ty=Tensor[(1, 640), int8] */
+  } /* ty=fn (Tensor[(1, 128), int8], Tensor[(640, 128), int8], Tensor[(640), int32]) -> Tensor[(1, 640), int8] */;
+  %57(%cmsis-nn_9_i0, %tvm_var_extract_const_56, %tvm_var_extract_const_57) /* ty=Tensor[(1, 640), int8] */
+}
+

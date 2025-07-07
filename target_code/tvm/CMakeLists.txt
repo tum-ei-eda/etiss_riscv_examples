@@ -1,4 +1,5 @@
 add_subdirectory(toy)
+add_subdirectory(toy_muriscvnn)
 add_subdirectory(aww)
 add_subdirectory(vww)
 add_subdirectory(ic)
