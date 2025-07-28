@@ -165,7 +165,6 @@ set(TFLM_MURISCVNN_THIRD_PARTY_SRCS
 )
 
 
-# Build from source using add_subdirectory
 if(NOT TARGET tflm_muriscvnn::tflm_muriscvnn)
   add_library(tflm_muriscvnn STATIC)
 
@@ -173,6 +172,7 @@ if(NOT TARGET tflm_muriscvnn::tflm_muriscvnn)
     ${TFLM_MURISCVNN_SRCS}
     ${TFLM_MURISCVNN_THIRD_PARTY_SRCS}
   )
+  target_compile_options(tflm_muriscvnn PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti -fno-exceptions>)
 
   target_include_directories(tflm_muriscvnn PUBLIC
     ${tflm_muriscvnn_ROOT}/

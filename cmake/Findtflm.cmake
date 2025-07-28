@@ -165,7 +165,6 @@ set(TFLM_THIRD_PARTY_SRCS
 )
 
 
-# Build from source using add_subdirectory
 if(NOT TARGET tflm::tflm)
   add_library(tflm STATIC)
 
@@ -173,6 +172,7 @@ if(NOT TARGET tflm::tflm)
     ${TFLM_SRCS}
     ${TFLM_THIRD_PARTY_SRCS}
   )
+  target_compile_options(tflm PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti -fno-exceptions>)
 
   target_include_directories(tflm PUBLIC
     ${tflm_ROOT}/
