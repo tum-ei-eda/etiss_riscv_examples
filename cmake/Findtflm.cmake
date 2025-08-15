@@ -192,6 +192,9 @@ if(NOT TARGET tflm::tflm)
     -DTFLITE_EMULATE_FLOAT
     -DTF_LITE_STRIP_ERROR_STRINGS
   )
+  target_compile_options(tflm PRIVATE
+    -fno-rtti -fno-exceptions
+  )
 
   add_library(tflm::tflm ALIAS tflm)
 endif()

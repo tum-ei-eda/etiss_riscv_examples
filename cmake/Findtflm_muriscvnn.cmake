@@ -198,6 +198,9 @@ if(NOT TARGET tflm_muriscvnn::tflm_muriscvnn)
     -DTFLITE_EMULATE_FLOAT
     -DTF_LITE_STRIP_ERROR_STRINGS
   )
+  target_compile_options(tflm_muriscvnn PRIVATE
+    -fno-rtti -fno-exceptions
+  )
 
 
   add_library(tflm_muriscvnn::tflm_muriscvnn ALIAS tflm_muriscvnn)
