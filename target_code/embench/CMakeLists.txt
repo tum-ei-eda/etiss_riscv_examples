@@ -1,5 +1,7 @@
 set(EMBENCH_DIR ${CMAKE_CURRENT_SOURCE_DIR}/embench-iot/)
 
+add_custom_target(embench)
+
 macro(add_embench_program PROGRAM)
 	set(SRC_FILES "${ARGN}")
 
@@ -18,6 +20,7 @@ macro(add_embench_program PROGRAM)
 
   target_link_libraries(embench_${PROGRAM} PRIVATE m)
   target_compile_definitions(embench_${PROGRAM} PRIVATE CPU_MHZ=1 WARMUP_HEAT=1)
+  add_dependencies(embench embench_${PROGRAM})
 endmacro()
 
 if(EXISTS ${EMBENCH_DIR}/src)
