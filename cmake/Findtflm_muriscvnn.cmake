@@ -172,7 +172,6 @@ if(NOT TARGET tflm_muriscvnn::tflm_muriscvnn)
     ${TFLM_MURISCVNN_SRCS}
     ${TFLM_MURISCVNN_THIRD_PARTY_SRCS}
   )
-  target_compile_options(tflm_muriscvnn PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti -fno-exceptions>)
 
   target_include_directories(tflm_muriscvnn PUBLIC
     ${tflm_muriscvnn_ROOT}/
@@ -197,6 +196,9 @@ if(NOT TARGET tflm_muriscvnn::tflm_muriscvnn)
     -DTF_LITE_STATIC_MEMORY
     -DTFLITE_EMULATE_FLOAT
     -DTF_LITE_STRIP_ERROR_STRINGS
+  )
+  target_compile_options(tflm_muriscvnn PRIVATE
+    -fno-rtti -fno-exceptions
   )
 
 
