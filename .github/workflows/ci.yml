@@ -1,0 +1,66 @@
+name: Smoke Tests
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build_examples:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        submodules: ["false", "recursive"]
+        build_type: ["Release", "Debug"]
+        config:
+        - {bits: 32, arch: rv32gc, abi: ilp32d, toolchain: gcc, gnu_name: riscv-none-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz"}
+        - {bits: 32, arch: rv32im_zicsr_zifencei, abi: ilp32, toolchain: gcc, gnu_name: riscv-none-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz"}
+        - {bits: 64, arch: rv64gc, abi: lp64d, toolchain: gcc, gnu_name: riscv-none-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz"}
+        # - {bits: 32, toolchain: llvm}
+        # - {bits: 64, toolchain: llvm}
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: ${{ matrix.submodules }}
+
+    - name: Install build dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y cmake
+
+    - name: Install Clang/LLVM
+      if: ${{ matrix.config.toolchain == 'llvm' }}
+      run: sudo apt install clang
+
+    - name: Install cross compiler
+      run: |
+        wget -q ${{ matrix.config.gnu_url }}/${{ matrix.config.gnu_archive }}
+        ls
+        mkdir riscv_tc
+        cd riscv_tc
+        tar xf ../${{ matrix.config.gnu_archive }} --strip-components 1
+        ls
+
+    - name: CMake config (GCC)
+      if: ${{ matrix.config.toolchain == 'gcc' }}
+      run: |
+        cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=rv${{ matrix.config.bits }}gc-toolchain.cmake -DRISCV_TOOLCHAIN_BASENAME=riscv-none-elf -DRISCV_TOOLCHAIN_PREFIX=$GITHUB_WORKSPACE/riscv_tc -DCMAKE_INSTALL_PREFIX=$(pwd)/build/install -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DRISCV_ARCH=${{ matrix.config.arch }} -DRISCV_ABI=${{ matrix.config.abi }}
+
+    - name: CMake config (LLVM)
+      if: ${{ matrix.config.toolchain == 'llvm' }}
+      run: |
+        cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=rv${{ matrix.config.bits }}gc-llvm-toolchain.cmake -DRISCV_TOOLCHAIN_BASENAME=riscv-none-elf -DRISCV_TOOLCHAIN_PREFIX=$GITHUB_WORKSPACE/riscv_tc -DCMAKE_INSTALL_PREFIX=$(pwd)/build/install -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DRISCV_ARCH=${{ matrix.config.arch }} -DRISCV_ABI=${{ matrix.config.abi }}
+
+    - name: CMake build (single)
+      run: |
+        cmake --build build -j$(nproc) --target hello_world
+
+    - name: CMake install (single)
+      run: |
+        cmake --build build --target install
+
+    - name: CMake build (all)
+      run: |
+        cmake --build build -j$(nproc)
+
+    - name: CMake install
+      run: |
+        cmake --build build --target install
