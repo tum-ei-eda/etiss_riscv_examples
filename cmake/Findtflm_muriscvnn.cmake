@@ -198,7 +198,7 @@ if(NOT TARGET tflm_muriscvnn::tflm_muriscvnn)
     -DTF_LITE_STRIP_ERROR_STRINGS
   )
   target_compile_options(tflm_muriscvnn PRIVATE
-    -fno-rtti -fno-exceptions
+    $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti> -fno-exceptions
   )
 
 

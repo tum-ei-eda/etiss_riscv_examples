@@ -192,7 +192,7 @@ if(NOT TARGET tflm::tflm)
     -DTF_LITE_STRIP_ERROR_STRINGS
   )
   target_compile_options(tflm PRIVATE
-    -fno-rtti -fno-exceptions
+    $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti> -fno-exceptions
   )
 
   add_library(tflm::tflm ALIAS tflm)
