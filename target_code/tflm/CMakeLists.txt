@@ -7,7 +7,7 @@ add_custom_target(tflm_examples)
 add_dependencies(tflm_examples tflm_toy tflm_aww tflm_vww tflm_ic)
 
 IF(MURISCVNN)
-  if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/../../3rdparty/muriscv-nn)
+  if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/../../3rdparty/muriscv-nn/Source)
     add_subdirectory(toy_muriscvnn)
     add_subdirectory(aww_muriscvnn)
     add_subdirectory(vww_muriscvnn)
