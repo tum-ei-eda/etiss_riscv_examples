@@ -32,7 +32,7 @@ jobs:
 
     - name: Install cross compiler
       run: |
-        wget ${{ matrix.config.gnu_url }}/${{ matrix.config.gnu_archive }}
+        wget -q ${{ matrix.config.gnu_url }}/${{ matrix.config.gnu_archive }}
         ls
         mkdir riscv_tc
         cd riscv_tc
