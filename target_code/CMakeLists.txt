@@ -9,7 +9,18 @@ macro(add_executable_etiss TARGET)
 
 	configure_file(${ETISS_ELFINI} ${TARGET}.ini @ONLY)
 
-	install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${TARGET}.ini DESTINATION ini OPTIONAL)
+	# Build dir variant
+	set(ELF_PATH "${CMAKE_CURRENT_BINARY_DIR}/${TARGET}")
+	set(INI_BUILD ${CMAKE_CURRENT_BINARY_DIR}/${TARGET}.ini)
+	configure_file(${ETISS_ELFINI} ${INI_BUILD} @ONLY)
+	add_etiss_test(${TARGET} ${ELF_PATH} ${INI_BUILD})
+
+	# Install dir variant
+	set(ELF_PATH "${CMAKE_INSTALL_PREFIX}/bin/${BIN_NAME}")
+	set(INI_INSTALL ${CMAKE_CURRENT_BINARY_DIR}/temp/${TARGET}.ini)
+	configure_file(${ETISS_ELFINI} ${INI_INSTALL} @ONLY)
+
+	install(FILES ${INI_INSTALL} DESTINATION ini OPTIONAL)
 	install(TARGETS ${TARGET} DESTINATION bin OPTIONAL)
 endmacro()
 
