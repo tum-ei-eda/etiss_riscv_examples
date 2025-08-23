@@ -165,7 +165,6 @@ set(TFLM_MURISCVNN_THIRD_PARTY_SRCS
 )
 
 
-# Build from source using add_subdirectory
 if(NOT TARGET tflm_muriscvnn::tflm_muriscvnn)
   add_library(tflm_muriscvnn STATIC)
 

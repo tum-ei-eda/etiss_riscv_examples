@@ -165,7 +165,6 @@ set(TFLM_THIRD_PARTY_SRCS
 )
 
 
-# Build from source using add_subdirectory
 if(NOT TARGET tflm::tflm)
   add_library(tflm STATIC)
 
