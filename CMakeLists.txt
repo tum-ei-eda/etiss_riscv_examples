@@ -31,16 +31,11 @@ set(ETISS_ELFINI ${CMAKE_CURRENT_SOURCE_DIR}/elffile.ini.in)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 option(ENABLE_TESTS "Enable tests" ON)
+option(ENABLE_DUMP "Enable tests" OFF)
 if(${ENABLE_TESTS})
   enable_testing()
   macro(add_etiss_test TEST_NAME ELF_PATH INI_PATH)
 
-      # target_link_libraries(${TEST_NAME} PUBLIC unity)
-
-      # Register test with CTest and provide command to execute
-      # add_test(NAME ${TEST_NAME}
-      #          COMMAND bare_etiss_processor -i${INI_PATH}
-      #          WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
       add_test(NAME ${TEST_NAME}
       COMMAND ${CMAKE_COMMAND}
               -DPROG=${ELF_PATH}
@@ -52,11 +47,13 @@ if(${ENABLE_TESTS})
           SKIP_REGULAR_EXPRESSION "[^a-z]Skip" "SKIP" "Skipped" "Skipping"
       )
 
-      # Create assembly dump from binary file
-      add_custom_command(TARGET ${TEST_NAME} POST_BUILD
-          COMMAND ${CMAKE_OBJDUMP} -S "$<TARGET_FILE:${TEST_NAME}>" # or just -d
-                                    > "$<TARGET_FILE:${TEST_NAME}>.lst"
-          VERBATIM)
+      if(${ENABLE_DUMP})
+          # Create assembly dump from binary file
+          add_custom_command(TARGET ${TEST_NAME} POST_BUILD
+              COMMAND ${CMAKE_OBJDUMP} -S "$<TARGET_FILE:${TEST_NAME}>" # or just -d
+                                          > "$<TARGET_FILE:${TEST_NAME}>.lst"
+              VERBATIM)
+      endif()
 
       message(STATUS "Successfully added ${TEST_NAME}")
 
