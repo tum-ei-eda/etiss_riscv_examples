@@ -53,8 +53,8 @@ jobs:
         sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
         clang --version
         clang-20 --version
-        sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-14 100
-        sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-14 100
+        sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-20 100
+        sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-20 100
         clang --version
 
     - name: Install Custom LLVM
@@ -70,13 +70,13 @@ jobs:
     - name: CMake config (GCC)
       if: ${{ matrix.config.toolchain == 'gcc' }}
       run: |
-        cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=rv${{ matrix.config.bits }}gc-toolchain.cmake -DRISCV_TOOLCHAIN_BASENAME=riscv-none-elf -DRISCV_TOOLCHAIN_PREFIX=$GITHUB_WORKSPACE/riscv_tc -DCMAKE_INSTALL_PREFIX=$(pwd)/build/install -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DRISCV_ARCH=${{ matrix.config.arch }} -DRISCV_ABI=${{ matrix.config.abi }}
+        cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=rv${{ matrix.config.bits }}gc-toolchain.cmake -DRISCV_TOOLCHAIN_BASENAME=${{ matrix.config.gnu_name }} -DRISCV_TOOLCHAIN_PREFIX=$GITHUB_WORKSPACE/riscv_tc -DCMAKE_INSTALL_PREFIX=$(pwd)/build/install -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DRISCV_ARCH=${{ matrix.config.arch }} -DRISCV_ABI=${{ matrix.config.abi }}
 
     - name: CMake config (LLVM)
       if: ${{ matrix.config.toolchain == 'llvm' }}
       run: |
         export PATH=$(pwd)/llvm/bin:$PATH
-        cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=rv${{ matrix.config.bits }}gc-llvm-toolchain.cmake -DRISCV_TOOLCHAIN_BASENAME=riscv-none-elf -DRISCV_TOOLCHAIN_PREFIX=$GITHUB_WORKSPACE/riscv_tc -DCMAKE_INSTALL_PREFIX=$(pwd)/build/install -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DRISCV_ARCH=${{ matrix.config.arch }} -DRISCV_ABI=${{ matrix.config.abi }}
+        cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=rv${{ matrix.config.bits }}gc-llvm-toolchain.cmake -DRISCV_TOOLCHAIN_BASENAME=${{ matrix.config.gnu_name }} -DRISCV_TOOLCHAIN_PREFIX=$GITHUB_WORKSPACE/riscv_tc -DCMAKE_INSTALL_PREFIX=$(pwd)/build/install -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DRISCV_ARCH=${{ matrix.config.arch }} -DRISCV_ABI=${{ matrix.config.abi }}
 
     - name: CMake build (single)
       run: |
