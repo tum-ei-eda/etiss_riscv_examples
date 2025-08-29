@@ -46,7 +46,13 @@ jobs:
     - name: Install System LLVM
       if: ${{ matrix.config.toolchain == 'llvm' &&  matrix.config.llvm_system == 'true' }}
       run: |
+        clang --version
         sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+        clang --version
+        clang-20 --version
+        sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-14 100
+        sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-14 100
+        clang --version
 
     - name: Install Custom LLVM
       if: ${{ matrix.config.toolchain == 'llvm' && matrix.config.llvm_system != 'true' }}
