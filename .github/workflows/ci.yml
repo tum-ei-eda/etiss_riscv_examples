@@ -13,12 +13,12 @@ jobs:
         - {bits: 32, arch: rv32gc, abi: ilp32d, toolchain: gcc, gnu_name: riscv-none-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1}
         - {bits: 32, arch: rv32im_zicsr_zifencei, abi: ilp32, toolchain: gcc, gnu_name: riscv-none-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1}
         - {bits: 64, arch: rv64gc, abi: lp64d, toolchain: gcc, gnu_name: riscv-none-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1}
-        - {bits: 32, arch: rv32gc, abi: ilp32d, toolchain: llvm, gnu_name: riscv32-unknown-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1, llvm_system: true}
-        - {bits: 32, arch: rv32gc, abi: ilp32d, toolchain: llvm, gnu_name: riscv32-unknown-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1, llvm_system: true}
-        - {bits: 32, arch: rv32im_zicsr_zifencei, abi: ilp32, toolchain: llvm, gnu_name: riscv32-unknown-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1, llvm_system: true}
-        - {bits: 64, arch: rv64gc, abi: lp64d, toolchain: llvm, gnu_name: riscv-none-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1, llvm_system: false, llvm_url: "https://github.com/PhilippvK/riscv-tools/releases/download/llvm_20.1.8/", llvm_archive: "clang+llvm-20.1.8-x86_64-linux-gnu-ubuntu-22.04.tar.xz", llvm_strip: 0}
-        - {bits: 32, arch: rv32im_zicsr_zifencei, abi: ilp32, toolchain: llvm, gnu_name: riscv32-unknown-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1, llvm_system: false, llvm_url: "https://github.com/PhilippvK/riscv-tools/releases/download/llvm_20.1.8/", llvm_archive: "clang+llvm-20.1.8-x86_64-linux-gnu-ubuntu-22.04.tar.xz", llvm_strip: 0}
-        - {bits: 64, arch: rv64gc, abi: lp64d, toolchain: llvm, gnu_name: riscv-none-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1, llvm_system: false, llvm_url: "https://github.com/PhilippvK/riscv-tools/releases/download/llvm_20.1.8/", llvm_archive: "clang+llvm-20.1.8-x86_64-linux-gnu-ubuntu-22.04.tar.xz", llvm_strip: 0}
+        - {bits: 32, arch: rv32gc, abi: ilp32d, toolchain: llvm, gnu_name: riscv32-unknown-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1, llvm_system: "true"}
+        - {bits: 32, arch: rv32gc, abi: ilp32d, toolchain: llvm, gnu_name: riscv32-unknown-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1, llvm_system: "true"}
+        - {bits: 32, arch: rv32im_zicsr_zifencei, abi: ilp32, toolchain: llvm, gnu_name: riscv32-unknown-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1, llvm_system: "true"}
+        - {bits: 64, arch: rv64gc, abi: lp64d, toolchain: llvm, gnu_name: riscv-none-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1, llvm_system: "false", llvm_url: "https://github.com/PhilippvK/riscv-tools/releases/download/llvm_20.1.8/", llvm_archive: "clang+llvm-20.1.8-x86_64-linux-gnu-ubuntu-22.04.tar.xz", llvm_strip: 0}
+        - {bits: 32, arch: rv32im_zicsr_zifencei, abi: ilp32, toolchain: llvm, gnu_name: riscv32-unknown-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1, llvm_system: "false", llvm_url: "https://github.com/PhilippvK/riscv-tools/releases/download/llvm_20.1.8/", llvm_archive: "clang+llvm-20.1.8-x86_64-linux-gnu-ubuntu-22.04.tar.xz", llvm_strip: 0}
+        - {bits: 64, arch: rv64gc, abi: lp64d, toolchain: llvm, gnu_name: riscv-none-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1, llvm_system: "false", llvm_url: "https://github.com/PhilippvK/riscv-tools/releases/download/llvm_20.1.8/", llvm_archive: "clang+llvm-20.1.8-x86_64-linux-gnu-ubuntu-22.04.tar.xz", llvm_strip: 0}
 
     steps:
     - uses: actions/checkout@v4
@@ -44,12 +44,12 @@ jobs:
         ls
         
     - name: Install System LLVM
-      if: ${{ matrix.config.toolchain == 'llvm' }} && ${{ matrix.config.llvm_system == true }}
+      if: ${{ matrix.config.toolchain == 'llvm' }} && ${{ matrix.config.llvm_system == 'true' }}
       run: |
         sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 
     - name: Install Custom LLVM
-      if: ${{ matrix.config.toolchain == 'llvm' }} && ${{ matrix.config.llvm_system == false }}
+      if: ${{ matrix.config.toolchain == 'llvm' }} && ${{ matrix.config.llvm_system != 'true' }}
       run: |
         wget -q ${{ matrix.config.llvm_url }}/${{ matrix.config.llvm_archive }}
         ls
