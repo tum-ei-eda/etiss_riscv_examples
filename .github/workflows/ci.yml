@@ -80,16 +80,20 @@ jobs:
 
     - name: CMake build (single)
       run: |
+        export PATH=$(pwd)/llvm/bin:/usr/lib/llvm-20/bin:$PATH
         cmake --build build -j$(nproc) --target hello_world
 
     - name: CMake install (single)
       run: |
+        export PATH=$(pwd)/llvm/bin:/usr/lib/llvm-20/bin:$PATH
         cmake --build build --target install
 
     - name: CMake build (all)
       run: |
+        export PATH=$(pwd)/llvm/bin:/usr/lib/llvm-20/bin:$PATH
         cmake --build build -j$(nproc)
 
     - name: CMake install
       run: |
+        export PATH=$(pwd)/llvm/bin:/usr/lib/llvm-20/bin:$PATH
         cmake --build build --target install
