@@ -44,12 +44,12 @@ jobs:
         ls
         
     - name: Install System LLVM
-      if: ${{ matrix.config.toolchain == 'llvm' }} && ${{ matrix.config.llvm_system == 'true' }}
+      if: ${{ matrix.config.toolchain == 'llvm' &&  matrix.config.llvm_system == 'true' }}
       run: |
         sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 
     - name: Install Custom LLVM
-      if: ${{ matrix.config.toolchain == 'llvm' }} && ${{ matrix.config.llvm_system != 'true' }}
+      if: ${{ matrix.config.toolchain == 'llvm' && matrix.config.llvm_system != 'true' }}
       run: |
         wget -q ${{ matrix.config.llvm_url }}/${{ matrix.config.llvm_archive }}
         ls
