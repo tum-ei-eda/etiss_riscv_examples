@@ -13,17 +13,20 @@
 #include "vww_data/vww_model_settings.h"
 #include "vww_data/vww_output_data_ref.h"
 
-#define CHECK 0
 #ifndef CHECK
 #define CHECK 1
 #endif
 
-#define MAX_RUNS 1
 #ifndef MAX_RUNS
 #define MAX_RUNS 1000
 #endif
 
+#ifndef MIN_RUNS
+#define MIN_RUNS 1000
+#endif
+
 #define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
+#define MAX(X, Y) (((X) < (Y)) ? (Y) : (X))
 
 constexpr size_t tensor_arena_size = 256 * 1024;
 alignas(16) uint8_t tensor_arena[tensor_arena_size];
@@ -51,9 +54,9 @@ int run_test()
         return -1;
     }
 
-    for (size_t i = 0; i < MIN(vww_data_sample_cnt, MAX_RUNS); i++)
+    for (size_t i = 0; i < MAX(MIN(vww_data_sample_cnt, MAX_RUNS), MIN_RUNS); i++)
     {
-        memcpy(interpreter.input(0)->data.int8, (int8_t *)vww_input_data[i], vww_input_data_len[i]);
+        memcpy(interpreter.input(0)->data.int8, (int8_t *)vww_input_data[i % vww_data_sample_cnt], vww_input_data_len[i % vww_data_sample_cnt]);
 
         if (interpreter.Invoke() != kTfLiteOk)
         {
@@ -71,14 +74,14 @@ int run_test()
             }
         }
 
-        if (top_index != vww_output_data_ref[i])
+        if (top_index != vww_output_data_ref[i % vww_data_sample_cnt])
         {
-            printf("ERROR: at #%d, top_index %d vww_output_data_ref %d \n", i, top_index, vww_output_data_ref[i]);
+            printf("ERROR: at #%d, top_index %d vww_output_data_ref %d \n", i, top_index, vww_output_data_ref[i % vww_data_sample_cnt]);
             return -1;
         }
         else
         {
-            printf("Sample #%d pass, top_index %d matches ref %d \n", i, top_index, vww_output_data_ref[i]);
+            printf("Sample #%d pass, top_index %d matches ref %d \n", i, top_index, vww_output_data_ref[i % vww_data_sample_cnt]);
         }
 #endif
     }
