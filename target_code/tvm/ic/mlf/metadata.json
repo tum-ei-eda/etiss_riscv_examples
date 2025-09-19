@@ -4,13 +4,13 @@
       "executors": [
         "aot"
       ],
-      "export_datetime": "2025-06-30 12:16:45Z",
+      "export_datetime": "2025-09-19 13:19:00Z",
       "external_dependencies": [
         {
           "short_name": "tvm_standalone_crt",
           "url": "./runtime",
           "url_type": "mlf_path",
-          "version_spec": "0.16.0"
+          "version_spec": "0.17.0"
         }
       ],
       "memory": {
@@ -127,7 +127,7 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_avg_pool2d_cast",
+              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_subtract_fixed_point__eb606f94f03ebac6__1",
               "workspace": [
                 {
                   "device": 1,
@@ -136,7 +136,7 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_subtract_fixed_point__eb606f94f03ebac6__1",
+              "function_name": "tvmgen_default_fused_nn_avg_pool2d_cast",
               "workspace": [
                 {
                   "device": 1,
@@ -154,20 +154,20 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_2",
-              "workspace": [
-                {
-                  "device": 1,
-                  "workspace_size_bytes": 256
-                }
-              ]
-            },
-            {
               "function_name": "tvmgen_default_fused_nn_softmax_divide_round_add_clip_cast",
               "workspace": [
                 {
                   "device": 1,
                   "workspace_size_bytes": 80
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_2",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 256
                 }
               ]
             }

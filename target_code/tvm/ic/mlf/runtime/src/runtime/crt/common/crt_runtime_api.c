@@ -33,7 +33,6 @@
 #include <tvm/runtime/crt/internal/common/ndarray.h>
 #include <tvm/runtime/crt/internal/graph_executor/graph_executor.h>
 #include <tvm/runtime/crt/platform.h>
-#include <tvm/runtime/crt/logging.h>
 
 #if defined(_WIN32) || defined(WIN32)
 #include <windows.h>
@@ -332,7 +331,6 @@ int TVMFuncGetGlobal(const char* name, TVMFunctionHandle* out) {
 
 int TVMModGetFunction(TVMModuleHandle mod, const char* func_name, int query_imports,
                       TVMFunctionHandle* out) {
-  // TVMLogf("TVMModGetFunction");
   tvm_module_index_t module_index;
   if (DecodeModuleHandle(mod, &module_index) != 0) {
     return -1;
@@ -351,9 +349,21 @@ int ModuleGetFunction(TVMValue* args, int* type_codes, int num_args, TVMValue* r
 
   ret_value[0].v_handle = NULL;
   ret_type_codes[0] = kTVMNullptr;
-  if (num_args != 3 || type_codes[0] != kTVMModuleHandle || type_codes[1] != kTVMStr ||
-      type_codes[2] != kDLInt) {
-    return 0;
+  if (num_args != 3) {
+    TVMAPISetLastError("ModuleGetFunction expects exactly 3 arguments");
+    return kTvmErrorFunctionCallNumArguments;
+  }
+  if (type_codes[0] != kTVMModuleHandle) {
+    TVMAPISetLastError("ModuleGetFunction expects first argument to be a Module");
+    return kTvmErrorFunctionCallWrongArgType;
+  }
+  if (type_codes[1] != kTVMStr) {
+    TVMAPISetLastError("ModuleGetFunction expects second argument to be a string");
+    return kTvmErrorFunctionCallWrongArgType;
+  }
+  if (type_codes[2] != kDLInt) {
+    TVMAPISetLastError("ModuleGetFunction expects third argument to be an integer");
+    return kTvmErrorFunctionCallWrongArgType;
   }
 
   mod = (TVMModuleHandle)args[0].v_handle;

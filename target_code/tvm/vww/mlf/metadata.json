@@ -4,13 +4,13 @@
       "executors": [
         "aot"
       ],
-      "export_datetime": "2025-06-30 12:17:42Z",
+      "export_datetime": "2025-09-19 13:09:18Z",
       "external_dependencies": [
         {
           "short_name": "tvm_standalone_crt",
           "url": "./runtime",
           "url_type": "mlf_path",
-          "version_spec": "0.16.0"
+          "version_spec": "0.17.0"
         }
       ],
       "memory": {
@@ -46,6 +46,15 @@
               ]
             },
             {
+              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_7",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
+                }
+              ]
+            },
+            {
               "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_16",
               "workspace": [
                 {
@@ -60,15 +69,6 @@
                 {
                   "device": 1,
                   "workspace_size_bytes": 16
-                }
-              ]
-            },
-            {
-              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_7",
-              "workspace": [
-                {
-                  "device": 1,
-                  "workspace_size_bytes": 0
                 }
               ]
             },
@@ -145,7 +145,7 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_20",
+              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip",
               "workspace": [
                 {
                   "device": 1,
@@ -154,7 +154,7 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip",
+              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_20",
               "workspace": [
                 {
                   "device": 1,
@@ -172,20 +172,20 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_6",
-              "workspace": [
-                {
-                  "device": 1,
-                  "workspace_size_bytes": 16
-                }
-              ]
-            },
-            {
               "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_25",
               "workspace": [
                 {
                   "device": 1,
                   "workspace_size_bytes": 0
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_6",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 16
                 }
               ]
             },
@@ -199,15 +199,6 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_3",
-              "workspace": [
-                {
-                  "device": 1,
-                  "workspace_size_bytes": 0
-                }
-              ]
-            },
-            {
               "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_21",
               "workspace": [
                 {
@@ -217,7 +208,7 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_reshape_cast_subtract",
+              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_3",
               "workspace": [
                 {
                   "device": 1,
@@ -231,6 +222,15 @@
                 {
                   "device": 1,
                   "workspace_size_bytes": 256
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_fused_reshape_cast_subtract",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
                 }
               ]
             },
@@ -298,11 +298,11 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_11",
+              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_2",
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 0
+                  "workspace_size_bytes": 16
                 }
               ]
             },
@@ -316,11 +316,11 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_2",
+              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_11",
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 16
+                  "workspace_size_bytes": 0
                 }
               ]
             }

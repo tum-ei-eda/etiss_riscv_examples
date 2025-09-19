@@ -3,7 +3,7 @@
 extern "C" {
 #endif
 __attribute__((section(".rodata.tvm"), ))
-static struct global_const_workspace {
+static const struct global_const_workspace {
   int16_t fused_constant_9_let[81920] __attribute__((aligned(16))); // 163840 bytes, aligned offset: 0
   int16_t fused_constant_let[81920] __attribute__((packed, aligned(16))); // 163840 bytes, aligned offset: 163840
   int16_t fused_constant_8_let[16384] __attribute__((packed, aligned(16))); // 32768 bytes, aligned offset: 327680
@@ -33300,10 +33300,10 @@ static struct global_const_workspace {
   },
 };// of total size 535072 bytes
 __attribute__((section(".bss.noinit.tvm"), aligned(16)))
-static uint8_t global_workspace[1568];
+static uint8_t global_workspace[1408];
 #include <tvmgen_default.h>
 TVM_DLL int32_t tvmgen_default___tvm_main__(void* input_1,void* output0,uint8_t* global_const_workspace_0_var,uint8_t* global_workspace_1_var);
-int32_t tvmgen_default_run(struct tvmgen_default_inputs* inputs,struct tvmgen_default_outputs* outputs) {return tvmgen_default___tvm_main__(inputs->input_1,outputs->Identity,&global_const_workspace,&global_workspace);
+int32_t tvmgen_default_run(struct tvmgen_default_inputs* inputs,struct tvmgen_default_outputs* outputs) {return tvmgen_default___tvm_main__(inputs->input_1,outputs->Identity,((uint8_t*)&global_const_workspace),((uint8_t*)&global_workspace));
 }
 #ifdef __cplusplus
 }

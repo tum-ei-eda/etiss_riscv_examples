@@ -3,7 +3,7 @@
 extern "C" {
 #endif
 __attribute__((section(".rodata.tvm"), ))
-static struct global_const_workspace {
+static const struct global_const_workspace {
   int16_t fused_constant_26_let[65536] __attribute__((aligned(16))); // 131072 bytes, aligned offset: 0
   int16_t fused_constant_24_let[32768] __attribute__((packed, aligned(16))); // 65536 bytes, aligned offset: 131072
   int16_t fused_constant_22_let[16384] __attribute__((packed, aligned(16))); // 32768 bytes, aligned offset: 196608
