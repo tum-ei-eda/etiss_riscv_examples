@@ -10,17 +10,20 @@
 #include "tvm/runtime/crt/error_codes.h"
 #include "tvmgen_default.h"
 
-#define CHECK 0
 #ifndef CHECK
 #define CHECK 1
 #endif
 
-#define MAX_RUNS 1
 #ifndef MAX_RUNS
 #define MAX_RUNS 1000
 #endif
 
+#ifndef MIN_RUNS
+#define MIN_RUNS 1000
+#endif
+
 #define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
+#define MAX(X, Y) (((X) < (Y)) ? (Y) : (X))
 
 void TVMLogf(const char *msg, ...)
 {
@@ -49,7 +52,7 @@ int run_test()
 {
     for (size_t i = 0; i < MIN(toy_data_sample_cnt, MAX_RUNS); i++)
     {
-        struct tvmgen_default_inputs tvmgen_default_inputs = {(int8_t *)toy_input_data[i]};
+        struct tvmgen_default_inputs tvmgen_default_inputs = {(int8_t *)toy_input_data[i % toy_data_sample_cnt]};
         int8_t output_data[1024] = {0}; // TODO(fabianpedd): Make this precise by using defines for the array sizes
         struct tvmgen_default_outputs tvmgen_default_outputs = {output_data};
 
@@ -61,21 +64,21 @@ int run_test()
         }
 
         uint32_t sum = 0;
-        for (size_t j = 0; j < toy_input_data_len[i]; j++)
+        for (size_t j = 0; j < toy_input_data_len[i % toy_data_sample_cnt]; j++)
         {
-            sum += pow((int8_t)toy_input_data[i][j] - output_data[j], 2);
+            sum += pow((int8_t)toy_input_data[i % toy_data_sample_cnt][j] - output_data[j], 2);
         }
-        sum /= toy_input_data_len[i];
+        sum /= toy_input_data_len[i % toy_data_sample_cnt];
 
-        uint32_t diff = abs(sum - toy_output_data_ref[i]);
+        uint32_t diff = abs(sum - toy_output_data_ref[i % toy_data_sample_cnt]);
         if (diff > 1)
         {
-            printf("ERROR: at #%d, sum %d ref %d diff %d \n", i, sum, toy_output_data_ref[i], diff);
+            printf("ERROR: at #%d, sum %d ref %d diff %d \n", i, sum, toy_output_data_ref[i % toy_data_sample_cnt], diff);
             return -1;
         }
         else
         {
-            printf("Sample #%d pass, sum %d ref %d diff %d \n", i, sum, toy_output_data_ref[i], diff);
+            printf("Sample #%d pass, sum %d ref %d diff %d \n", i, sum, toy_output_data_ref[i % toy_data_sample_cnt], diff);
         }
 #endif
     }

@@ -10,17 +10,20 @@
 #include "tvm/runtime/crt/error_codes.h"
 #include "tvmgen_default.h"
 
-#define CHECK 0
 #ifndef CHECK
 #define CHECK 1
 #endif
 
-#define MAX_RUNS 1
 #ifndef MAX_RUNS
 #define MAX_RUNS 1000
 #endif
 
+#ifndef MIN_RUNS
+#define MIN_RUNS 1000
+#endif
+
 #define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
+#define MAX(X, Y) (((X) < (Y)) ? (Y) : (X))
 
 void TVMLogf(const char *msg, ...)
 {
@@ -47,9 +50,9 @@ TVM_DLL int TVMFuncRegisterGlobal(const char *name, TVMFunctionHandle f, int ove
 
 int run_test()
 {
-    for (size_t i = 0; i < MIN(aww_data_sample_cnt, MAX_RUNS); i++)
+    for (size_t i = 0; i < MAX(MIN(aww_data_sample_cnt, MAX_RUNS), MIN_RUNS); i++)
     {
-        struct tvmgen_default_inputs tvmgen_default_inputs = {(int8_t *)aww_input_data[i]};
+        struct tvmgen_default_inputs tvmgen_default_inputs = {(int8_t *)aww_input_data[i % aww_data_sample_cnt]};
         int8_t output_data[256] = {0}; // TODO(fabianpedd): Make this precise by using defines for the array sizes
         struct tvmgen_default_outputs tvmgen_default_outputs = {output_data};
 
@@ -69,14 +72,14 @@ int run_test()
             }
         }
 
-        if (top_index != aww_output_data_ref[i])
+        if (top_index != aww_output_data_ref[i % aww_data_sample_cnt])
         {
-            printf("ERROR: at #%d, top_index %d aww_output_data_ref %d \n", i, top_index, aww_output_data_ref[i]);
+            printf("ERROR: at #%d, top_index %d aww_output_data_ref %d \n", i, top_index, aww_output_data_ref[i % aww_data_sample_cnt]);
             return -1;
         }
         else
         {
-            printf("Sample #%d pass, top_index %d matches ref %d \n", i, top_index, aww_output_data_ref[i]);
+            printf("Sample #%d pass, top_index %d matches ref %d \n", i, top_index, aww_output_data_ref[i % aww_data_sample_cnt]);
         }
 #endif
     }
