@@ -1,0 +1,99 @@
+name: Smoke Tests
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build_examples:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        submodules: ["false", "recursive"]
+        build_type: ["Release", "Debug"]
+        config:
+        # GCC, Multilib
+        - {bits: 32, arch: rv32gc, abi: ilp32d, toolchain: gcc, gnu_name: riscv-none-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1}
+        - {bits: 32, arch: rv32im_zicsr_zifencei, abi: ilp32, toolchain: gcc, gnu_name: riscv-none-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1}
+        - {bits: 64, arch: rv64gc, abi: lp64d, toolchain: gcc, gnu_name: riscv-none-elf, gnu_url: "https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/", gnu_archive: "xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz", gnu_strip: 1}
+        # System LLVM, Non-Multilib
+        - {bits: 32, arch: rv32gc, abi: ilp32d, toolchain: llvm, gnu_name: riscv32-unknown-elf, gnu_url: "https://github.com/PhilippvK/riscv-tools/releases/download/gnu_2025.06.13", gnu_archive: "riscv32-unknown-elf-ubuntu-22.04-rv32gc_ilp32d.tar.xz", gnu_strip: 0, llvm_system: "true"}
+        - {bits: 32, arch: rv32im_zicsr_zifencei, abi: ilp32, toolchain: llvm, gnu_name: riscv32-unknown-elf, gnu_url: "https://github.com/PhilippvK/riscv-tools/releases/download/gnu_2025.06.13", gnu_archive: "riscv32-unknown-elf-ubuntu-22.04-rv32im_zicsr_zifencei_ilp32.tar.xz", gnu_strip: 0, llvm_system: "true"}
+        - {bits: 64, arch: rv64gc, abi: lp64d, toolchain: llvm, gnu_name: riscv64-unknown-elf, gnu_url: "https://github.com/PhilippvK/riscv-tools/releases/download/gnu_2025.06.13", gnu_archive: "riscv64-unknown-elf-ubuntu-20.04-rv64gc_lp64d.tar.xz", gnu_strip: 0, llvm_system: "true"}
+        # Custom LLVM, Non-Multilib
+        - {bits: 32, arch: rv32gc, abi: ilp32d, toolchain: llvm, gnu_name: riscv32-unknown-elf, gnu_url: "https://github.com/PhilippvK/riscv-tools/releases/download/gnu_2025.06.13", gnu_archive: "riscv32-unknown-elf-ubuntu-22.04-rv32gc_ilp32d.tar.xz", gnu_strip: 0, llvm_system: "false", llvm_url: "https://github.com/PhilippvK/riscv-tools/releases/download/llvm_20.1.8/", llvm_archive: "clang+llvm-20.1.8-x86_64-linux-gnu-ubuntu-22.04.tar.xz", llvm_strip: 0}
+        - {bits: 32, arch: rv32im_zicsr_zifencei, abi: ilp32, toolchain: llvm, gnu_name: riscv32-unknown-elf, gnu_url: "https://github.com/PhilippvK/riscv-tools/releases/download/gnu_2025.06.13", gnu_archive: "riscv32-unknown-elf-ubuntu-22.04-rv32im_zicsr_zifencei_ilp32.tar.xz", gnu_strip: 0, llvm_system: "false", llvm_url: "https://github.com/PhilippvK/riscv-tools/releases/download/llvm_20.1.8/", llvm_archive: "clang+llvm-20.1.8-x86_64-linux-gnu-ubuntu-22.04.tar.xz", llvm_strip: 0}
+        - {bits: 64, arch: rv64gc, abi: lp64d, toolchain: llvm, gnu_name: riscv64-unknown-elf, gnu_url: "https://github.com/PhilippvK/riscv-tools/releases/download/gnu_2025.06.13", gnu_archive: "riscv64-unknown-elf-ubuntu-20.04-rv64gc_lp64d.tar.xz", gnu_strip: 0, llvm_system: "false", llvm_url: "https://github.com/PhilippvK/riscv-tools/releases/download/llvm_20.1.8/", llvm_archive: "clang+llvm-20.1.8-x86_64-linux-gnu-ubuntu-22.04.tar.xz", llvm_strip: 0}
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: ${{ matrix.submodules }}
+
+    - name: Install build dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y cmake
+
+    - name: Install Clang/LLVM
+      if: ${{ matrix.config.toolchain == 'llvm' }}
+      run: sudo apt install clang
+
+    - name: Install cross compiler
+      run: |
+        wget -q ${{ matrix.config.gnu_url }}/${{ matrix.config.gnu_archive }}
+        ls
+        mkdir riscv_tc
+        cd riscv_tc
+        tar xf ../${{ matrix.config.gnu_archive }} --strip-components ${{ matrix.config.gnu_strip }}
+        ls
+        
+    - name: Install System LLVM
+      if: ${{ matrix.config.toolchain == 'llvm' &&  matrix.config.llvm_system == 'true' }}
+      run: |
+        clang --version
+        sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+        clang --version
+        clang-20 --version
+        # sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-20 100
+        # sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-20 100
+        # clang --version
+
+    - name: Install Custom LLVM
+      if: ${{ matrix.config.toolchain == 'llvm' && matrix.config.llvm_system != 'true' }}
+      run: |
+        wget -q ${{ matrix.config.llvm_url }}/${{ matrix.config.llvm_archive }}
+        ls
+        mkdir llvm
+        cd llvm
+        tar xf ../${{ matrix.config.llvm_archive }} --strip-components ${{ matrix.config.llvm_strip }}
+        ls
+      
+    - name: CMake config (GCC)
+      if: ${{ matrix.config.toolchain == 'gcc' }}
+      run: |
+        cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=rv${{ matrix.config.bits }}gc-toolchain.cmake -DRISCV_TOOLCHAIN_BASENAME=${{ matrix.config.gnu_name }} -DRISCV_TOOLCHAIN_PREFIX=$GITHUB_WORKSPACE/riscv_tc -DCMAKE_INSTALL_PREFIX=$(pwd)/build/install -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DRISCV_ARCH=${{ matrix.config.arch }} -DRISCV_ABI=${{ matrix.config.abi }}
+
+    - name: CMake config (LLVM)
+      if: ${{ matrix.config.toolchain == 'llvm' }}
+      run: |
+        export PATH=$(pwd)/llvm/bin:/usr/lib/llvm-20/bin:$PATH
+        cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=rv${{ matrix.config.bits }}gc-llvm-toolchain.cmake -DRISCV_TOOLCHAIN_BASENAME=${{ matrix.config.gnu_name }} -DRISCV_TOOLCHAIN_PREFIX=$GITHUB_WORKSPACE/riscv_tc -DCMAKE_INSTALL_PREFIX=$(pwd)/build/install -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DRISCV_ARCH=${{ matrix.config.arch }} -DRISCV_ABI=${{ matrix.config.abi }}
+
+    - name: CMake build (single)
+      run: |
+        export PATH=$(pwd)/llvm/bin:/usr/lib/llvm-20/bin:$PATH
+        cmake --build build -j$(nproc) --target hello_world
+
+    - name: CMake install (single)
+      run: |
+        export PATH=$(pwd)/llvm/bin:/usr/lib/llvm-20/bin:$PATH
+        cmake --build build --target install
+
+    - name: CMake build (all)
+      run: |
+        export PATH=$(pwd)/llvm/bin:/usr/lib/llvm-20/bin:$PATH
+        cmake --build build -j$(nproc)
+
+    - name: CMake install
+      run: |
+        export PATH=$(pwd)/llvm/bin:/usr/lib/llvm-20/bin:$PATH
+        cmake --build build --target install

@@ -172,7 +172,6 @@ if(NOT TARGET tflm::tflm)
     ${TFLM_SRCS}
     ${TFLM_THIRD_PARTY_SRCS}
   )
-  target_compile_options(tflm PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti -fno-exceptions>)
 
   target_include_directories(tflm PUBLIC
     ${tflm_ROOT}/
@@ -191,6 +190,9 @@ if(NOT TARGET tflm::tflm)
     -DTF_LITE_STATIC_MEMORY
     -DTFLITE_EMULATE_FLOAT
     -DTF_LITE_STRIP_ERROR_STRINGS
+  )
+  target_compile_options(tflm PRIVATE
+    $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti> -fno-exceptions
   )
 
   add_library(tflm::tflm ALIAS tflm)
