@@ -20,11 +20,11 @@
 #endif
 
 #ifndef MAX_RUNS
-#define MAX_RUNS 1000
+#define MAX_RUNS toy_data_sample_cnt
 #endif
 
 #ifndef MIN_RUNS
-#define MIN_RUNS 1000
+#define MIN_RUNS 1
 #endif
 
 #define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
