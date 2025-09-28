@@ -4,59 +4,59 @@ extern "C" {
 #endif
 __attribute__((section(".rodata.tvm"), ))
 static const struct global_const_workspace {
-  int16_t fused_constant_6_let[36864] __attribute__((aligned(16))); // 73728 bytes, aligned offset: 0
-  int16_t fused_constant_5_let[18432] __attribute__((packed, aligned(16))); // 36864 bytes, aligned offset: 73728
-  int16_t fused_constant_3_let[9216] __attribute__((packed, aligned(16))); // 18432 bytes, aligned offset: 110592
-  int16_t fused_constant_2_let[4608] __attribute__((packed, aligned(16))); // 9216 bytes, aligned offset: 129024
-  int16_t fused_constant_1_let[2304] __attribute__((packed, aligned(16))); // 4608 bytes, aligned offset: 138240
-  int16_t fused_cast_subtract_fixed_point_multiply_add_constant_let[2304] __attribute__((packed, aligned(16))); // 4608 bytes, aligned offset: 142848
-  int16_t fused_constant_7_let[2048] __attribute__((packed, aligned(16))); // 4096 bytes, aligned offset: 147456
-  int16_t fused_constant_8_let[640] __attribute__((packed, aligned(16))); // 1280 bytes, aligned offset: 151552
-  int16_t fused_constant_4_let[512] __attribute__((packed, aligned(16))); // 1024 bytes, aligned offset: 152832
-  int16_t fused_constant_let[432] __attribute__((packed, aligned(16))); // 864 bytes, aligned offset: 153856
-  int32_t fused_nn_conv2d_constant_7_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 154720
-  int32_t fused_nn_conv2d_constant_6_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 154976
-  int32_t fused_nn_conv2d_constant_5_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 155232
-  int32_t fused_nn_conv2d_add_constant_23_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 155488
-  int32_t fused_nn_conv2d_add_constant_22_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 155744
-  int32_t fused_nn_conv2d_add_constant_21_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 156000
-  int32_t fused_nn_conv2d_add_constant_20_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 156256
-  int32_t fused_nn_conv2d_add_constant_19_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 156512
-  int32_t fused_nn_conv2d_add_constant_18_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 156768
-  int32_t fused_nn_conv2d_add_constant_17_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 157024
-  int32_t fused_nn_conv2d_add_constant_16_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 157280
-  int32_t fused_nn_conv2d_add_constant_15_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 157536
-  int32_t fused_nn_conv2d_constant_4_let[32] __attribute__((packed, aligned(16))); // 128 bytes, aligned offset: 157792
-  int32_t fused_nn_conv2d_constant_3_let[32] __attribute__((packed, aligned(16))); // 128 bytes, aligned offset: 157920
-  int32_t fused_nn_conv2d_constant_2_let[32] __attribute__((packed, aligned(16))); // 128 bytes, aligned offset: 158048
-  int32_t fused_nn_conv2d_add_constant_9_let[32] __attribute__((packed, aligned(16))); // 128 bytes, aligned offset: 158176
-  int32_t fused_nn_conv2d_add_constant_8_let[32] __attribute__((packed, aligned(16))); // 128 bytes, aligned offset: 158304
-  int32_t fused_nn_conv2d_add_constant_7_let[32] __attribute__((packed, aligned(16))); // 128 bytes, aligned offset: 158432
-  int32_t fused_nn_conv2d_add_constant_6_let[32] __attribute__((packed, aligned(16))); // 128 bytes, aligned offset: 158560
-  int32_t fused_nn_conv2d_add_constant_14_let[32] __attribute__((packed, aligned(16))); // 128 bytes, aligned offset: 158688
-  int32_t fused_nn_conv2d_add_constant_13_let[32] __attribute__((packed, aligned(16))); // 128 bytes, aligned offset: 158816
-  int32_t fused_nn_conv2d_add_constant_12_let[32] __attribute__((packed, aligned(16))); // 128 bytes, aligned offset: 158944
-  int32_t fused_nn_conv2d_add_constant_11_let[32] __attribute__((packed, aligned(16))); // 128 bytes, aligned offset: 159072
-  int32_t fused_nn_conv2d_add_constant_10_let[32] __attribute__((packed, aligned(16))); // 128 bytes, aligned offset: 159200
-  int32_t fused_nn_conv2d_constant_1_let[16] __attribute__((packed, aligned(16))); // 64 bytes, aligned offset: 159328
-  int32_t fused_nn_conv2d_constant_let[16] __attribute__((packed, aligned(16))); // 64 bytes, aligned offset: 159392
-  int32_t fused_nn_conv2d_add_constant_5_let[16] __attribute__((packed, aligned(16))); // 64 bytes, aligned offset: 159456
-  int32_t fused_nn_conv2d_add_constant_4_let[16] __attribute__((packed, aligned(16))); // 64 bytes, aligned offset: 159520
-  int32_t fused_nn_conv2d_add_constant_3_let[16] __attribute__((packed, aligned(16))); // 64 bytes, aligned offset: 159584
-  int32_t fused_nn_conv2d_add_constant_2_let[16] __attribute__((packed, aligned(16))); // 64 bytes, aligned offset: 159648
-  int32_t fused_nn_conv2d_add_constant_1_let[16] __attribute__((packed, aligned(16))); // 64 bytes, aligned offset: 159712
-  int32_t fused_nn_conv2d_add_constant_let[16] __attribute__((packed, aligned(16))); // 64 bytes, aligned offset: 159776
-  int32_t fused_cast_subtract_fixed_point_multiply_add_nn_conv2d_constant_let[16] __attribute__((packed, aligned(16))); // 64 bytes, aligned offset: 159840
-  int32_t fused_cast_subtract_fixed_point_multiply_add_nn_conv2d_add_constant_2_let[16] __attribute__((packed, aligned(16))); // 64 bytes, aligned offset: 159904
-  int32_t fused_cast_subtract_fixed_point_multiply_add_nn_conv2d_add_constant_1_let[16] __attribute__((packed, aligned(16))); // 64 bytes, aligned offset: 159968
-  int32_t fused_cast_subtract_fixed_point_multiply_add_nn_conv2d_add_constant_let[16] __attribute__((packed, aligned(16))); // 64 bytes, aligned offset: 160032
-  int32_t fused_nn_contrib_dense_pack_constant_let[10] __attribute__((packed, aligned(16))); // 40 bytes, aligned offset: 160096
-  int32_t fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_constant_3_let[1] __attribute__((packed, aligned(16))); // 4 bytes, aligned offset: 160144
-  int32_t fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_constant_2_let[1] __attribute__((packed, aligned(16))); // 4 bytes, aligned offset: 160160
-  int32_t fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_constant_1_let[1] __attribute__((packed, aligned(16))); // 4 bytes, aligned offset: 160176
-  int32_t fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_constant_let[1] __attribute__((packed, aligned(16))); // 4 bytes, aligned offset: 160192
-  int32_t fused_cast_subtract_fixed_point_multiply_add_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_constant_let[1] __attribute__((packed, aligned(16))); // 4 bytes, aligned offset: 160208
-  int32_t fused_cast_constant_let[1] __attribute__((packed, aligned(16))); // 4 bytes, aligned offset: 160224
+  int16_t fused_constant_6_let[36864] __attribute__((aligned(4))); // 73728 bytes, aligned offset: 0
+  int16_t fused_constant_5_let[18432] __attribute__((packed, aligned(4))); // 36864 bytes, aligned offset: 73728
+  int16_t fused_constant_3_let[9216] __attribute__((packed, aligned(4))); // 18432 bytes, aligned offset: 110592
+  int16_t fused_constant_2_let[4608] __attribute__((packed, aligned(4))); // 9216 bytes, aligned offset: 129024
+  int16_t fused_constant_1_let[2304] __attribute__((packed, aligned(4))); // 4608 bytes, aligned offset: 138240
+  int16_t fused_cast_subtract_fixed_point_multiply_add_constant_let[2304] __attribute__((packed, aligned(4))); // 4608 bytes, aligned offset: 142848
+  int16_t fused_constant_7_let[2048] __attribute__((packed, aligned(4))); // 4096 bytes, aligned offset: 147456
+  int16_t fused_constant_8_let[640] __attribute__((packed, aligned(4))); // 1280 bytes, aligned offset: 151552
+  int16_t fused_constant_4_let[512] __attribute__((packed, aligned(4))); // 1024 bytes, aligned offset: 152832
+  int16_t fused_constant_let[432] __attribute__((packed, aligned(4))); // 864 bytes, aligned offset: 153856
+  int32_t fused_nn_conv2d_constant_7_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 154720
+  int32_t fused_nn_conv2d_constant_6_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 154976
+  int32_t fused_nn_conv2d_constant_5_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 155232
+  int32_t fused_nn_conv2d_add_constant_23_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 155488
+  int32_t fused_nn_conv2d_add_constant_22_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 155744
+  int32_t fused_nn_conv2d_add_constant_21_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 156000
+  int32_t fused_nn_conv2d_add_constant_20_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 156256
+  int32_t fused_nn_conv2d_add_constant_19_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 156512
+  int32_t fused_nn_conv2d_add_constant_18_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 156768
+  int32_t fused_nn_conv2d_add_constant_17_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 157024
+  int32_t fused_nn_conv2d_add_constant_16_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 157280
+  int32_t fused_nn_conv2d_add_constant_15_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 157536
+  int32_t fused_nn_conv2d_constant_4_let[32] __attribute__((packed, aligned(4))); // 128 bytes, aligned offset: 157792
+  int32_t fused_nn_conv2d_constant_3_let[32] __attribute__((packed, aligned(4))); // 128 bytes, aligned offset: 157920
+  int32_t fused_nn_conv2d_constant_2_let[32] __attribute__((packed, aligned(4))); // 128 bytes, aligned offset: 158048
+  int32_t fused_nn_conv2d_add_constant_9_let[32] __attribute__((packed, aligned(4))); // 128 bytes, aligned offset: 158176
+  int32_t fused_nn_conv2d_add_constant_8_let[32] __attribute__((packed, aligned(4))); // 128 bytes, aligned offset: 158304
+  int32_t fused_nn_conv2d_add_constant_7_let[32] __attribute__((packed, aligned(4))); // 128 bytes, aligned offset: 158432
+  int32_t fused_nn_conv2d_add_constant_6_let[32] __attribute__((packed, aligned(4))); // 128 bytes, aligned offset: 158560
+  int32_t fused_nn_conv2d_add_constant_14_let[32] __attribute__((packed, aligned(4))); // 128 bytes, aligned offset: 158688
+  int32_t fused_nn_conv2d_add_constant_13_let[32] __attribute__((packed, aligned(4))); // 128 bytes, aligned offset: 158816
+  int32_t fused_nn_conv2d_add_constant_12_let[32] __attribute__((packed, aligned(4))); // 128 bytes, aligned offset: 158944
+  int32_t fused_nn_conv2d_add_constant_11_let[32] __attribute__((packed, aligned(4))); // 128 bytes, aligned offset: 159072
+  int32_t fused_nn_conv2d_add_constant_10_let[32] __attribute__((packed, aligned(4))); // 128 bytes, aligned offset: 159200
+  int32_t fused_nn_conv2d_constant_1_let[16] __attribute__((packed, aligned(4))); // 64 bytes, aligned offset: 159328
+  int32_t fused_nn_conv2d_constant_let[16] __attribute__((packed, aligned(4))); // 64 bytes, aligned offset: 159392
+  int32_t fused_nn_conv2d_add_constant_5_let[16] __attribute__((packed, aligned(4))); // 64 bytes, aligned offset: 159456
+  int32_t fused_nn_conv2d_add_constant_4_let[16] __attribute__((packed, aligned(4))); // 64 bytes, aligned offset: 159520
+  int32_t fused_nn_conv2d_add_constant_3_let[16] __attribute__((packed, aligned(4))); // 64 bytes, aligned offset: 159584
+  int32_t fused_nn_conv2d_add_constant_2_let[16] __attribute__((packed, aligned(4))); // 64 bytes, aligned offset: 159648
+  int32_t fused_nn_conv2d_add_constant_1_let[16] __attribute__((packed, aligned(4))); // 64 bytes, aligned offset: 159712
+  int32_t fused_nn_conv2d_add_constant_let[16] __attribute__((packed, aligned(4))); // 64 bytes, aligned offset: 159776
+  int32_t fused_cast_subtract_fixed_point_multiply_add_nn_conv2d_constant_let[16] __attribute__((packed, aligned(4))); // 64 bytes, aligned offset: 159840
+  int32_t fused_cast_subtract_fixed_point_multiply_add_nn_conv2d_add_constant_2_let[16] __attribute__((packed, aligned(4))); // 64 bytes, aligned offset: 159904
+  int32_t fused_cast_subtract_fixed_point_multiply_add_nn_conv2d_add_constant_1_let[16] __attribute__((packed, aligned(4))); // 64 bytes, aligned offset: 159968
+  int32_t fused_cast_subtract_fixed_point_multiply_add_nn_conv2d_add_constant_let[16] __attribute__((packed, aligned(4))); // 64 bytes, aligned offset: 160032
+  int32_t fused_nn_contrib_dense_pack_constant_let[10] __attribute__((packed, aligned(4))); // 40 bytes, aligned offset: 160096
+  int32_t fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_constant_3_let[1] __attribute__((packed, aligned(4))); // 4 bytes, aligned offset: 160136
+  int32_t fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_constant_2_let[1] __attribute__((packed, aligned(4))); // 4 bytes, aligned offset: 160140
+  int32_t fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_constant_1_let[1] __attribute__((packed, aligned(4))); // 4 bytes, aligned offset: 160144
+  int32_t fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_constant_let[1] __attribute__((packed, aligned(4))); // 4 bytes, aligned offset: 160148
+  int32_t fused_cast_subtract_fixed_point_multiply_add_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_constant_let[1] __attribute__((packed, aligned(4))); // 4 bytes, aligned offset: 160152
+  int32_t fused_cast_constant_let[1] __attribute__((packed, aligned(4))); // 4 bytes, aligned offset: 160156
 } global_const_workspace = {
   .fused_constant_6_let = {
     -0x003d, -0x005a, -0x0003, +0x0077, -0x0006, -0x001a, -0x0020, +0x0018, 
@@ -10010,8 +10010,8 @@ static const struct global_const_workspace {
   .fused_cast_constant_let = {
     -0x00000080
   },
-};// of total size 160228 bytes
-__attribute__((section(".bss.noinit.tvm"), aligned(16)))
+};// of total size 160160 bytes
+__attribute__((section(".bss.noinit.tvm"), aligned(4)))
 static uint8_t global_workspace[102528];
 #include <tvmgen_default.h>
 TVM_DLL int32_t tvmgen_default___tvm_main__(void* input_1_int8,void* output0,uint8_t* global_const_workspace_0_var,uint8_t* global_workspace_1_var);

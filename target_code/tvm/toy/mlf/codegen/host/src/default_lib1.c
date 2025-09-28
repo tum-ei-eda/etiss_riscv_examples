@@ -1,4 +1,4 @@
-// tvm target: c -keys=cpu -constants-byte-alignment=16 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=16
+// tvm target: c -keys=cpu -constants-byte-alignment=4 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=4
 #define TVM_EXPORTS
 #include "tvm/runtime/c_runtime_api.h"
 #include "tvm/runtime/c_backend_api.h"
@@ -438,25 +438,25 @@ TVM_DLL int32_t tvmgen_default_fused_reshape_cast_subtract_2(int8_t* p0, int16_t
 extern "C"
 #endif
 TVM_DLL int32_t tvmgen_default___tvm_main__(int8_t* input_1_buffer_var, int8_t* Identity_buffer_var, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var) {
-  void* sid_16_let = (&(global_workspace_1_var[256]));
-  void* sid_13_let = (&(global_workspace_1_var[0]));
-  void* sid_10_let = (&(global_workspace_1_var[16]));
   void* sid_14_let = (&(global_workspace_1_var[256]));
   void* sid_11_let = (&(global_workspace_1_var[0]));
-  void* sid_5_let = (&(global_workspace_1_var[0]));
-  void* sid_7_let = (&(global_workspace_1_var[0]));
-  void* sid_12_let = (&(global_workspace_1_var[256]));
-  void* sid_6_let = (&(global_workspace_1_var[256]));
+  void* sid_10_let = (&(global_workspace_1_var[16]));
   void* sid_9_let = (&(global_workspace_1_var[0]));
-  void* sid_1_let = (&(global_workspace_1_var[0]));
-  void* sid_2_let = (&(global_workspace_1_var[1280]));
-  void* sid_3_let = (&(global_workspace_1_var[0]));
-  void* sid_8_let = (&(global_workspace_1_var[256]));
   void* sid_4_let = (&(global_workspace_1_var[256]));
-  void* sid_19_let = (&(global_workspace_1_var[0]));
-  void* sid_15_let = (&(global_workspace_1_var[0]));
+  void* sid_1_let = (&(global_workspace_1_var[0]));
+  void* sid_13_let = (&(global_workspace_1_var[0]));
+  void* sid_2_let = (&(global_workspace_1_var[1280]));
   void* sid_17_let = (&(global_workspace_1_var[0]));
+  void* sid_8_let = (&(global_workspace_1_var[256]));
+  void* sid_7_let = (&(global_workspace_1_var[0]));
+  void* sid_5_let = (&(global_workspace_1_var[0]));
+  void* sid_12_let = (&(global_workspace_1_var[256]));
+  void* sid_3_let = (&(global_workspace_1_var[0]));
+  void* sid_6_let = (&(global_workspace_1_var[256]));
+  void* sid_15_let = (&(global_workspace_1_var[0]));
+  void* sid_16_let = (&(global_workspace_1_var[256]));
   void* sid_18_let = (&(global_workspace_1_var[256]));
+  void* sid_19_let = (&(global_workspace_1_var[0]));
   if (tvmgen_default_fused_reshape_cast_subtract(input_1_buffer_var, sid_1_let, global_const_workspace_0_var, global_workspace_1_var) != 0 ) return -1;
   if (tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast(sid_1_let, sid_2_let, global_const_workspace_0_var, global_workspace_1_var) != 0 ) return -1;
   if (tvmgen_default_fused_reshape_cast_subtract_1(sid_2_let, sid_3_let, global_const_workspace_0_var, global_workspace_1_var) != 0 ) return -1;

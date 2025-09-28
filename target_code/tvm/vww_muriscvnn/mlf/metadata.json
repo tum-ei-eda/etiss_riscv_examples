@@ -4,7 +4,7 @@
       "executors": [
         "aot"
       ],
-      "export_datetime": "2025-09-19 12:11:14Z",
+      "export_datetime": "2025-09-28 12:18:20Z",
       "external_dependencies": [
         {
           "short_name": "tvm_standalone_crt",
@@ -17,7 +17,7 @@
         "functions": {
           "main": [
             {
-              "constants_size_bytes": 262856,
+              "constants_size_bytes": 262840,
               "device": 1,
               "inputs": {
                 "input_1_int8": {
@@ -38,6 +38,15 @@
           "operator_functions": [
             {
               "function_name": "tvmgen_default_cmsis_nn_main_15",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_cmsis_nn_main_2",
               "workspace": [
                 {
                   "device": 1,
@@ -100,7 +109,7 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_cmsis_nn_main_29",
+              "function_name": "tvmgen_default_cmsis_nn_main_10",
               "workspace": [
                 {
                   "device": 1,
@@ -109,7 +118,7 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_cmsis_nn_main_10",
+              "function_name": "tvmgen_default_cmsis_nn_main_11",
               "workspace": [
                 {
                   "device": 1,
@@ -190,7 +199,7 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_cmsis_nn_main_11",
+              "function_name": "tvmgen_default_cmsis_nn_main_29",
               "workspace": [
                 {
                   "device": 1,
@@ -236,15 +245,6 @@
             },
             {
               "function_name": "tvmgen_default_cmsis_nn_main_21",
-              "workspace": [
-                {
-                  "device": 1,
-                  "workspace_size_bytes": 0
-                }
-              ]
-            },
-            {
-              "function_name": "tvmgen_default_cmsis_nn_main_2",
               "workspace": [
                 {
                   "device": 1,
@@ -312,7 +312,7 @@
       "model_name": "default",
       "style": "full-model",
       "target": [
-        "c -keys=cpu -constants-byte-alignment=16 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=16"
+        "c -keys=cpu -constants-byte-alignment=4 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=4"
       ]
     }
   },

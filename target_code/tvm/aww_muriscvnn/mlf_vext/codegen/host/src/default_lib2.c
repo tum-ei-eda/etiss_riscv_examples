@@ -67,7 +67,7 @@ TVM_DLL int32_t tvmgen_default_cmsis_nn_main_0(int8_t* input_, int8_t* filter_, 
   cmsis_nn_tile padding = {1,4};
   cmsis_nn_tile dilation = {1,1};
   cmsis_nn_activation activation = {-128,127};
-  cmsis_nn_dw_conv_params conv_params = {-87, -128, 64, stride, padding, dilation, activation};
+  cmsis_nn_dw_conv_params conv_params = {-83, -128, 64, stride, padding, dilation, activation};
   cmsis_nn_per_channel_quant_params quant_params = {multiplier_, shift_};
   cmsis_nn_dims input_dims = {1,49,10,1};
   cmsis_nn_dims filter_dims = {1,10,4,64};
@@ -306,8 +306,8 @@ extern "C"
 TVM_DLL int32_t tvmgen_default_cmsis_nn_main_10(int8_t* input_, int8_t* filter_, int32_t* bias_, int8_t* output_, uint8_t* global_const_workspace_22_var, uint8_t* global_workspace_23_var) {
   cmsis_nn_context context= {NULL,0};
   cmsis_nn_activation activation = {-128,127};
-  cmsis_nn_fc_params fc_params = {128, 0, 33, activation};
-  cmsis_nn_per_tensor_quant_params quant_params = {1617124365, -7};
+  cmsis_nn_fc_params fc_params = {128, 0, 14, activation};
+  cmsis_nn_per_tensor_quant_params quant_params = {1278221461, -7};
   cmsis_nn_dims input_dims = {1,1,1,64};
   cmsis_nn_dims filter_dims = {64,1,1,12};
   cmsis_nn_dims bias_dims = {1,1,1,12};
@@ -325,7 +325,7 @@ TVM_DLL int32_t tvmgen_default_cmsis_nn_main_10(int8_t* input_, int8_t* filter_,
 extern "C"
 #endif
 TVM_DLL int32_t tvmgen_default_cmsis_nn_main_11(int8_t* input_, int8_t* output_, uint8_t* global_const_workspace_24_var, uint8_t* global_workspace_25_var) {
-  arm_softmax_s8(input_, 1, 12, 1221296640, 24, -124, output_);
+  arm_softmax_s8(input_, 1, 12, 1242899200, 24, -124, output_);
   return 0;
 }
 

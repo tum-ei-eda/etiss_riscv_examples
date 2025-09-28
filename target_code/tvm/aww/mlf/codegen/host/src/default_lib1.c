@@ -1,4 +1,4 @@
-// tvm target: c -keys=cpu -constants-byte-alignment=16 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=16
+// tvm target: c -keys=cpu -constants-byte-alignment=4 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=4
 #define TVM_EXPORTS
 #include "tvm/runtime/c_runtime_api.h"
 #include "tvm/runtime/c_backend_api.h"
@@ -79,7 +79,7 @@ TVM_DLL int32_t tvmgen_default_fused_cast_subtract(int8_t* p0, int16_t* T_subtra
   for (int32_t ax0_ax1_fused = 0; ax0_ax1_fused < 49; ++ax0_ax1_fused) {
     for (int32_t ax2 = 0; ax2 < 10; ++ax2) {
       int32_t cse_var_1 = ((ax0_ax1_fused * 10) + ax2);
-      T_subtract[cse_var_1] = (((int16_t)p0[cse_var_1]) - (int16_t)87);
+      T_subtract[cse_var_1] = (((int16_t)p0[cse_var_1]) - (int16_t)83);
     }
   }
   return 0;
@@ -122,9 +122,9 @@ TVM_DLL int32_t tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multi
     }
     for (int32_t ax1_inner_inner = 0; ax1_inner_inner < 6; ++ax1_inner_inner) {
       int32_t cse_var_1 = ((ax1_outer_ax0_outer_fused * 6) + ax1_inner_inner);
-      int32_t v_ = ((int32_t)(((((0 != 0) ? (((int64_t)(compute_global[ax1_inner_inner] + ((int32_t*)fused_nn_contrib_dense_pack_constant_let)[cse_var_1])) << ((int64_t)0)) : ((int64_t)(compute_global[ax1_inner_inner] + ((int32_t*)fused_nn_contrib_dense_pack_constant_let)[cse_var_1]))) * (int64_t)1617124365) + ((int64_t)1 << ((int64_t)((7 + 31) - 1)))) >> ((int64_t)(7 + 31)))) + 33;
+      int32_t v_ = ((int32_t)(((((0 != 0) ? (((int64_t)(compute_global[ax1_inner_inner] + ((int32_t*)fused_nn_contrib_dense_pack_constant_let)[cse_var_1])) << ((int64_t)0)) : ((int64_t)(compute_global[ax1_inner_inner] + ((int32_t*)fused_nn_contrib_dense_pack_constant_let)[cse_var_1]))) * (int64_t)1278221461) + ((int64_t)1 << ((int64_t)((7 + 31) - 1)))) >> ((int64_t)(7 + 31)))) + 14;
       int32_t v__1 = (v_) < (127) ? (v_) : (127);
-      T_multiply[cse_var_1] = (((float)(((v__1) > (-128) ? (v__1) : (-128)) - 33)) * 1.421776e-01f);
+      T_multiply[cse_var_1] = (((float)(((v__1) > (-128) ? (v__1) : (-128)) - 14)) * 1.446925e-01f);
     }
   }
   return 0;
@@ -730,16 +730,16 @@ TVM_DLL int32_t tvmgen_default_fused_reshape_cast_subtract(int8_t* p0, int16_t* 
 extern "C"
 #endif
 TVM_DLL int32_t tvmgen_default___tvm_main__(int8_t* input_1_buffer_var, int8_t* Identity_buffer_var, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var) {
+  void* sid_6_let = (&(global_workspace_1_var[0]));
+  void* sid_5_let = (&(global_workspace_1_var[0]));
+  void* sid_7_let = (&(global_workspace_1_var[0]));
+  void* sid_9_let = (&(global_workspace_1_var[0]));
+  void* sid_4_let = (&(global_workspace_1_var[0]));
   void* sid_3_let = (&(global_workspace_1_var[0]));
   void* sid_2_let = (&(global_workspace_1_var[0]));
-  void* sid_6_let = (&(global_workspace_1_var[0]));
   void* sid_1_let = (&(global_workspace_1_var[0]));
-  void* sid_5_let = (&(global_workspace_1_var[0]));
-  void* sid_4_let = (&(global_workspace_1_var[0]));
-  void* sid_10_let = (&(global_workspace_1_var[0]));
-  void* sid_7_let = (&(global_workspace_1_var[0]));
   void* sid_8_let = (&(global_workspace_1_var[0]));
-  void* sid_9_let = (&(global_workspace_1_var[0]));
+  void* sid_10_let = (&(global_workspace_1_var[0]));
   void* sid_11_let = (&(global_workspace_1_var[128]));
   void* sid_12_let = (&(global_workspace_1_var[0]));
   void* sid_13_let = (&(global_workspace_1_var[128]));

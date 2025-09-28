@@ -4,26 +4,26 @@ extern "C" {
 #endif
 __attribute__((section(".rodata.tvm"), ))
 static const struct global_const_workspace {
-  int8_t constant_18_let[81920] __attribute__((aligned(16))); // 81920 bytes, aligned offset: 0
-  int8_t constant_0_let[81920] __attribute__((packed, aligned(16))); // 81920 bytes, aligned offset: 81920
-  int8_t constant_6_let[16384] __attribute__((packed, aligned(16))); // 16384 bytes, aligned offset: 163840
-  int8_t constant_4_let[16384] __attribute__((packed, aligned(16))); // 16384 bytes, aligned offset: 180224
-  int8_t constant_2_let[16384] __attribute__((packed, aligned(16))); // 16384 bytes, aligned offset: 196608
-  int8_t constant_16_let[16384] __attribute__((packed, aligned(16))); // 16384 bytes, aligned offset: 212992
-  int8_t constant_14_let[16384] __attribute__((packed, aligned(16))); // 16384 bytes, aligned offset: 229376
-  int8_t constant_12_let[16384] __attribute__((packed, aligned(16))); // 16384 bytes, aligned offset: 245760
-  int32_t constant_19_let[640] __attribute__((packed, aligned(16))); // 2560 bytes, aligned offset: 262144
-  int8_t constant_8_let[1024] __attribute__((packed, aligned(16))); // 1024 bytes, aligned offset: 264704
-  int8_t constant_10_let[1024] __attribute__((packed, aligned(16))); // 1024 bytes, aligned offset: 265728
-  int32_t constant_7_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 266752
-  int32_t constant_5_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 267264
-  int32_t constant_3_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 267776
-  int32_t constant_17_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 268288
-  int32_t constant_15_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 268800
-  int32_t constant_13_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 269312
-  int32_t constant_11_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 269824
-  int32_t constant_1_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 270336
-  int32_t constant_9_let[8] __attribute__((packed, aligned(16))); // 32 bytes, aligned offset: 270848
+  int8_t constant_18_let[81920] __attribute__((aligned(4))); // 81920 bytes, aligned offset: 0
+  int8_t constant_0_let[81920] __attribute__((packed, aligned(4))); // 81920 bytes, aligned offset: 81920
+  int8_t constant_6_let[16384] __attribute__((packed, aligned(4))); // 16384 bytes, aligned offset: 163840
+  int8_t constant_4_let[16384] __attribute__((packed, aligned(4))); // 16384 bytes, aligned offset: 180224
+  int8_t constant_2_let[16384] __attribute__((packed, aligned(4))); // 16384 bytes, aligned offset: 196608
+  int8_t constant_16_let[16384] __attribute__((packed, aligned(4))); // 16384 bytes, aligned offset: 212992
+  int8_t constant_14_let[16384] __attribute__((packed, aligned(4))); // 16384 bytes, aligned offset: 229376
+  int8_t constant_12_let[16384] __attribute__((packed, aligned(4))); // 16384 bytes, aligned offset: 245760
+  int32_t constant_19_let[640] __attribute__((packed, aligned(4))); // 2560 bytes, aligned offset: 262144
+  int8_t constant_8_let[1024] __attribute__((packed, aligned(4))); // 1024 bytes, aligned offset: 264704
+  int8_t constant_10_let[1024] __attribute__((packed, aligned(4))); // 1024 bytes, aligned offset: 265728
+  int32_t constant_7_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 266752
+  int32_t constant_5_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 267264
+  int32_t constant_3_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 267776
+  int32_t constant_17_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 268288
+  int32_t constant_15_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 268800
+  int32_t constant_13_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 269312
+  int32_t constant_11_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 269824
+  int32_t constant_1_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 270336
+  int32_t constant_9_let[8] __attribute__((packed, aligned(4))); // 32 bytes, aligned offset: 270848
 } global_const_workspace = {
   .constant_18_let = {
     -0x11, -0x10, -0x0d, -0x06, -0x2d, +0x04, -0x31, -0x18, 
@@ -33299,7 +33299,7 @@ static const struct global_const_workspace {
     +0x00002ac1, +0x00003156, +0x00002fdb, +0x00002fec, +0x000026ff, +0x00002c47, +0x00003621, +0x000027f9
   },
 };// of total size 270880 bytes
-__attribute__((section(".bss.noinit.tvm"), aligned(16)))
+__attribute__((section(".bss.noinit.tvm"), aligned(4)))
 static uint8_t global_workspace[768];
 #include <tvmgen_default.h>
 TVM_DLL int32_t tvmgen_default___tvm_main__(void* input_1,void* output0,uint8_t* global_const_workspace_0_var,uint8_t* global_workspace_1_var);

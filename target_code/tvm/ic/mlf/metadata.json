@@ -4,7 +4,7 @@
       "executors": [
         "aot"
       ],
-      "export_datetime": "2025-09-19 13:19:00Z",
+      "export_datetime": "2025-09-28 12:27:24Z",
       "external_dependencies": [
         {
           "short_name": "tvm_standalone_crt",
@@ -17,7 +17,7 @@
         "functions": {
           "main": [
             {
-              "constants_size_bytes": 160228,
+              "constants_size_bytes": 160160,
               "device": 1,
               "inputs": {
                 "input_1_int8": {
@@ -41,7 +41,7 @@
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 32
+                  "workspace_size_bytes": 20
                 }
               ]
             },
@@ -59,7 +59,7 @@
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 16
+                  "workspace_size_bytes": 4
                 }
               ]
             },
@@ -68,7 +68,7 @@
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 16
+                  "workspace_size_bytes": 4
                 }
               ]
             },
@@ -77,7 +77,7 @@
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 16
+                  "workspace_size_bytes": 4
                 }
               ]
             },
@@ -95,7 +95,7 @@
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 16
+                  "workspace_size_bytes": 4
                 }
               ]
             },
@@ -113,7 +113,7 @@
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 16
+                  "workspace_size_bytes": 4
                 }
               ]
             },
@@ -127,7 +127,7 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_subtract_fixed_point__eb606f94f03ebac6__1",
+              "function_name": "tvmgen_default_fused_nn_avg_pool2d_cast",
               "workspace": [
                 {
                   "device": 1,
@@ -136,7 +136,7 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_avg_pool2d_cast",
+              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_subtract_fixed_point__eb606f94f03ebac6__1",
               "workspace": [
                 {
                   "device": 1,
@@ -149,16 +149,7 @@
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 16
-                }
-              ]
-            },
-            {
-              "function_name": "tvmgen_default_fused_nn_softmax_divide_round_add_clip_cast",
-              "workspace": [
-                {
-                  "device": 1,
-                  "workspace_size_bytes": 80
+                  "workspace_size_bytes": 4
                 }
               ]
             },
@@ -170,6 +161,15 @@
                   "workspace_size_bytes": 256
                 }
               ]
+            },
+            {
+              "function_name": "tvmgen_default_fused_nn_softmax_divide_round_add_clip_cast",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 48
+                }
+              ]
             }
           ]
         }
@@ -177,7 +177,7 @@
       "model_name": "default",
       "style": "full-model",
       "target": [
-        "c -keys=cpu -constants-byte-alignment=16 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=16"
+        "c -keys=cpu -constants-byte-alignment=4 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=4"
       ]
     }
   },
