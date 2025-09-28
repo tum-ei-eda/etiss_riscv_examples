@@ -50,14 +50,15 @@ TVM_DLL int TVMFuncRegisterGlobal(const char *name, TVMFunctionHandle f, int ove
 
 int run_test()
 {
+    int8_t input_data_buf[ic_input_data_len[0]];
     for (size_t i = 0; i < MAX(MIN(ic_data_sample_cnt, MAX_RUNS), MIN_RUNS); i++)
     {
         int8_t *input_data = (int8_t *)ic_input_data[i % ic_data_sample_cnt];
-        // for (size_t j = 0; j < ic_input_data_len[i % ic_data_sample_cnt]; j++)
-        // {
-        //     input_data[j] += 128;
-        // }
-        struct tvmgen_default_inputs tvmgen_default_inputs = {input_data};
+        for (size_t j = 0; j < ic_input_data_len[i % ic_data_sample_cnt]; j++)
+        {
+            input_data_buf[j] = input_data[j] + 128;
+        }
+        struct tvmgen_default_inputs tvmgen_default_inputs = {&input_data_buf[0]};
         int8_t output_data[256] = {0}; // TODO(fabianpedd): Make this precise by using defines for the array sizes
         struct tvmgen_default_outputs tvmgen_default_outputs = {output_data};
         int ret_val = tvmgen_default_run(&tvmgen_default_inputs, &tvmgen_default_outputs);
