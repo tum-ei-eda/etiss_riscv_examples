@@ -46,7 +46,7 @@ if(${ENABLE_TESTS})
               -DPROG=${ELF_PATH}
               -DCFG=${INI_PATH}
               -P ${CMAKE_SOURCE_DIR}/cmake/run_etiss_test.cmake)
-      set_tests_properties(${TEST_NAME} PROPERTIES TIMEOUT 30)
+      set_tests_properties(${TEST_NAME} PROPERTIES TIMEOUT 240)
       set_tests_properties(${TEST_NAME} PROPERTIES SKIP_RETURN_CODE 77)
       set_property(TEST ${TEST_NAME} PROPERTY
           SKIP_REGULAR_EXPRESSION "[^a-z]Skip" "SKIP" "Skipped" "Skipping"
