@@ -5,8 +5,7 @@
 %rename startfile	old_startfile
 
 *lib:
-# --start-group -lc -lsemihost -letiss_crt0 --end-group
---start-group -lc -lcpp -lsemihost -letiss_crt0 --end-group
+--start-group -lc -lsemihost -letiss_crt0 --end-group
 
 *link:
 %(old_link) %:replace-outfile(-lgloss -lsemihost)
