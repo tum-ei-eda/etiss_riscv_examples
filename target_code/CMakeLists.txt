@@ -5,7 +5,7 @@ macro(add_executable_etiss TARGET)
 	add_dependencies(${TARGET} etiss_crt0)
 	target_link_libraries(${TARGET} PRIVATE etiss_crt0)
 	target_include_directories(${TARGET} PRIVATE
-		$<TARGET_PROPERTY:etiss_crt0,INTERFACE_INCLUDE_DIRECTORIES>
+		$<TARGET_PROPERTY:etiss_crt0,INCLUDE_DIRECTORIES>
 )
 	set(BIN_NAME ${TARGET})
 
