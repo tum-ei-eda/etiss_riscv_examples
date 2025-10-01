@@ -18,14 +18,12 @@ int _gettimeofday(struct timeval *tv, void *_)
     return 0;
 }
 
+#define ADP_Stopped_ApplicationExit 0x20026
+#include <machine/syscall.h>
+#include "semihost_syscall.h"
 #ifdef USE_SYS_EXIT_EXTENDED
 #include <sys/fcntl.h>
 #include <string.h>
-#include <machine/syscall.h>
-#include "semihost_syscall.h"
-#include "semihost_fdtable.h"
-
-#define ADP_Stopped_ApplicationExit 0x20026
 
 /* Semihosting feature magic numbers.  */
 #define NUM_SHFB_MAGIC                  4
@@ -46,7 +44,6 @@ int _close (int file);
 ssize_t _read (int file, void *ptr, size_t len);
 off_t _lseek (int file, off_t offset, int dir);
 int _fstat (int file, struct stat *st);
-// struct fdentry *__get_fdentry (int file);
 
 int
 _get_semihosting_exts (char* features, int offset, int num)
@@ -124,20 +121,21 @@ _has_ext_exit_extended (void)
 
   return supports_ext_exit_extended;
 }
+#endif  // USE_SYS_EXIT_EXTENDED
 
 /* Exit a program without cleaning up files.  */
 void
-_exit (int exit_status)
+__wrap_exit (int exit_status)
 {
-  // syscall_errno (SEMIHOST_exit, (long *) ADP_Stopped_ApplicationExit);
   long data_block[] = {ADP_Stopped_ApplicationExit, exit_status};
 #if __riscv_xlen == 32
-  // if (1)
+#ifdef USE_SYS_EXIT_EXTENDED
   if (_has_ext_exit_extended ())
   {
       syscall_errno (SEMIHOST_exit_extended, data_block);
   }
   else
+#endif  // USE_SYS_EXIT_EXTENDED
   {
       syscall_errno (SEMIHOST_exit, (long *) ADP_Stopped_ApplicationExit);
   }
@@ -146,5 +144,4 @@ _exit (int exit_status)
 #endif
   while (1);
 }
-#endif  // USE_SYS_EXIT_EXTENDED
 
