@@ -18,6 +18,9 @@ int _gettimeofday(struct timeval *tv, void *_)
     return 0;
 }
 
+#define weak_under_alias(name) \
+  extern __typeof (__wrap_##name) __wrap__##name __attribute__ ((weak, alias ("__wrap_"#name)))
+
 #define ADP_Stopped_ApplicationExit 0x20026
 #include <machine/syscall.h>
 #include "semihost_syscall.h"
@@ -144,4 +147,5 @@ __wrap_exit (int exit_status)
 #endif
   while (1);
 }
+weak_under_alias(exit);
 

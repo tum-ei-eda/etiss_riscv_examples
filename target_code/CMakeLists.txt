@@ -3,7 +3,7 @@ macro(add_executable_etiss TARGET)
 
 	add_executable(${TARGET} ${SRC_FILES})
 	add_dependencies(${TARGET} etiss_crt0)
-	target_link_libraries(${TARGET} PRIVATE etiss_crt0)
+	target_link_libraries(${TARGET} PRIVATE bsp)
 	target_include_directories(${TARGET} PRIVATE
 		$<TARGET_PROPERTY:etiss_crt0,INCLUDE_DIRECTORIES>
 )
