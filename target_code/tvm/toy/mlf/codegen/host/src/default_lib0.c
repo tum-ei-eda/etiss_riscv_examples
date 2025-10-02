@@ -3,27 +3,27 @@
 extern "C" {
 #endif
 __attribute__((section(".rodata.tvm"), ))
-static struct global_const_workspace {
-  int16_t fused_constant_9_let[81920] __attribute__((aligned(16))); // 163840 bytes, aligned offset: 0
-  int16_t fused_constant_let[81920] __attribute__((packed, aligned(16))); // 163840 bytes, aligned offset: 163840
-  int16_t fused_constant_8_let[16384] __attribute__((packed, aligned(16))); // 32768 bytes, aligned offset: 327680
-  int16_t fused_constant_7_let[16384] __attribute__((packed, aligned(16))); // 32768 bytes, aligned offset: 360448
-  int16_t fused_constant_6_let[16384] __attribute__((packed, aligned(16))); // 32768 bytes, aligned offset: 393216
-  int16_t fused_constant_3_let[16384] __attribute__((packed, aligned(16))); // 32768 bytes, aligned offset: 425984
-  int16_t fused_constant_2_let[16384] __attribute__((packed, aligned(16))); // 32768 bytes, aligned offset: 458752
-  int16_t fused_constant_1_let[16384] __attribute__((packed, aligned(16))); // 32768 bytes, aligned offset: 491520
-  int32_t fused_nn_contrib_dense_pack_constant_9_let[640] __attribute__((packed, aligned(16))); // 2560 bytes, aligned offset: 524288
-  int16_t fused_constant_5_let[1024] __attribute__((packed, aligned(16))); // 2048 bytes, aligned offset: 526848
-  int16_t fused_constant_4_let[1024] __attribute__((packed, aligned(16))); // 2048 bytes, aligned offset: 528896
-  int32_t fused_nn_contrib_dense_pack_constant_8_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 530944
-  int32_t fused_nn_contrib_dense_pack_constant_7_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 531456
-  int32_t fused_nn_contrib_dense_pack_constant_6_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 531968
-  int32_t fused_nn_contrib_dense_pack_constant_5_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 532480
-  int32_t fused_nn_contrib_dense_pack_constant_3_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 532992
-  int32_t fused_nn_contrib_dense_pack_constant_2_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 533504
-  int32_t fused_nn_contrib_dense_pack_constant_1_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 534016
-  int32_t fused_nn_contrib_dense_pack_constant_let[128] __attribute__((packed, aligned(16))); // 512 bytes, aligned offset: 534528
-  int32_t fused_nn_contrib_dense_pack_constant_4_let[8] __attribute__((packed, aligned(16))); // 32 bytes, aligned offset: 535040
+static const struct global_const_workspace {
+  int16_t fused_constant_9_let[81920] __attribute__((aligned(4))); // 163840 bytes, aligned offset: 0
+  int16_t fused_constant_let[81920] __attribute__((packed, aligned(4))); // 163840 bytes, aligned offset: 163840
+  int16_t fused_constant_8_let[16384] __attribute__((packed, aligned(4))); // 32768 bytes, aligned offset: 327680
+  int16_t fused_constant_7_let[16384] __attribute__((packed, aligned(4))); // 32768 bytes, aligned offset: 360448
+  int16_t fused_constant_6_let[16384] __attribute__((packed, aligned(4))); // 32768 bytes, aligned offset: 393216
+  int16_t fused_constant_3_let[16384] __attribute__((packed, aligned(4))); // 32768 bytes, aligned offset: 425984
+  int16_t fused_constant_2_let[16384] __attribute__((packed, aligned(4))); // 32768 bytes, aligned offset: 458752
+  int16_t fused_constant_1_let[16384] __attribute__((packed, aligned(4))); // 32768 bytes, aligned offset: 491520
+  int32_t fused_nn_contrib_dense_pack_constant_9_let[640] __attribute__((packed, aligned(4))); // 2560 bytes, aligned offset: 524288
+  int16_t fused_constant_5_let[1024] __attribute__((packed, aligned(4))); // 2048 bytes, aligned offset: 526848
+  int16_t fused_constant_4_let[1024] __attribute__((packed, aligned(4))); // 2048 bytes, aligned offset: 528896
+  int32_t fused_nn_contrib_dense_pack_constant_8_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 530944
+  int32_t fused_nn_contrib_dense_pack_constant_7_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 531456
+  int32_t fused_nn_contrib_dense_pack_constant_6_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 531968
+  int32_t fused_nn_contrib_dense_pack_constant_5_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 532480
+  int32_t fused_nn_contrib_dense_pack_constant_3_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 532992
+  int32_t fused_nn_contrib_dense_pack_constant_2_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 533504
+  int32_t fused_nn_contrib_dense_pack_constant_1_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 534016
+  int32_t fused_nn_contrib_dense_pack_constant_let[128] __attribute__((packed, aligned(4))); // 512 bytes, aligned offset: 534528
+  int32_t fused_nn_contrib_dense_pack_constant_4_let[8] __attribute__((packed, aligned(4))); // 32 bytes, aligned offset: 535040
 } global_const_workspace = {
   .fused_constant_9_let = {
     -0x0011, -0x0026, -0x0013, -0x0020, -0x0033, -0x0037, -0x0025, -0x0034, 
@@ -33299,11 +33299,11 @@ static struct global_const_workspace {
     +0x00002ac1, +0x00003156, +0x00002fdb, +0x00002fec, +0x000026ff, +0x00002c47, +0x00003621, +0x000027f9
   },
 };// of total size 535072 bytes
-__attribute__((section(".bss.noinit.tvm"), aligned(16)))
-static uint8_t global_workspace[1568];
+__attribute__((section(".bss.noinit.tvm"), aligned(4)))
+static uint8_t global_workspace[1408];
 #include <tvmgen_default.h>
 TVM_DLL int32_t tvmgen_default___tvm_main__(void* input_1,void* output0,uint8_t* global_const_workspace_0_var,uint8_t* global_workspace_1_var);
-int32_t tvmgen_default_run(struct tvmgen_default_inputs* inputs,struct tvmgen_default_outputs* outputs) {return tvmgen_default___tvm_main__(inputs->input_1,outputs->Identity,&global_const_workspace,&global_workspace);
+int32_t tvmgen_default_run(struct tvmgen_default_inputs* inputs,struct tvmgen_default_outputs* outputs) {return tvmgen_default___tvm_main__(inputs->input_1,outputs->Identity,((uint8_t*)&global_const_workspace),((uint8_t*)&global_workspace));
 }
 #ifdef __cplusplus
 }

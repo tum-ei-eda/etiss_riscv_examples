@@ -4,13 +4,13 @@
       "executors": [
         "aot"
       ],
-      "export_datetime": "2025-06-30 12:17:42Z",
+      "export_datetime": "2025-09-28 12:31:07Z",
       "external_dependencies": [
         {
           "short_name": "tvm_standalone_crt",
           "url": "./runtime",
           "url_type": "mlf_path",
-          "version_spec": "0.16.0"
+          "version_spec": "0.17.0"
         }
       ],
       "memory": {
@@ -55,20 +55,20 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_subtract_cast_mult_1c9b307ace4645e7_",
-              "workspace": [
-                {
-                  "device": 1,
-                  "workspace_size_bytes": 16
-                }
-              ]
-            },
-            {
               "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_7",
               "workspace": [
                 {
                   "device": 1,
                   "workspace_size_bytes": 0
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_subtract_cast_mult_1c9b307ace4645e7_",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 8
                 }
               ]
             },
@@ -86,7 +86,7 @@
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 16
+                  "workspace_size_bytes": 4
                 }
               ]
             },
@@ -131,7 +131,7 @@
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 16
+                  "workspace_size_bytes": 4
                 }
               ]
             },
@@ -176,7 +176,7 @@
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 16
+                  "workspace_size_bytes": 4
                 }
               ]
             },
@@ -199,7 +199,7 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_3",
+              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_21",
               "workspace": [
                 {
                   "device": 1,
@@ -208,7 +208,7 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_21",
+              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_3",
               "workspace": [
                 {
                   "device": 1,
@@ -307,16 +307,16 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_softmax_divide_round_add_clip_cast",
+              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_2",
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 48
+                  "workspace_size_bytes": 4
                 }
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_2",
+              "function_name": "tvmgen_default_fused_nn_softmax_divide_round_add_clip_cast",
               "workspace": [
                 {
                   "device": 1,
@@ -330,7 +330,7 @@
       "model_name": "default",
       "style": "full-model",
       "target": [
-        "c -keys=cpu -constants-byte-alignment=16 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=16"
+        "c -keys=cpu -constants-byte-alignment=4 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=4"
       ]
     }
   },

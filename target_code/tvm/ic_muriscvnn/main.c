@@ -10,17 +10,20 @@
 #include "tvm/runtime/crt/error_codes.h"
 #include "tvmgen_default.h"
 
-#define CHECK 0
 #ifndef CHECK
 #define CHECK 1
 #endif
 
-#define MAX_RUNS 1
 #ifndef MAX_RUNS
-#define MAX_RUNS 1000
+#define MAX_RUNS ic_data_sample_cnt
+#endif
+
+#ifndef MIN_RUNS
+#define MIN_RUNS 1
 #endif
 
 #define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
+#define MAX(X, Y) (((X) < (Y)) ? (Y) : (X))
 
 void TVMLogf(const char *msg, ...)
 {
@@ -47,14 +50,15 @@ TVM_DLL int TVMFuncRegisterGlobal(const char *name, TVMFunctionHandle f, int ove
 
 int run_test()
 {
-    for (size_t i = 0; i < MIN(ic_data_sample_cnt, MAX_RUNS); i++)
+    int8_t input_data_buf[ic_input_data_len[0]];
+    for (size_t i = 0; i < MAX(MIN(ic_data_sample_cnt, MAX_RUNS), MIN_RUNS); i++)
     {
-        int8_t *input_data = (int8_t *)ic_input_data[i];
-        // for (size_t j = 0; j < ic_input_data_len[i]; j++)
-        // {
-        //     input_data[j] += 128;
-        // }
-        struct tvmgen_default_inputs tvmgen_default_inputs = {input_data};
+        int8_t *input_data = (int8_t *)ic_input_data[i % ic_data_sample_cnt];
+        for (size_t j = 0; j < ic_input_data_len[i % ic_data_sample_cnt]; j++)
+        {
+            input_data_buf[j] = input_data[j] + 128;
+        }
+        struct tvmgen_default_inputs tvmgen_default_inputs = {&input_data_buf[0]};
         int8_t output_data[256] = {0}; // TODO(fabianpedd): Make this precise by using defines for the array sizes
         struct tvmgen_default_outputs tvmgen_default_outputs = {output_data};
         int ret_val = tvmgen_default_run(&tvmgen_default_inputs, &tvmgen_default_outputs);
@@ -73,14 +77,14 @@ int run_test()
             }
         }
 
-        if (top_index != ic_output_data_ref[i])
+        if (top_index != ic_output_data_ref[i % ic_data_sample_cnt])
         {
-            printf("ERROR: at #%d, top_index %d ic_output_data_ref %d \n", i, top_index, ic_output_data_ref[i]);
+            printf("ERROR: at #%d, top_index %d ic_output_data_ref %d \n", i, top_index, ic_output_data_ref[i % ic_data_sample_cnt]);
             return -1;
         }
         else
         {
-            printf("Sample #%d pass, top_index %d matches ref %d \n", i, top_index, ic_output_data_ref[i]);
+            printf("Sample #%d pass, top_index %d matches ref %d \n", i, top_index, ic_output_data_ref[i % ic_data_sample_cnt]);
         }
 #endif
     }

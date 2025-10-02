@@ -1,138 +1,143 @@
-// tvm target: c -keys=cpu -constants-byte-alignment=4 -workspace-byte-alignment=4
+// tvm target: c -keys=cpu -constants-byte-alignment=4 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=4
 #define TVM_EXPORTS
 #include "tvm/runtime/c_runtime_api.h"
 #include "tvm/runtime/c_backend_api.h"
 #include <math.h>
+#include <stdbool.h>
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_cmsis_nn_main_0(int8_t* input_1_int8_buffer_var, int8_t* constant_0_let, int32_t* constant_1_let, int32_t* constant_3_let, int32_t* constant_5_let, int8_t* sid_7_let, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
+TVM_DLL int32_t tvmgen_default___tvm_main__(int8_t* input_1_int8_buffer_var, int8_t* Identity_int8_buffer_var, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_cmsis_nn_main_2(int8_t* sid_7_let, int8_t* constant_6_let, int32_t* constant_7_let, int32_t* constant_9_let, int32_t* constant_11_let, int8_t* sid_14_let, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
+TVM_DLL int32_t tvmgen_default_cmsis_nn_main_0(int8_t*, int8_t*, int32_t*, int32_t*, int32_t*, int8_t*, uint8_t*, uint8_t*);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_cmsis_nn_main_3(int8_t* sid_14_let, int8_t* constant_12_let, int32_t* constant_13_let, int32_t* constant_15_let, int32_t* constant_17_let, int8_t* sid_21_let, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
+TVM_DLL int32_t tvmgen_default_cmsis_nn_main_2(int8_t*, int8_t*, int32_t*, int32_t*, int32_t*, int8_t*, uint8_t*, uint8_t*);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_cmsis_nn_main_1(int8_t* sid_7_let, int8_t* sid_21_let, int8_t* sid_22_let, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
+TVM_DLL int32_t tvmgen_default_cmsis_nn_main_3(int8_t*, int8_t*, int32_t*, int32_t*, int32_t*, int8_t*, uint8_t*, uint8_t*);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_cmsis_nn_main_5(int8_t* sid_22_let, int8_t* constant_18_let, int32_t* constant_19_let, int32_t* constant_21_let, int32_t* constant_23_let, int8_t* sid_29_let, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
+TVM_DLL int32_t tvmgen_default_cmsis_nn_main_1(int8_t*, int8_t*, int8_t*, uint8_t*, uint8_t*);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_cmsis_nn_main_7(int8_t* sid_22_let, int8_t* constant_24_let, int32_t* constant_25_let, int32_t* constant_27_let, int32_t* constant_29_let, int8_t* sid_36_let, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
+TVM_DLL int32_t tvmgen_default_cmsis_nn_main_5(int8_t*, int8_t*, int32_t*, int32_t*, int32_t*, int8_t*, uint8_t*, uint8_t*);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_cmsis_nn_main_8(int8_t* sid_36_let, int8_t* constant_30_let, int32_t* constant_31_let, int32_t* constant_33_let, int32_t* constant_35_let, int8_t* sid_43_let, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
+TVM_DLL int32_t tvmgen_default_cmsis_nn_main_7(int8_t*, int8_t*, int32_t*, int32_t*, int32_t*, int8_t*, uint8_t*, uint8_t*);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_cmsis_nn_main_6(int8_t* sid_29_let, int8_t* sid_43_let, int8_t* sid_44_let, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
+TVM_DLL int32_t tvmgen_default_cmsis_nn_main_8(int8_t*, int8_t*, int32_t*, int32_t*, int32_t*, int8_t*, uint8_t*, uint8_t*);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_cmsis_nn_main_10(int8_t* sid_44_let, int8_t* constant_36_let, int32_t* constant_37_let, int32_t* constant_39_let, int32_t* constant_41_let, int8_t* sid_51_let, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
+TVM_DLL int32_t tvmgen_default_cmsis_nn_main_6(int8_t*, int8_t*, int8_t*, uint8_t*, uint8_t*);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_cmsis_nn_main_12(int8_t* sid_44_let, int8_t* constant_42_let, int32_t* constant_43_let, int32_t* constant_45_let, int32_t* constant_47_let, int8_t* sid_58_let, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
+TVM_DLL int32_t tvmgen_default_cmsis_nn_main_10(int8_t*, int8_t*, int32_t*, int32_t*, int32_t*, int8_t*, uint8_t*, uint8_t*);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_cmsis_nn_main_13(int8_t* sid_58_let, int8_t* constant_48_let, int32_t* constant_49_let, int32_t* constant_51_let, int32_t* constant_53_let, int8_t* sid_65_let, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
+TVM_DLL int32_t tvmgen_default_cmsis_nn_main_12(int8_t*, int8_t*, int32_t*, int32_t*, int32_t*, int8_t*, uint8_t*, uint8_t*);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_cmsis_nn_main_11(int8_t* sid_51_let, int8_t* sid_65_let, int8_t* sid_66_let, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
+TVM_DLL int32_t tvmgen_default_cmsis_nn_main_13(int8_t*, int8_t*, int32_t*, int32_t*, int32_t*, int8_t*, uint8_t*, uint8_t*);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_cmsis_nn_main_15(int8_t* sid_66_let, int8_t* sid_67_let, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
+TVM_DLL int32_t tvmgen_default_cmsis_nn_main_11(int8_t*, int8_t*, int8_t*, uint8_t*, uint8_t*);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_cmsis_nn_main_16(int8_t* sid_67_let, int8_t* constant_54_let, int32_t* constant_55_let, int8_t* sid_70_let, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
+TVM_DLL int32_t tvmgen_default_cmsis_nn_main_15(int8_t*, int8_t*, uint8_t*, uint8_t*);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_cmsis_nn_main_17(int8_t* sid_70_let, int8_t* Identity_int8_buffer_var, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var);
+TVM_DLL int32_t tvmgen_default_cmsis_nn_main_16(int8_t*, int8_t*, int32_t*, int8_t*, uint8_t*, uint8_t*);
+#ifdef __cplusplus
+extern "C"
+#endif
+TVM_DLL int32_t tvmgen_default_cmsis_nn_main_17(int8_t*, int8_t*, uint8_t*, uint8_t*);
 #ifdef __cplusplus
 extern "C"
 #endif
 TVM_DLL int32_t tvmgen_default___tvm_main__(int8_t* input_1_int8_buffer_var, int8_t* Identity_int8_buffer_var, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var) {
-  void* constant_27_let = (&(global_const_workspace_0_var[82096]));
-  void* constant_24_let = (&(global_const_workspace_0_var[64512]));
-  void* constant_40_let = (&(global_const_workspace_0_var[80176]));
-  void* constant_21_let = (&(global_const_workspace_0_var[82736]));
-  void* constant_8_let = (&(global_const_workspace_0_var[83184]));
-  void* constant_14_let = (&(global_const_workspace_0_var[83760]));
-  void* constant_31_let = (&(global_const_workspace_0_var[81712]));
-  void* constant_53_let = (&(global_const_workspace_0_var[77360]));
-  void* constant_20_let = (&(global_const_workspace_0_var[82864]));
-  void* constant_19_let = (&(global_const_workspace_0_var[82992]));
-  void* constant_18_let = (&(global_const_workspace_0_var[76416]));
-  void* constant_12_let = (&(global_const_workspace_0_var[71424]));
-  void* constant_46_let = (&(global_const_workspace_0_var[78896]));
-  void* constant_51_let = (&(global_const_workspace_0_var[77872]));
-  void* constant_16_let = (&(global_const_workspace_0_var[83632]));
-  void* constant_29_let = (&(global_const_workspace_0_var[81840]));
-  void* constant_15_let = (&(global_const_workspace_0_var[83696]));
-  void* constant_47_let = (&(global_const_workspace_0_var[78640]));
-  void* constant_0_let = (&(global_const_workspace_0_var[76928]));
-  void* constant_36_let = (&(global_const_workspace_0_var[73728]));
-  void* constant_52_let = (&(global_const_workspace_0_var[77616]));
-  void* constant_26_let = (&(global_const_workspace_0_var[82224]));
-  void* constant_10_let = (&(global_const_workspace_0_var[83952]));
-  void* constant_2_let = (&(global_const_workspace_0_var[83504]));
-  void* constant_22_let = (&(global_const_workspace_0_var[82608]));
-  void* constant_25_let = (&(global_const_workspace_0_var[82352]));
-  void* constant_6_let = (&(global_const_workspace_0_var[69120]));
   void* constant_28_let = (&(global_const_workspace_0_var[81968]));
-  void* constant_3_let = (&(global_const_workspace_0_var[83440]));
-  void* constant_1_let = (&(global_const_workspace_0_var[84016]));
-  void* constant_38_let = (&(global_const_workspace_0_var[80688]));
-  void* constant_4_let = (&(global_const_workspace_0_var[83376]));
+  void* constant_12_let = (&(global_const_workspace_0_var[71424]));
+  void* constant_44_let = (&(global_const_workspace_0_var[79408]));
+  void* constant_20_let = (&(global_const_workspace_0_var[82864]));
   void* constant_17_let = (&(global_const_workspace_0_var[83568]));
-  void* constant_5_let = (&(global_const_workspace_0_var[83312]));
-  void* constant_45_let = (&(global_const_workspace_0_var[79152]));
-  void* constant_9_let = (&(global_const_workspace_0_var[83120]));
-  void* constant_23_let = (&(global_const_workspace_0_var[82480]));
+  void* constant_24_let = (&(global_const_workspace_0_var[64512]));
   void* constant_7_let = (&(global_const_workspace_0_var[83248]));
-  void* constant_11_let = (&(global_const_workspace_0_var[83888]));
+  void* constant_23_let = (&(global_const_workspace_0_var[82480]));
+  void* constant_2_let = (&(global_const_workspace_0_var[83504]));
+  void* constant_15_let = (&(global_const_workspace_0_var[83696]));
+  void* constant_21_let = (&(global_const_workspace_0_var[82736]));
+  void* constant_52_let = (&(global_const_workspace_0_var[77616]));
+  void* constant_19_let = (&(global_const_workspace_0_var[82992]));
+  void* constant_25_let = (&(global_const_workspace_0_var[82352]));
+  void* constant_14_let = (&(global_const_workspace_0_var[83760]));
   void* constant_13_let = (&(global_const_workspace_0_var[83824]));
-  void* constant_30_let = (&(global_const_workspace_0_var[55296]));
-  void* constant_39_let = (&(global_const_workspace_0_var[80432]));
-  void* constant_41_let = (&(global_const_workspace_0_var[79920]));
-  void* constant_32_let = (&(global_const_workspace_0_var[81584]));
+  void* constant_45_let = (&(global_const_workspace_0_var[79152]));
+  void* constant_53_let = (&(global_const_workspace_0_var[77360]));
+  void* constant_0_let = (&(global_const_workspace_0_var[76928]));
+  void* constant_1_let = (&(global_const_workspace_0_var[84016]));
+  void* constant_5_let = (&(global_const_workspace_0_var[83312]));
+  void* constant_22_let = (&(global_const_workspace_0_var[82608]));
+  void* constant_48_let = (&(global_const_workspace_0_var[0]));
+  void* constant_3_let = (&(global_const_workspace_0_var[83440]));
+  void* constant_8_let = (&(global_const_workspace_0_var[83184]));
+  void* constant_36_let = (&(global_const_workspace_0_var[73728]));
+  void* constant_16_let = (&(global_const_workspace_0_var[83632]));
+  void* constant_4_let = (&(global_const_workspace_0_var[83376]));
+  void* constant_49_let = (&(global_const_workspace_0_var[78384]));
+  void* constant_6_let = (&(global_const_workspace_0_var[69120]));
   void* constant_34_let = (&(global_const_workspace_0_var[81328]));
+  void* constant_18_let = (&(global_const_workspace_0_var[76416]));
+  void* constant_47_let = (&(global_const_workspace_0_var[78640]));
+  void* constant_27_let = (&(global_const_workspace_0_var[82096]));
+  void* constant_51_let = (&(global_const_workspace_0_var[77872]));
+  void* constant_10_let = (&(global_const_workspace_0_var[83952]));
+  void* constant_42_let = (&(global_const_workspace_0_var[36864]));
+  void* constant_55_let = (&(global_const_workspace_0_var[84080]));
+  void* constant_11_let = (&(global_const_workspace_0_var[83888]));
+  void* constant_26_let = (&(global_const_workspace_0_var[82224]));
+  void* constant_50_let = (&(global_const_workspace_0_var[78128]));
+  void* constant_9_let = (&(global_const_workspace_0_var[83120]));
+  void* constant_29_let = (&(global_const_workspace_0_var[81840]));
+  void* constant_30_let = (&(global_const_workspace_0_var[55296]));
+  void* constant_31_let = (&(global_const_workspace_0_var[81712]));
+  void* constant_32_let = (&(global_const_workspace_0_var[81584]));
   void* constant_33_let = (&(global_const_workspace_0_var[81456]));
   void* constant_35_let = (&(global_const_workspace_0_var[81200]));
-  void* constant_37_let = (&(global_const_workspace_0_var[80944]));
-  void* constant_42_let = (&(global_const_workspace_0_var[36864]));
-  void* constant_43_let = (&(global_const_workspace_0_var[79664]));
-  void* constant_44_let = (&(global_const_workspace_0_var[79408]));
-  void* constant_48_let = (&(global_const_workspace_0_var[0]));
-  void* constant_49_let = (&(global_const_workspace_0_var[78384]));
-  void* constant_50_let = (&(global_const_workspace_0_var[78128]));
   void* constant_54_let = (&(global_const_workspace_0_var[75776]));
-  void* constant_55_let = (&(global_const_workspace_0_var[84080]));
-  void* sid_58_let = (&(global_workspace_1_var[4096]));
-  void* sid_44_let = (&(global_workspace_1_var[8192]));
+  void* constant_37_let = (&(global_const_workspace_0_var[80944]));
+  void* constant_38_let = (&(global_const_workspace_0_var[80688]));
+  void* constant_39_let = (&(global_const_workspace_0_var[80432]));
+  void* constant_40_let = (&(global_const_workspace_0_var[80176]));
+  void* constant_41_let = (&(global_const_workspace_0_var[79920]));
+  void* constant_43_let = (&(global_const_workspace_0_var[79664]));
+  void* constant_46_let = (&(global_const_workspace_0_var[78896]));
   void* sid_51_let = (&(global_workspace_1_var[0]));
-  void* sid_36_let = (&(global_workspace_1_var[8192]));
   void* sid_7_let = (&(global_workspace_1_var[0]));
-  void* sid_14_let = (&(global_workspace_1_var[16384]));
-  void* sid_21_let = (&(global_workspace_1_var[32768]));
-  void* sid_22_let = (&(global_workspace_1_var[16384]));
-  void* sid_29_let = (&(global_workspace_1_var[0]));
   void* sid_43_let = (&(global_workspace_1_var[16384]));
+  void* sid_14_let = (&(global_workspace_1_var[16384]));
+  void* sid_36_let = (&(global_workspace_1_var[8192]));
+  void* sid_29_let = (&(global_workspace_1_var[0]));
+  void* sid_21_let = (&(global_workspace_1_var[32768]));
+  void* sid_44_let = (&(global_workspace_1_var[8192]));
+  void* sid_22_let = (&(global_workspace_1_var[16384]));
+  void* sid_58_let = (&(global_workspace_1_var[4096]));
   void* sid_65_let = (&(global_workspace_1_var[8192]));
   void* sid_66_let = (&(global_workspace_1_var[4096]));
   void* sid_67_let = (&(global_workspace_1_var[0]));

@@ -2,6 +2,19 @@ project(tflm_ic)
 
 add_executable_etiss(${PROJECT_NAME})
 
+if(DEFINED MIN_RUNS)
+	target_compile_definitions(${PROJECT_NAME} PRIVATE -DMIN_RUNS=${MIN_RUNS})
+endif()
+
+if(DEFINED MAX_RUNS)
+	target_compile_definitions(${PROJECT_NAME} PRIVATE -DMAX_RUNS=${MAX_RUNS})
+endif()
+
+if(CHECK)
+	target_compile_definitions(${PROJECT_NAME} PRIVATE -DCHECK=1)
+else()
+	target_compile_definitions(${PROJECT_NAME} PRIVATE -DCHECK=0)
+endif()
 
 # Needed to run TensorFlow code with RISC-V toolchain
 

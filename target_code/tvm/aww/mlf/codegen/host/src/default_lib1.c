@@ -1,77 +1,65 @@
-// tvm target: c -keys=cpu -constants-byte-alignment=16 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=16
+// tvm target: c -keys=cpu -constants-byte-alignment=4 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=4
 #define TVM_EXPORTS
 #include "tvm/runtime/c_runtime_api.h"
 #include "tvm/runtime/c_backend_api.h"
 #include <math.h>
 #include <stdbool.h>
-#include <stdlib.h>
-static int argsort_cmpfunc ( const void *pa, const void *pb ) 
-{
-    const float *a = pa;
-    const float *b = pb;
-    if(a[0] > b[0]) return -1;
-    if(a[0] == b[0]) return 0;
-    return 1;
-}  
-
-#define ARGSORT_CMPFUNC() argsort_cmpfunc
-
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_cast_subtract(int8_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_2_var, uint8_t* restrict global_workspace_3_var);
+TVM_DLL int32_t tvmgen_default_fused_cast_subtract(int8_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_2_var, uint8_t* global_workspace_3_var);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_avg_pool2d_cast(int32_t* restrict p0, int8_t* restrict T_cast, uint8_t* restrict global_const_workspace_22_var, uint8_t* restrict global_workspace_23_var);
+TVM_DLL int32_t tvmgen_default_fused_nn_avg_pool2d_cast(int32_t* p0, int8_t* T_cast, uint8_t* global_const_workspace_22_var, uint8_t* global_workspace_23_var);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_subtract_cast_mult_1c9b307ace4645e7_(int16_t* restrict p0, float* restrict T_multiply, uint8_t* restrict global_const_workspace_26_var, uint8_t* restrict global_workspace_27_var);
+TVM_DLL int32_t tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_subtract_cast_mult_1c9b307ace4645e7_(int16_t* p0, float* T_multiply, uint8_t* global_const_workspace_26_var, uint8_t* global_workspace_27_var);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip(int16_t* restrict p0, int32_t* restrict compute, uint8_t* restrict global_const_workspace_20_var, uint8_t* restrict global_workspace_21_var);
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip(int16_t* p0, int32_t* compute, uint8_t* global_const_workspace_20_var, uint8_t* global_workspace_21_var);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_4_var, uint8_t* restrict global_workspace_5_var);
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_4_var, uint8_t* global_workspace_5_var);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_1(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_6_var, uint8_t* restrict global_workspace_7_var);
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_1(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_6_var, uint8_t* global_workspace_7_var);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_2(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_8_var, uint8_t* restrict global_workspace_9_var);
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_2(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_8_var, uint8_t* global_workspace_9_var);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_3(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_10_var, uint8_t* restrict global_workspace_11_var);
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_3(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_10_var, uint8_t* global_workspace_11_var);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_4(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_12_var, uint8_t* restrict global_workspace_13_var);
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_4(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_12_var, uint8_t* global_workspace_13_var);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_5(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_14_var, uint8_t* restrict global_workspace_15_var);
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_5(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_14_var, uint8_t* global_workspace_15_var);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_6(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_16_var, uint8_t* restrict global_workspace_17_var);
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_6(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_16_var, uint8_t* global_workspace_17_var);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_7(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_18_var, uint8_t* restrict global_workspace_19_var);
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_7(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_18_var, uint8_t* global_workspace_19_var);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_softmax_divide_round_add_clip_cast(float* restrict p0, int8_t* restrict T_cast, uint8_t* restrict global_const_workspace_28_var, uint8_t* restrict global_workspace_29_var);
+TVM_DLL int32_t tvmgen_default_fused_nn_softmax_divide_round_add_clip_cast(float* p0, int8_t* T_cast, uint8_t* global_const_workspace_28_var, uint8_t* global_workspace_29_var);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_reshape_cast_subtract(int8_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_24_var, uint8_t* restrict global_workspace_25_var);
+TVM_DLL int32_t tvmgen_default_fused_reshape_cast_subtract(int8_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_24_var, uint8_t* global_workspace_25_var);
 #ifdef __cplusplus
 extern "C"
 #endif
@@ -87,11 +75,11 @@ TVM_DLL float roundf(float);
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_cast_subtract(int8_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_2_var, uint8_t* restrict global_workspace_3_var) {
+TVM_DLL int32_t tvmgen_default_fused_cast_subtract(int8_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_2_var, uint8_t* global_workspace_3_var) {
   for (int32_t ax0_ax1_fused = 0; ax0_ax1_fused < 49; ++ax0_ax1_fused) {
     for (int32_t ax2 = 0; ax2 < 10; ++ax2) {
       int32_t cse_var_1 = ((ax0_ax1_fused * 10) + ax2);
-      T_subtract[cse_var_1] = (((int16_t)p0[cse_var_1]) - (int16_t)87);
+      T_subtract[cse_var_1] = (((int16_t)p0[cse_var_1]) - (int16_t)83);
     }
   }
   return 0;
@@ -100,7 +88,7 @@ TVM_DLL int32_t tvmgen_default_fused_cast_subtract(int8_t* restrict p0, int16_t*
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_avg_pool2d_cast(int32_t* restrict p0, int8_t* restrict T_cast, uint8_t* restrict global_const_workspace_22_var, uint8_t* restrict global_workspace_23_var) {
+TVM_DLL int32_t tvmgen_default_fused_nn_avg_pool2d_cast(int32_t* p0, int8_t* T_cast, uint8_t* global_const_workspace_22_var, uint8_t* global_workspace_23_var) {
   int32_t pool_sum[64];
   for (int32_t ax3_init = 0; ax3_init < 64; ++ax3_init) {
     pool_sum[ax3_init] = 0;
@@ -119,7 +107,7 @@ TVM_DLL int32_t tvmgen_default_fused_nn_avg_pool2d_cast(int32_t* restrict p0, in
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_subtract_cast_mult_1c9b307ace4645e7_(int16_t* restrict p0, float* restrict T_multiply, uint8_t* restrict global_const_workspace_26_var, uint8_t* restrict global_workspace_27_var) {
+TVM_DLL int32_t tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_subtract_cast_mult_1c9b307ace4645e7_(int16_t* p0, float* T_multiply, uint8_t* global_const_workspace_26_var, uint8_t* global_workspace_27_var) {
   void* fused_nn_contrib_dense_pack_constant_let = (&(global_const_workspace_26_var[53248]));
   void* fused_constant_9_let = (&(global_const_workspace_26_var[37888]));
   for (int32_t ax1_outer_ax0_outer_fused = 0; ax1_outer_ax0_outer_fused < 2; ++ax1_outer_ax0_outer_fused) {
@@ -134,9 +122,9 @@ TVM_DLL int32_t tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multi
     }
     for (int32_t ax1_inner_inner = 0; ax1_inner_inner < 6; ++ax1_inner_inner) {
       int32_t cse_var_1 = ((ax1_outer_ax0_outer_fused * 6) + ax1_inner_inner);
-      int32_t v_ = ((int32_t)(((((0 != 0) ? (((int64_t)(compute_global[ax1_inner_inner] + ((int32_t*)fused_nn_contrib_dense_pack_constant_let)[cse_var_1])) << ((int64_t)0)) : ((int64_t)(compute_global[ax1_inner_inner] + ((int32_t*)fused_nn_contrib_dense_pack_constant_let)[cse_var_1]))) * (int64_t)1617124365) + ((int64_t)1 << ((int64_t)((7 + 31) - 1)))) >> ((int64_t)(7 + 31)))) + 33;
+      int32_t v_ = ((int32_t)(((((0 != 0) ? (((int64_t)(compute_global[ax1_inner_inner] + ((int32_t*)fused_nn_contrib_dense_pack_constant_let)[cse_var_1])) << ((int64_t)0)) : ((int64_t)(compute_global[ax1_inner_inner] + ((int32_t*)fused_nn_contrib_dense_pack_constant_let)[cse_var_1]))) * (int64_t)1278221461) + ((int64_t)1 << ((int64_t)((7 + 31) - 1)))) >> ((int64_t)(7 + 31)))) + 14;
       int32_t v__1 = (v_) < (127) ? (v_) : (127);
-      T_multiply[cse_var_1] = (((float)(((v__1) > (-128) ? (v__1) : (-128)) - 33)) * 1.421776e-01f);
+      T_multiply[cse_var_1] = (((float)(((v__1) > (-128) ? (v__1) : (-128)) - 14)) * 1.446925e-01f);
     }
   }
   return 0;
@@ -145,7 +133,7 @@ TVM_DLL int32_t tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multi
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip(int16_t* restrict p0, int32_t* restrict compute, uint8_t* restrict global_const_workspace_20_var, uint8_t* restrict global_workspace_21_var) {
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip(int16_t* p0, int32_t* compute, uint8_t* global_const_workspace_20_var, uint8_t* global_workspace_21_var) {
   void* fused_nn_conv2d_add_constant_26_let = (&(global_const_workspace_20_var[48128]));
   void* fused_nn_conv2d_add_constant_25_let = (&(global_const_workspace_20_var[48384]));
   void* fused_nn_conv2d_add_constant_24_let = (&(global_const_workspace_20_var[48640]));
@@ -180,7 +168,7 @@ TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_4_var, uint8_t* restrict global_workspace_5_var) {
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_4_var, uint8_t* global_workspace_5_var) {
   void* fused_nn_conv2d_add_constant_2_let = (&(global_const_workspace_4_var[49920]));
   void* fused_nn_conv2d_add_constant_1_let = (&(global_const_workspace_4_var[52736]));
   void* fused_nn_conv2d_add_constant_let = (&(global_const_workspace_4_var[52992]));
@@ -220,7 +208,7 @@ TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_1(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_6_var, uint8_t* restrict global_workspace_7_var) {
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_1(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_6_var, uint8_t* global_workspace_7_var) {
   void* fused_nn_conv2d_add_constant_5_let = (&(global_const_workspace_6_var[47360]));
   void* fused_nn_conv2d_add_constant_4_let = (&(global_const_workspace_6_var[47616]));
   void* fused_nn_conv2d_add_constant_3_let = (&(global_const_workspace_6_var[47872]));
@@ -313,7 +301,7 @@ TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_2(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_8_var, uint8_t* restrict global_workspace_9_var) {
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_2(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_8_var, uint8_t* global_workspace_9_var) {
   void* fused_nn_conv2d_add_constant_8_let = (&(global_const_workspace_8_var[46592]));
   void* fused_nn_conv2d_add_constant_7_let = (&(global_const_workspace_8_var[46848]));
   void* fused_nn_conv2d_add_constant_6_let = (&(global_const_workspace_8_var[47104]));
@@ -348,7 +336,7 @@ TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_3(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_10_var, uint8_t* restrict global_workspace_11_var) {
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_3(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_10_var, uint8_t* global_workspace_11_var) {
   void* fused_nn_conv2d_add_constant_11_let = (&(global_const_workspace_10_var[52224]));
   void* fused_nn_conv2d_add_constant_10_let = (&(global_const_workspace_10_var[52480]));
   void* fused_nn_conv2d_add_constant_9_let = (&(global_const_workspace_10_var[46336]));
@@ -441,7 +429,7 @@ TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_4(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_12_var, uint8_t* restrict global_workspace_13_var) {
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_4(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_12_var, uint8_t* global_workspace_13_var) {
   void* fused_nn_conv2d_add_constant_14_let = (&(global_const_workspace_12_var[51456]));
   void* fused_nn_conv2d_add_constant_13_let = (&(global_const_workspace_12_var[51712]));
   void* fused_nn_conv2d_add_constant_12_let = (&(global_const_workspace_12_var[51968]));
@@ -476,7 +464,7 @@ TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_5(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_14_var, uint8_t* restrict global_workspace_15_var) {
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_5(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_14_var, uint8_t* global_workspace_15_var) {
   void* fused_nn_conv2d_add_constant_17_let = (&(global_const_workspace_14_var[50688]));
   void* fused_nn_conv2d_add_constant_16_let = (&(global_const_workspace_14_var[50944]));
   void* fused_nn_conv2d_add_constant_15_let = (&(global_const_workspace_14_var[51200]));
@@ -569,7 +557,7 @@ TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_6(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_16_var, uint8_t* restrict global_workspace_17_var) {
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_6(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_16_var, uint8_t* global_workspace_17_var) {
   void* fused_nn_conv2d_add_constant_20_let = (&(global_const_workspace_16_var[49664]));
   void* fused_nn_conv2d_add_constant_19_let = (&(global_const_workspace_16_var[50176]));
   void* fused_nn_conv2d_add_constant_18_let = (&(global_const_workspace_16_var[50432]));
@@ -604,7 +592,7 @@ TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_7(int16_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_18_var, uint8_t* restrict global_workspace_19_var) {
+TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis_add_clip_cast_subtract_7(int16_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_18_var, uint8_t* global_workspace_19_var) {
   void* fused_nn_conv2d_add_constant_23_let = (&(global_const_workspace_18_var[48896]));
   void* fused_nn_conv2d_add_constant_22_let = (&(global_const_workspace_18_var[49152]));
   void* fused_nn_conv2d_add_constant_21_let = (&(global_const_workspace_18_var[49408]));
@@ -697,7 +685,7 @@ TVM_DLL int32_t tvmgen_default_fused_nn_conv2d_add_fixed_point_multiply_per_axis
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_nn_softmax_divide_round_add_clip_cast(float* restrict p0, int8_t* restrict T_cast, uint8_t* restrict global_const_workspace_28_var, uint8_t* restrict global_workspace_29_var) {
+TVM_DLL int32_t tvmgen_default_fused_nn_softmax_divide_round_add_clip_cast(float* p0, int8_t* T_cast, uint8_t* global_const_workspace_28_var, uint8_t* global_workspace_29_var) {
   float T_softmax_maxelem[1];
   float T_softmax_exp[12];
   float T_softmax_expsum[1];
@@ -728,7 +716,7 @@ TVM_DLL int32_t tvmgen_default_fused_nn_softmax_divide_round_add_clip_cast(float
 #ifdef __cplusplus
 extern "C"
 #endif
-TVM_DLL int32_t tvmgen_default_fused_reshape_cast_subtract(int8_t* restrict p0, int16_t* restrict T_subtract, uint8_t* restrict global_const_workspace_24_var, uint8_t* restrict global_workspace_25_var) {
+TVM_DLL int32_t tvmgen_default_fused_reshape_cast_subtract(int8_t* p0, int16_t* T_subtract, uint8_t* global_const_workspace_24_var, uint8_t* global_workspace_25_var) {
   for (int32_t ax1_outer = 0; ax1_outer < 4; ++ax1_outer) {
     for (int32_t ax1_inner = 0; ax1_inner < 16; ++ax1_inner) {
       int32_t cse_var_1 = ((ax1_outer * 16) + ax1_inner);
@@ -743,15 +731,15 @@ extern "C"
 #endif
 TVM_DLL int32_t tvmgen_default___tvm_main__(int8_t* input_1_buffer_var, int8_t* Identity_buffer_var, uint8_t* global_const_workspace_0_var, uint8_t* global_workspace_1_var) {
   void* sid_6_let = (&(global_workspace_1_var[0]));
-  void* sid_4_let = (&(global_workspace_1_var[0]));
-  void* sid_9_let = (&(global_workspace_1_var[0]));
-  void* sid_10_let = (&(global_workspace_1_var[0]));
-  void* sid_2_let = (&(global_workspace_1_var[0]));
   void* sid_5_let = (&(global_workspace_1_var[0]));
-  void* sid_3_let = (&(global_workspace_1_var[0]));
-  void* sid_1_let = (&(global_workspace_1_var[0]));
   void* sid_7_let = (&(global_workspace_1_var[0]));
+  void* sid_9_let = (&(global_workspace_1_var[0]));
+  void* sid_4_let = (&(global_workspace_1_var[0]));
+  void* sid_3_let = (&(global_workspace_1_var[0]));
+  void* sid_2_let = (&(global_workspace_1_var[0]));
+  void* sid_1_let = (&(global_workspace_1_var[0]));
   void* sid_8_let = (&(global_workspace_1_var[0]));
+  void* sid_10_let = (&(global_workspace_1_var[0]));
   void* sid_11_let = (&(global_workspace_1_var[128]));
   void* sid_12_let = (&(global_workspace_1_var[0]));
   void* sid_13_let = (&(global_workspace_1_var[128]));

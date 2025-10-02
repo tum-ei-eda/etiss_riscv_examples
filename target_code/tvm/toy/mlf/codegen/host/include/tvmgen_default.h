@@ -9,11 +9,11 @@ extern "C" {
 /*!
  * \brief Input tensor input_1 size (in bytes) for TVM module "default" 
  */
-#define TVMGEN_DEFAULT_INPUT_1_SIZE 40938336
+#define TVMGEN_DEFAULT_INPUT_1_SIZE 640
 /*!
  * \brief Output tensor Identity size (in bytes) for TVM module "default" 
  */
-#define TVMGEN_DEFAULT_IDENTITY_SIZE 40747632
+#define TVMGEN_DEFAULT_IDENTITY_SIZE 640
 /*!
  * \brief Input tensor pointers for TVM module "default" 
  */
@@ -40,7 +40,7 @@ int32_t tvmgen_default_run(
 /*!
  * \brief Workspace size for TVM module "default" 
  */
-#define TVMGEN_DEFAULT_WORKSPACE_SIZE 1568
+#define TVMGEN_DEFAULT_WORKSPACE_SIZE 1952
 
 #ifdef __cplusplus
 }

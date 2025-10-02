@@ -4,13 +4,13 @@
       "executors": [
         "aot"
       ],
-      "export_datetime": "2023-11-08 10:09:50Z",
+      "export_datetime": "2025-09-28 12:25:25Z",
       "external_dependencies": [
         {
           "short_name": "tvm_standalone_crt",
           "url": "./runtime",
           "url_type": "mlf_path",
-          "version_spec": "0.11.1"
+          "version_spec": "0.17.0"
         }
       ],
       "memory": {
@@ -27,57 +27,21 @@
               },
               "io_size_bytes": 5656,
               "outputs": {
-                "output": {
+                "Identity": {
                   "dtype": "int8",
                   "size": 640
                 }
               },
-              "workspace_size_bytes": 1568
+              "workspace_size_bytes": 1952
             }
           ],
           "operator_functions": [
-            {
-              "function_name": "tvmgen_default_fused_reshape_cast_subtract_2",
-              "workspace": [
-                {
-                  "device": 1,
-                  "workspace_size_bytes": 0
-                }
-              ]
-            },
             {
               "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast_3",
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 0
-                }
-              ]
-            },
-            {
-              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast_8",
-              "workspace": [
-                {
-                  "device": 1,
-                  "workspace_size_bytes": 0
-                }
-              ]
-            },
-            {
-              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast_6",
-              "workspace": [
-                {
-                  "device": 1,
-                  "workspace_size_bytes": 0
-                }
-              ]
-            },
-            {
-              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast",
-              "workspace": [
-                {
-                  "device": 1,
-                  "workspace_size_bytes": 0
+                  "workspace_size_bytes": 160
                 }
               ]
             },
@@ -86,7 +50,34 @@
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 0
+                  "workspace_size_bytes": 160
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 160
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast_5",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 160
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast_9",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 544
                 }
               ]
             },
@@ -100,20 +91,29 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast_5",
+              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast_8",
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 0
+                  "workspace_size_bytes": 160
                 }
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast_9",
+              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast_6",
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 0
+                  "workspace_size_bytes": 160
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast_2",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 160
                 }
               ]
             },
@@ -127,7 +127,16 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast_2",
+              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast_4",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 32
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_fused_reshape_cast_subtract_2",
               "workspace": [
                 {
                   "device": 1,
@@ -140,16 +149,7 @@
               "workspace": [
                 {
                   "device": 1,
-                  "workspace_size_bytes": 0
-                }
-              ]
-            },
-            {
-              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack_add_fixed_point_multiply_add_clip_cast_4",
-              "workspace": [
-                {
-                  "device": 1,
-                  "workspace_size_bytes": 0
+                  "workspace_size_bytes": 160
                 }
               ]
             }
@@ -159,7 +159,7 @@
       "model_name": "default",
       "style": "full-model",
       "target": [
-        "c -keys=cpu -constants-byte-alignment=4 -workspace-byte-alignment=4"
+        "c -keys=cpu -constants-byte-alignment=4 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=4"
       ]
     }
   },

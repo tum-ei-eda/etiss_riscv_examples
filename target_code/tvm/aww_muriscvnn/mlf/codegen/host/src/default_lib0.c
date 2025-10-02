@@ -3,63 +3,63 @@
 extern "C" {
 #endif
 __attribute__((section(".rodata.tvm"), ))
-static struct global_const_workspace {
-  int8_t constant_48_let[4096] __attribute__((aligned(16))); // 4096 bytes, aligned offset: 0
-  int8_t constant_36_let[4096] __attribute__((packed, aligned(16))); // 4096 bytes, aligned offset: 4096
-  int8_t constant_24_let[4096] __attribute__((packed, aligned(16))); // 4096 bytes, aligned offset: 8192
-  int8_t constant_12_let[4096] __attribute__((packed, aligned(16))); // 4096 bytes, aligned offset: 12288
-  int8_t constant_0_let[2560] __attribute__((packed, aligned(16))); // 2560 bytes, aligned offset: 16384
-  int8_t constant_54_let[768] __attribute__((packed, aligned(16))); // 768 bytes, aligned offset: 18944
-  int8_t constant_6_let[576] __attribute__((packed, aligned(16))); // 576 bytes, aligned offset: 19712
-  int8_t constant_42_let[576] __attribute__((packed, aligned(16))); // 576 bytes, aligned offset: 20288
-  int8_t constant_30_let[576] __attribute__((packed, aligned(16))); // 576 bytes, aligned offset: 20864
-  int8_t constant_18_let[576] __attribute__((packed, aligned(16))); // 576 bytes, aligned offset: 21440
-  int32_t constant_9_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 22016
-  float constant_8_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 22272
-  int32_t constant_7_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 22528
-  int32_t constant_53_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 22784
-  float constant_52_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 23040
-  int32_t constant_51_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 23296
-  float constant_50_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 23552
-  int32_t constant_5_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 23808
-  int32_t constant_49_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 24064
-  int32_t constant_47_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 24320
-  float constant_46_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 24576
-  int32_t constant_45_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 24832
-  float constant_44_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 25088
-  int32_t constant_43_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 25344
-  int32_t constant_41_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 25600
-  float constant_40_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 25856
-  float constant_4_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 26112
-  int32_t constant_39_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 26368
-  float constant_38_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 26624
-  int32_t constant_37_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 26880
-  int32_t constant_35_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 27136
-  float constant_34_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 27392
-  int32_t constant_33_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 27648
-  float constant_32_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 27904
-  int32_t constant_31_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 28160
-  int32_t constant_3_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 28416
-  int32_t constant_29_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 28672
-  float constant_28_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 28928
-  int32_t constant_27_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 29184
-  float constant_26_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 29440
-  int32_t constant_25_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 29696
-  int32_t constant_23_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 29952
-  float constant_22_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 30208
-  int32_t constant_21_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 30464
-  float constant_20_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 30720
-  float constant_2_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 30976
-  int32_t constant_19_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 31232
-  int32_t constant_17_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 31488
-  float constant_16_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 31744
-  int32_t constant_15_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 32000
-  float constant_14_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 32256
-  int32_t constant_13_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 32512
-  int32_t constant_11_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 32768
-  float constant_10_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 33024
-  int32_t constant_1_let[64] __attribute__((packed, aligned(16))); // 256 bytes, aligned offset: 33280
-  int32_t constant_55_let[12] __attribute__((packed, aligned(16))); // 48 bytes, aligned offset: 33536
+static const struct global_const_workspace {
+  int8_t constant_48_let[4096] __attribute__((aligned(4))); // 4096 bytes, aligned offset: 0
+  int8_t constant_36_let[4096] __attribute__((packed, aligned(4))); // 4096 bytes, aligned offset: 4096
+  int8_t constant_24_let[4096] __attribute__((packed, aligned(4))); // 4096 bytes, aligned offset: 8192
+  int8_t constant_12_let[4096] __attribute__((packed, aligned(4))); // 4096 bytes, aligned offset: 12288
+  int8_t constant_0_let[2560] __attribute__((packed, aligned(4))); // 2560 bytes, aligned offset: 16384
+  int8_t constant_54_let[768] __attribute__((packed, aligned(4))); // 768 bytes, aligned offset: 18944
+  int8_t constant_6_let[576] __attribute__((packed, aligned(4))); // 576 bytes, aligned offset: 19712
+  int8_t constant_42_let[576] __attribute__((packed, aligned(4))); // 576 bytes, aligned offset: 20288
+  int8_t constant_30_let[576] __attribute__((packed, aligned(4))); // 576 bytes, aligned offset: 20864
+  int8_t constant_18_let[576] __attribute__((packed, aligned(4))); // 576 bytes, aligned offset: 21440
+  int32_t constant_9_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 22016
+  float constant_8_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 22272
+  int32_t constant_7_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 22528
+  int32_t constant_53_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 22784
+  float constant_52_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 23040
+  int32_t constant_51_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 23296
+  float constant_50_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 23552
+  int32_t constant_5_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 23808
+  int32_t constant_49_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 24064
+  int32_t constant_47_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 24320
+  float constant_46_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 24576
+  int32_t constant_45_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 24832
+  float constant_44_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 25088
+  int32_t constant_43_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 25344
+  int32_t constant_41_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 25600
+  float constant_40_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 25856
+  float constant_4_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 26112
+  int32_t constant_39_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 26368
+  float constant_38_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 26624
+  int32_t constant_37_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 26880
+  int32_t constant_35_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 27136
+  float constant_34_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 27392
+  int32_t constant_33_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 27648
+  float constant_32_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 27904
+  int32_t constant_31_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 28160
+  int32_t constant_3_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 28416
+  int32_t constant_29_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 28672
+  float constant_28_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 28928
+  int32_t constant_27_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 29184
+  float constant_26_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 29440
+  int32_t constant_25_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 29696
+  int32_t constant_23_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 29952
+  float constant_22_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 30208
+  int32_t constant_21_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 30464
+  float constant_20_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 30720
+  float constant_2_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 30976
+  int32_t constant_19_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 31232
+  int32_t constant_17_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 31488
+  float constant_16_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 31744
+  int32_t constant_15_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 32000
+  float constant_14_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 32256
+  int32_t constant_13_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 32512
+  int32_t constant_11_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 32768
+  float constant_10_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 33024
+  int32_t constant_1_let[64] __attribute__((packed, aligned(4))); // 256 bytes, aligned offset: 33280
+  int32_t constant_55_let[12] __attribute__((packed, aligned(4))); // 48 bytes, aligned offset: 33536
 } global_const_workspace = {
   .constant_48_let = {
     +0x50, -0x1b, -0x01, +0x24, -0x57, -0x15, +0x65, +0x39, 
@@ -3288,11 +3288,11 @@ static struct global_const_workspace {
     -0x0000003f, -0x00000097, -0x0000002b, +0x000000ab
   },
 };// of total size 33584 bytes
-__attribute__((section(".bss.noinit.tvm"), aligned(16)))
+__attribute__((section(".bss.noinit.tvm"), aligned(4)))
 static uint8_t global_workspace[16000];
 #include <tvmgen_default.h>
 TVM_DLL int32_t tvmgen_default___tvm_main__(void* input_1,void* output0,uint8_t* global_const_workspace_0_var,uint8_t* global_workspace_1_var);
-int32_t tvmgen_default_run(struct tvmgen_default_inputs* inputs,struct tvmgen_default_outputs* outputs) {return tvmgen_default___tvm_main__(inputs->input_1,outputs->Identity,&global_const_workspace,&global_workspace);
+int32_t tvmgen_default_run(struct tvmgen_default_inputs* inputs,struct tvmgen_default_outputs* outputs) {return tvmgen_default___tvm_main__(inputs->input_1,outputs->Identity,((uint8_t*)&global_const_workspace),((uint8_t*)&global_workspace));
 }
 #ifdef __cplusplus
 }

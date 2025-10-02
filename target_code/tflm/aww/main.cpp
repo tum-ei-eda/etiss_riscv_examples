@@ -13,17 +13,20 @@
 #include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
 #include "tensorflow/lite/schema/schema_generated.h"
 
-#define CHECK 0
 #ifndef CHECK
 #define CHECK 1
 #endif
 
-#define MAX_RUNS 1
 #ifndef MAX_RUNS
-#define MAX_RUNS 1000
+#define MAX_RUNS aww_data_sample_cnt
+#endif
+
+#ifndef MIN_RUNS
+#define MIN_RUNS 1
 #endif
 
 #define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
+#define MAX(X, Y) (((X) < (Y)) ? (Y) : (X))
 
 
 constexpr size_t tensor_arena_size = 256 * 1024;
@@ -54,9 +57,9 @@ int run_test()
         return -1;
     }
 
-    for (size_t i = 0; i < MIN(aww_data_sample_cnt, MAX_RUNS); i++)
+    for (size_t i = 0; i < MAX(MIN(aww_data_sample_cnt, MAX_RUNS), MIN_RUNS); i++)
     {
-        memcpy(interpreter.input(0)->data.int8, (int8_t *)aww_input_data[i], aww_input_data_len[i]);
+        memcpy(interpreter.input(0)->data.int8, (int8_t *)aww_input_data[i % aww_data_sample_cnt], aww_input_data_len[i % aww_data_sample_cnt]);
 
         if (interpreter.Invoke() != kTfLiteOk)
         {
@@ -74,14 +77,14 @@ int run_test()
             }
         }
 
-        if (top_index != aww_output_data_ref[i])
+        if (top_index != aww_output_data_ref[i % aww_data_sample_cnt])
         {
-            printf("ERROR: at #%d, top_index %d aww_output_data_ref %d \n", i, top_index, aww_output_data_ref[i]);
+            printf("ERROR: at #%d, top_index %d aww_output_data_ref %d \n", i, top_index, aww_output_data_ref[i % aww_data_sample_cnt]);
             return -1;
         }
         else
         {
-            printf("Sample #%d pass, top_index %d matches ref %d \n", i, top_index, aww_output_data_ref[i]);
+            printf("Sample #%d pass, top_index %d matches ref %d \n", i, top_index, aww_output_data_ref[i % aww_data_sample_cnt]);
         }
 #endif
     }
