@@ -4,7 +4,7 @@
       "executors": [
         "aot"
       ],
-      "export_datetime": "2025-09-28 12:22:18Z",
+      "export_datetime": "2025-10-06 10:26:30Z",
       "external_dependencies": [
         {
           "short_name": "tvm_standalone_crt",
@@ -55,7 +55,7 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_cmsis_nn_main_7",
+              "function_name": "tvmgen_default_cmsis_nn_main_0",
               "workspace": [
                 {
                   "device": 1,
@@ -64,7 +64,7 @@
               ]
             },
             {
-              "function_name": "tvmgen_default_cmsis_nn_main_0",
+              "function_name": "tvmgen_default_cmsis_nn_main_7",
               "workspace": [
                 {
                   "device": 1,
@@ -141,7 +141,7 @@
       "model_name": "default",
       "style": "full-model",
       "target": [
-        "c -keys=cpu -constants-byte-alignment=4 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=4"
+        "c -keys=cpu -constants-byte-alignment=4 -mcpu=generic-rv32 -model=etiss-rv32gcv-zvl1024b -workspace-byte-alignment=4"
       ]
     }
   },
