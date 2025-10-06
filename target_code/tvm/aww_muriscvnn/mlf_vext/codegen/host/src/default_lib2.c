@@ -87,7 +87,7 @@ extern "C"
 #endif
 TVM_DLL int32_t tvmgen_default_cmsis_nn_main_1(int8_t* input_, int8_t* filter_, int32_t* multiplier_, int32_t* bias_, int32_t* shift_, int8_t* output_, uint8_t* global_const_workspace_4_var, uint8_t* global_workspace_5_var) {
   void* context_buffer_0_let = (&(global_workspace_5_var[16000]));
-  cmsis_nn_context context= {context_buffer_0_let,1152};
+  cmsis_nn_context context= {context_buffer_0_let,4464};
   cmsis_nn_tile stride = {1,1};
   cmsis_nn_tile padding = {1,1};
   cmsis_nn_tile dilation = {1,1};
@@ -136,7 +136,7 @@ extern "C"
 #endif
 TVM_DLL int32_t tvmgen_default_cmsis_nn_main_3(int8_t* input_, int8_t* filter_, int32_t* multiplier_, int32_t* bias_, int32_t* shift_, int8_t* output_, uint8_t* global_const_workspace_8_var, uint8_t* global_workspace_9_var) {
   void* context_buffer_1_let = (&(global_workspace_9_var[16000]));
-  cmsis_nn_context context= {context_buffer_1_let,1152};
+  cmsis_nn_context context= {context_buffer_1_let,4464};
   cmsis_nn_tile stride = {1,1};
   cmsis_nn_tile padding = {1,1};
   cmsis_nn_tile dilation = {1,1};
@@ -185,7 +185,7 @@ extern "C"
 #endif
 TVM_DLL int32_t tvmgen_default_cmsis_nn_main_5(int8_t* input_, int8_t* filter_, int32_t* multiplier_, int32_t* bias_, int32_t* shift_, int8_t* output_, uint8_t* global_const_workspace_12_var, uint8_t* global_workspace_13_var) {
   void* context_buffer_2_let = (&(global_workspace_13_var[16000]));
-  cmsis_nn_context context= {context_buffer_2_let,1152};
+  cmsis_nn_context context= {context_buffer_2_let,4464};
   cmsis_nn_tile stride = {1,1};
   cmsis_nn_tile padding = {1,1};
   cmsis_nn_tile dilation = {1,1};
@@ -234,7 +234,7 @@ extern "C"
 #endif
 TVM_DLL int32_t tvmgen_default_cmsis_nn_main_7(int8_t* input_, int8_t* filter_, int32_t* multiplier_, int32_t* bias_, int32_t* shift_, int8_t* output_, uint8_t* global_const_workspace_16_var, uint8_t* global_workspace_17_var) {
   void* context_buffer_3_let = (&(global_workspace_17_var[16000]));
-  cmsis_nn_context context= {context_buffer_3_let,1152};
+  cmsis_nn_context context= {context_buffer_3_let,4464};
   cmsis_nn_tile stride = {1,1};
   cmsis_nn_tile padding = {1,1};
   cmsis_nn_tile dilation = {1,1};
@@ -282,8 +282,7 @@ TVM_DLL int32_t tvmgen_default_cmsis_nn_main_8(int8_t* input_, int8_t* filter_, 
 extern "C"
 #endif
 TVM_DLL int32_t tvmgen_default_cmsis_nn_main_9(int8_t* input_, int8_t* output_, uint8_t* global_const_workspace_20_var, uint8_t* global_workspace_21_var) {
-  void* context_buffer_4_let = (&(global_workspace_21_var[8000]));
-  cmsis_nn_context context= {context_buffer_4_let,256};
+  cmsis_nn_context context= {NULL,0};
   cmsis_nn_tile stride = {5,25};
   cmsis_nn_tile padding = {0,0};
   cmsis_nn_activation activation = {-128,127};

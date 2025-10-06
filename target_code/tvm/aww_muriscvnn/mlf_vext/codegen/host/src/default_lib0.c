@@ -3289,7 +3289,7 @@ static const struct global_const_workspace {
   },
 };// of total size 33584 bytes
 __attribute__((section(".bss.noinit.tvm"), aligned(4)))
-static uint8_t global_workspace[17152];
+static uint8_t global_workspace[20464];
 #include <tvmgen_default.h>
 TVM_DLL int32_t tvmgen_default___tvm_main__(void* input_1,void* output0,uint8_t* global_const_workspace_0_var,uint8_t* global_workspace_1_var);
 int32_t tvmgen_default_run(struct tvmgen_default_inputs* inputs,struct tvmgen_default_outputs* outputs) {return tvmgen_default___tvm_main__(inputs->input_1,outputs->Identity,((uint8_t*)&global_const_workspace),((uint8_t*)&global_workspace));

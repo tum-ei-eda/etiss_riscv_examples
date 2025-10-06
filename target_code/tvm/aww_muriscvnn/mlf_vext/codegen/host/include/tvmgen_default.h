@@ -40,7 +40,7 @@ int32_t tvmgen_default_run(
 /*!
  * \brief Workspace size for TVM module "default" 
  */
-#define TVMGEN_DEFAULT_WORKSPACE_SIZE 17152
+#define TVMGEN_DEFAULT_WORKSPACE_SIZE 20464
 
 #ifdef __cplusplus
 }
