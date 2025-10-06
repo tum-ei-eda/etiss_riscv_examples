@@ -4,7 +4,7 @@
       "executors": [
         "aot"
       ],
-      "export_datetime": "2025-09-28 11:57:33Z",
+      "export_datetime": "2025-10-06 10:25:24Z",
       "external_dependencies": [
         {
           "short_name": "tvm_standalone_crt",
@@ -177,7 +177,7 @@
       "model_name": "default",
       "style": "full-model",
       "target": [
-        "c -keys=cpu -constants-byte-alignment=4 -mcpu=generic-rv32 -model=etiss-rv32gc -workspace-byte-alignment=4"
+        "c -keys=cpu -constants-byte-alignment=4 -mcpu=generic-rv32 -model=etiss-rv32gcv-zvl1024b -workspace-byte-alignment=4"
       ]
     }
   },
