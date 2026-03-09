@@ -13,7 +13,7 @@
 #define MODE_EMUL     2
 #define MODE_CFU      3
 
-#define SEAL5
+// #define SEAL5
 // #define ALT_MAC
 
 #ifndef MODE
