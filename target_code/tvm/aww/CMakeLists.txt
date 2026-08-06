@@ -37,4 +37,4 @@ target_sources(${PROJECT_NAME} PRIVATE
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE m)
-target_compile_options(${PROJECT_NAME} PRIVATE -Wno-incompatible-pointer-types)
+target_compile_options(${PROJECT_NAME} PRIVATE $<$<COMPILE_LANGUAGE:C>:-Wno-incompatible-pointer-types>)
