@@ -89,28 +89,37 @@ jobs:
           cd llvm
           tar xf ../${{ matrix.config.llvm_archive }} --strip-components ${{ matrix.config.llvm_strip }}
           ls
-      - name: CMake config (GCC)
-        if: ${{ matrix.config.toolchain == 'gcc' }}
+      - name: Set CMake preset
+        id: cmake_preset
+        shell: bash
         run: |
-          cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=rv${{ matrix.config.bits }}gc-toolchain.cmake -DRISCV_TOOLCHAIN_BASENAME=${{ matrix.config.gnu_name }} -DRISCV_TOOLCHAIN_PREFIX=$GITHUB_WORKSPACE/riscv_tc -DCMAKE_INSTALL_PREFIX=$(pwd)/build/install -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DRISCV_ARCH=${{ matrix.config.arch }} -DRISCV_ABI=${{ matrix.config.abi }}
-      - name: CMake config (LLVM)
-        if: ${{ matrix.config.toolchain == 'llvm' }}
+          build_type_lower="${{ matrix.build_type }}"
+          build_type_lower="${build_type_lower,,}"
+          preset="rv${{ matrix.config.bits }}-${{ matrix.config.toolchain }}-${build_type_lower}"
+          echo "name=${preset}" >> "$GITHUB_OUTPUT"
+      - name: CMake config
         run: |
           export PATH=$(pwd)/llvm/bin:/usr/lib/llvm-20/bin:$PATH
-          cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=rv${{ matrix.config.bits }}gc-llvm-toolchain.cmake -DRISCV_TOOLCHAIN_BASENAME=${{ matrix.config.gnu_name }} -DRISCV_TOOLCHAIN_PREFIX=$GITHUB_WORKSPACE/riscv_tc -DCMAKE_INSTALL_PREFIX=$(pwd)/build/install -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DRISCV_ARCH=${{ matrix.config.arch }} -DRISCV_ABI=${{ matrix.config.abi }}
+          cmake -S . \
+            --preset ${{ steps.cmake_preset.outputs.name }} \
+            -DRISCV_TOOLCHAIN_BASENAME=${{ matrix.config.gnu_name }} \
+            -DRISCV_TOOLCHAIN_PREFIX=$GITHUB_WORKSPACE/riscv_tc \
+            -DLLVM_DIR=$GITHUB_WORKSPACE/llvm \
+            -DRISCV_ARCH=${{ matrix.config.arch }} \
+            -DRISCV_ABI=${{ matrix.config.abi }}
       - name: CMake build (single)
         run: |
           export PATH=$(pwd)/llvm/bin:/usr/lib/llvm-20/bin:$PATH
-          cmake --build build -j$(nproc) --target hello_world
+          cmake --build --preset ${{ steps.cmake_preset.outputs.name }} -j$(nproc) --target hello_world
       - name: CMake install (single)
         run: |
           export PATH=$(pwd)/llvm/bin:/usr/lib/llvm-20/bin:$PATH
-          cmake --build build --target install
+          cmake --build --preset ${{ steps.cmake_preset.outputs.name }} --target install
       - name: CMake build (all)
         run: |
           export PATH=$(pwd)/llvm/bin:/usr/lib/llvm-20/bin:$PATH
-          cmake --build build -j$(nproc)
+          cmake --build --preset ${{ steps.cmake_preset.outputs.name }} -j$(nproc)
       - name: CMake install
         run: |-
           export PATH=$(pwd)/llvm/bin:/usr/lib/llvm-20/bin:$PATH
-          cmake --build build --target install
+          cmake --build --preset ${{ steps.cmake_preset.outputs.name }} --target install
