@@ -1,13 +1,15 @@
-cmake_minimum_required(VERSION 3.10)
+set(SYSCALL_BACKEND "SEMIHOST" CACHE STRING "Select syscall backend (SEMIHOST, HTIF, CUSTOM)")
+set_property(CACHE SYSCALL_BACKEND PROPERTY STRINGS SEMIHOST HTIF CUSTOM)
 
-project(riscv_crt0 C CXX ASM)
-
-if(NOT DEFINED SIMULATION_RUNS_COUNT)
-    set(SIMULATION_RUNS_COUNT 1)
+if(SYSCALL_BACKEND STREQUAL "SEMIHOST")
+    message(STATUS "Using libgloss + semihosting syscalls")
+    add_subdirectory(semihost)
+elseif(SYSCALL_BACKEND STREQUAL "HTIF")
+    message(STATUS "Using libgloss + HTIF syscalls")
+    add_subdirectory(htif)
+elseif(SYSCALL_BACKEND STREQUAL "CUSTOM")
+    message(STATUS "Using custom ETISS logger plugin syscalls")
+    add_subdirectory(custom)
+else()
+    message(FATAL_ERROR "Unknown SYSCALL_BACKEND=${SYSCALL_BACKEND}")
 endif()
-
-message(STATUS "SIMULATION_RUNS_COUNT is set to: ${SIMULATION_RUNS_COUNT}")
-
-add_library(etiss_crt0 STATIC crt0.S fixes.c trap_handler.c)
-
-target_compile_definitions(etiss_crt0 PRIVATE SIMULATION_RUNS=${SIMULATION_RUNS_COUNT})
