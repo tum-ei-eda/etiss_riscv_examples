@@ -243,7 +243,8 @@ set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 # ------------------------------------------------------------------------------
 
 set(RISCV_COMMON_FLAGS
-    "-march=${RISCV_ARCH} -mabi=${RISCV_ABI} --target=${LLVM_TARGET} --gcc-toolchain=${RISCV_TOOLCHAIN_PREFIX} -idirafter ${RISCV_TOOLCHAIN_SYSTEM_INCLUDE_DIR}"
+    # "-march=${RISCV_ARCH} -mabi=${RISCV_ABI} --target=${LLVM_TARGET} --gcc-toolchain=${RISCV_TOOLCHAIN_PREFIX} -idirafter ${RISCV_TOOLCHAIN_SYSTEM_INCLUDE_DIR}"
+    "-march=${RISCV_ARCH} -mabi=${RISCV_ABI} --target=${LLVM_TARGET} --gcc-toolchain=${RISCV_TOOLCHAIN_PREFIX} -idirafter ${RISCV_TOOLCHAIN_SYSTEM_INCLUDE_DIR} -mno-relax"
 )
 
 #
