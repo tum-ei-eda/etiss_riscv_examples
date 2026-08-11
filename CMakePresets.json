@@ -1,0 +1,196 @@
+{
+  "version": 5,
+
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 24,
+    "patch": 0
+  },
+
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "installDir": "${sourceDir}/build/${presetName}/install",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true
+      }
+    },
+
+    {
+      "name": "rv32",
+      "hidden": true,
+      "cacheVariables": {
+        "RISCV_ARCH": "rv32im_zicsr_zifencei",
+        "RISCV_ABI": "ilp32",
+        "RISCV_TOOLCHAIN_BASENAME": "riscv64-unknown-elf"
+      }
+    },
+
+    {
+      "name": "rv64",
+      "hidden": true,
+      "cacheVariables": {
+        "RISCV_ARCH": "rv64gc",
+        "RISCV_ABI": "lp64d",
+        "RISCV_TOOLCHAIN_BASENAME": "riscv64-unknown-elf"
+      }
+    },
+
+    {
+      "name": "gcc",
+      "hidden": true,
+      "toolchainFile": "${sourceDir}/cmake/riscv-gcc-toolchain.cmake"
+    },
+
+    {
+      "name": "llvm",
+      "hidden": true,
+      "toolchainFile": "${sourceDir}/cmake/riscv-llvm-toolchain.cmake"
+    },
+
+    {
+      "name": "debug",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+
+    {
+      "name": "release",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+
+
+    {
+      "name": "rv32-gcc-debug",
+      "displayName": "RV32 GCC Debug",
+      "inherits": [
+        "base",
+        "rv32",
+        "gcc",
+        "debug"
+      ]
+    },
+
+    {
+      "name": "rv32-gcc-release",
+      "displayName": "RV32 GCC Release",
+      "inherits": [
+        "base",
+        "rv32",
+        "gcc",
+        "release"
+      ]
+    },
+
+    {
+      "name": "rv32-llvm-debug",
+      "displayName": "RV32 LLVM Debug",
+      "inherits": [
+        "base",
+        "rv32",
+        "llvm",
+        "debug"
+      ]
+    },
+
+    {
+      "name": "rv32-llvm-release",
+      "displayName": "RV32 LLVM Release",
+      "inherits": [
+        "base",
+        "rv32",
+        "llvm",
+        "release"
+      ]
+    },
+
+
+    {
+      "name": "rv64-gcc-debug",
+      "displayName": "RV64 GCC Debug",
+      "inherits": [
+        "base",
+        "rv64",
+        "gcc",
+        "debug"
+      ]
+    },
+
+    {
+      "name": "rv64-gcc-release",
+      "displayName": "RV64 GCC Release",
+      "inherits": [
+        "base",
+        "rv64",
+        "gcc",
+        "release"
+      ]
+    },
+
+    {
+      "name": "rv64-llvm-debug",
+      "displayName": "RV64 LLVM Debug",
+      "inherits": [
+        "base",
+        "rv64",
+        "llvm",
+        "debug"
+      ]
+    },
+
+    {
+      "name": "rv64-llvm-release",
+      "displayName": "RV64 LLVM Release",
+      "inherits": [
+        "base",
+        "rv64",
+        "llvm",
+        "release"
+      ]
+    }
+  ],
+
+
+  "buildPresets": [
+    {
+      "name": "rv32-gcc-debug",
+      "configurePreset": "rv32-gcc-debug"
+    },
+    {
+      "name": "rv32-gcc-release",
+      "configurePreset": "rv32-gcc-release"
+    },
+    {
+      "name": "rv32-llvm-debug",
+      "configurePreset": "rv32-llvm-debug"
+    },
+    {
+      "name": "rv32-llvm-release",
+      "configurePreset": "rv32-llvm-release"
+    },
+    {
+      "name": "rv64-gcc-debug",
+      "configurePreset": "rv64-gcc-debug"
+    },
+    {
+      "name": "rv64-gcc-release",
+      "configurePreset": "rv64-gcc-release"
+    },
+    {
+      "name": "rv64-llvm-debug",
+      "configurePreset": "rv64-llvm-debug"
+    },
+    {
+      "name": "rv64-llvm-release",
+      "configurePreset": "rv64-llvm-release"
+    }
+  ]
+}
