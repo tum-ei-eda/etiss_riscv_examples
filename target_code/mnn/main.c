@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdint.h>
 
+// TODO: optional assert? check debug and release?
+#include <assert.h>
+
 int main()
 {
     printf("Hello world!\n");
@@ -26,105 +29,153 @@ int main()
 
     asm volatile("mnn.exths.b10 %0, %1" : "=r" (unpacked) : "r" (v4i8weights));
     printf("unpacked[mnn.exths.b10] = %08x\n", unpacked);    // expect 0x0001_0000
+    assert(unpacked == 0x00010000);
     asm volatile("mnn.exths.b20 %0, %1" : "=r" (unpacked) : "r" (v4i8weights));
     printf("unpacked[mnn.exths.b20] = %08x\n", unpacked);    // expect 0x0002_0000
+    assert(unpacked == 0x00020000);
     asm volatile("mnn.exths.b30 %0, %1" : "=r" (unpacked) : "r" (v4i8weights));
     printf("unpacked[mnn.exths.b30] = %08x\n", unpacked);    // expect 0x0003_0000
+    assert(unpacked == 0x00030000);
     asm volatile("mnn.exths.b21 %0, %1" : "=r" (unpacked) : "r" (v4i8weights));
     printf("unpacked[mnn.exths.b21] = %08x\n", unpacked);    // expect 0x0002_0001
+    assert(unpacked == 0x00020001);
     asm volatile("mnn.exths.b31 %0, %1" : "=r" (unpacked) : "r" (v4i8weights));
     printf("unpacked[mnn.exths.b31] = %08x\n", unpacked);    // expect 0x0003_0001
+    assert(unpacked == 0x00030001);
     asm volatile("mnn.exths.b32 %0, %1" : "=r" (unpacked) : "r" (v4i8weights));
     printf("unpacked[mnn.exths.b32] = %08x\n", unpacked);    // expect 0x0003_0002
+    assert(unpacked == 0x00030002);
 
     asm volatile("mnn.exths.b10 %0, %1" : "=r" (unpacked) : "r" (v4i8weights2));
     printf("unpacked[mnn.exths.b10] = %08x\n", unpacked);    // expect 0x007d_007c
+    assert(unpacked == 0x007d007c);
     asm volatile("mnn.exths.b20 %0, %1" : "=r" (unpacked) : "r" (v4i8weights2));
     printf("unpacked[mnn.exths.b20] = %08x\n", unpacked);    // expect 0x007e_007c
+    assert(unpacked == 0x007e007c);
     asm volatile("mnn.exths.b30 %0, %1" : "=r" (unpacked) : "r" (v4i8weights2));
     printf("unpacked[mnn.exths.b30] = %08x\n", unpacked);    // expect 0x007f_007c
+    assert(unpacked == 0x007f007c);
     asm volatile("mnn.exths.b21 %0, %1" : "=r" (unpacked) : "r" (v4i8weights2));
     printf("unpacked[mnn.exths.b21] = %08x\n", unpacked);    // expect 0x007e_007d
+    assert(unpacked == 0x007e007d);
     asm volatile("mnn.exths.b31 %0, %1" : "=r" (unpacked) : "r" (v4i8weights2));
     printf("unpacked[mnn.exths.b31] = %08x\n", unpacked);    // expect 0x007f_007d
+    assert(unpacked == 0x007f007d);
     asm volatile("mnn.exths.b32 %0, %1" : "=r" (unpacked) : "r" (v4i8weights2));
     printf("unpacked[mnn.exths.b32] = %08x\n", unpacked);    // expect 0x007f_007e
+    assert(unpacked == 0x007f007e);
 
     asm volatile("mnn.exths.b10 %0, %1" : "=r" (unpacked) : "r" (v4i8weights3));
     printf("unpacked[mnn.exths.b10] = %08x\n", unpacked);    // expect 0xfffe_ffff
+    assert(unpacked == 0xfffeffff);
     asm volatile("mnn.exths.b20 %0, %1" : "=r" (unpacked) : "r" (v4i8weights3));
     printf("unpacked[mnn.exths.b20] = %08x\n", unpacked);    // expect 0xfffd_ffff
+    assert(unpacked == 0xfffdffff);
     asm volatile("mnn.exths.b30 %0, %1" : "=r" (unpacked) : "r" (v4i8weights3));
     printf("unpacked[mnn.exths.b30] = %08x\n", unpacked);    // expect 0xfffc_ffff
+    assert(unpacked == 0xfffcffff);
     asm volatile("mnn.exths.b21 %0, %1" : "=r" (unpacked) : "r" (v4i8weights3));
     printf("unpacked[mnn.exths.b21] = %08x\n", unpacked);    // expect 0xfffd_fffe
+    assert(unpacked == 0xfffdfffe);
     asm volatile("mnn.exths.b31 %0, %1" : "=r" (unpacked) : "r" (v4i8weights3));
     printf("unpacked[mnn.exths.b31] = %08x\n", unpacked);    // expect 0xfffc_fffe
+    assert(unpacked == 0xfffcfffe);
     asm volatile("mnn.exths.b32 %0, %1" : "=r" (unpacked) : "r" (v4i8weights3));
     printf("unpacked[mnn.exths.b32] = %08x\n", unpacked);    // expect 0xfffc_fffd
+    assert(unpacked == 0xfffcfffd);
 
     asm volatile("mnn.exths.b10 %0, %1" : "=r" (unpacked) : "r" (v4i8weights4));
     printf("unpacked[mnn.exths.b10] = %08x\n", unpacked);    // expect 0xff82_ff83
+    assert(unpacked == 0xff82ff83);
     asm volatile("mnn.exths.b20 %0, %1" : "=r" (unpacked) : "r" (v4i8weights4));
     printf("unpacked[mnn.exths.b20] = %08x\n", unpacked);    // expect 0xff81_ff83
+    assert(unpacked == 0xff81ff83);
     asm volatile("mnn.exths.b30 %0, %1" : "=r" (unpacked) : "r" (v4i8weights4));
     printf("unpacked[mnn.exths.b30] = %08x\n", unpacked);    // expect 0xff80_ff83
+    assert(unpacked == 0xff80ff83);
     asm volatile("mnn.exths.b21 %0, %1" : "=r" (unpacked) : "r" (v4i8weights4));
     printf("unpacked[mnn.exths.b21] = %08x\n", unpacked);    // expect 0xff81_ff82
+    assert(unpacked == 0xff81ff82);
     asm volatile("mnn.exths.b31 %0, %1" : "=r" (unpacked) : "r" (v4i8weights4));
     printf("unpacked[mnn.exths.b31] = %08x\n", unpacked);    // expect 0xff80_ff82
+    assert(unpacked == 0xff80ff82);
     asm volatile("mnn.exths.b32 %0, %1" : "=r" (unpacked) : "r" (v4i8weights4));
     printf("unpacked[mnn.exths.b32] = %08x\n", unpacked);    // expect 0xff80_ff81
+    assert(unpacked == 0xff80ff81);
 
     asm volatile("mnn.exthz.b10 %0, %1" : "=r" (unpacked) : "r" (v4i8weights));
     printf("unpacked[mnn.exthz.b10] = %08x\n", unpacked);    // expect 0x0001_0000
+    assert(unpacked == 0x00010000);
     asm volatile("mnn.exthz.b20 %0, %1" : "=r" (unpacked) : "r" (v4i8weights));
     printf("unpacked[mnn.exthz.b20] = %08x\n", unpacked);    // expect 0x0002_0000
+    assert(unpacked == 0x00020000);
     asm volatile("mnn.exthz.b30 %0, %1" : "=r" (unpacked) : "r" (v4i8weights));
     printf("unpacked[mnn.exthz.b30] = %08x\n", unpacked);    // expect 0x0003_0000
+    assert(unpacked == 0x00030000);
     asm volatile("mnn.exthz.b21 %0, %1" : "=r" (unpacked) : "r" (v4i8weights));
     printf("unpacked[mnn.exthz.b21] = %08x\n", unpacked);    // expect 0x0002_0001
+    assert(unpacked == 0x00020001);
     asm volatile("mnn.exthz.b31 %0, %1" : "=r" (unpacked) : "r" (v4i8weights));
     printf("unpacked[mnn.exthz.b31] = %08x\n", unpacked);    // expect 0x0003_0001
+    assert(unpacked == 0x00030001);
     asm volatile("mnn.exthz.b32 %0, %1" : "=r" (unpacked) : "r" (v4i8weights));
     printf("unpacked[mnn.exthz.b32] = %08x\n", unpacked);    // expect 0x0003_0002
+    assert(unpacked == 0x00030002);
 
     asm volatile("mnn.exthz.b10 %0, %1" : "=r" (unpacked) : "r" (v4i8weights2));
     printf("unpacked[mnn.exthz.b10] = %08x\n", unpacked);    // expect 0x007d_007c
+    assert(unpacked == 0x007d007c);
     asm volatile("mnn.exthz.b20 %0, %1" : "=r" (unpacked) : "r" (v4i8weights2));
     printf("unpacked[mnn.exthz.b20] = %08x\n", unpacked);    // expect 0x007e_007c
+    assert(unpacked == 0x007e007c);
     asm volatile("mnn.exthz.b30 %0, %1" : "=r" (unpacked) : "r" (v4i8weights2));
     printf("unpacked[mnn.exthz.b30] = %08x\n", unpacked);    // expect 0x007f_007c
+    assert(unpacked == 0x007f007c);
     asm volatile("mnn.exthz.b21 %0, %1" : "=r" (unpacked) : "r" (v4i8weights2));
     printf("unpacked[mnn.exthz.b21] = %08x\n", unpacked);    // expect 0x007e_007d
+    assert(unpacked == 0x007e007d);
     asm volatile("mnn.exthz.b31 %0, %1" : "=r" (unpacked) : "r" (v4i8weights2));
     printf("unpacked[mnn.exthz.b31] = %08x\n", unpacked);    // expect 0x007f_007d
+    assert(unpacked == 0x007f007d);
     asm volatile("mnn.exthz.b32 %0, %1" : "=r" (unpacked) : "r" (v4i8weights2));
     printf("unpacked[mnn.exthz.b32] = %08x\n", unpacked);    // expect 0x007f_007e
+    assert(unpacked == 0x007f007e);
 
     asm volatile("mnn.exthz.b10 %0, %1" : "=r" (unpacked) : "r" (v4i8weights3));
     printf("unpacked[mnn.exthz.b10] = %08x\n", unpacked);    // expect 0x00fe_00ff
+    assert(unpacked == 0x00fe00ff);
     asm volatile("mnn.exthz.b20 %0, %1" : "=r" (unpacked) : "r" (v4i8weights3));
     printf("unpacked[mnn.exthz.b20] = %08x\n", unpacked);    // expect 0x00fd_00ff
+    assert(unpacked == 0x00fd00ff);
     asm volatile("mnn.exthz.b30 %0, %1" : "=r" (unpacked) : "r" (v4i8weights3));
     printf("unpacked[mnn.exthz.b30] = %08x\n", unpacked);    // expect 0x00fc_00ff
+    assert(unpacked == 0x00fc00ff);
     asm volatile("mnn.exthz.b21 %0, %1" : "=r" (unpacked) : "r" (v4i8weights3));
     printf("unpacked[mnn.exthz.b21] = %08x\n", unpacked);    // expect 0x00fd_00fe
+    assert(unpacked == 0x00fd00fe);
     asm volatile("mnn.exthz.b31 %0, %1" : "=r" (unpacked) : "r" (v4i8weights3));
     printf("unpacked[mnn.exthz.b31] = %08x\n", unpacked);    // expect 0x00fc_00fe
+    assert(unpacked == 0x00fc00fe);
     asm volatile("mnn.exthz.b32 %0, %1" : "=r" (unpacked) : "r" (v4i8weights3));
     printf("unpacked[mnn.exthz.b32] = %08x\n", unpacked);    // expect 0x00fc_00fd
+    assert(unpacked == 0x00fc00fd);
 
     asm volatile("mnn.exthz.b10 %0, %1" : "=r" (unpacked) : "r" (v4i8weights4));
     printf("unpacked[mnn.exthz.b10] = %08x\n", unpacked);    // expect 0x0082_0083
+    assert(unpacked == 0x00820083);
     asm volatile("mnn.exthz.b20 %0, %1" : "=r" (unpacked) : "r" (v4i8weights4));
     printf("unpacked[mnn.exthz.b20] = %08x\n", unpacked);    // expect 0x0081_0083
+    assert(unpacked == 0x00810083);
     asm volatile("mnn.exthz.b30 %0, %1" : "=r" (unpacked) : "r" (v4i8weights4));
     printf("unpacked[mnn.exthz.b30] = %08x\n", unpacked);    // expect 0x0080_0083
+    assert(unpacked == 0x00800083);
     asm volatile("mnn.exthz.b21 %0, %1" : "=r" (unpacked) : "r" (v4i8weights4));
     printf("unpacked[mnn.exthz.b21] = %08x\n", unpacked);    // expect 0x0081_0082
+    assert(unpacked == 0x00810082);
     asm volatile("mnn.exthz.b31 %0, %1" : "=r" (unpacked) : "r" (v4i8weights4));
     printf("unpacked[mnn.exthz.b31] = %08x\n", unpacked);    // expect 0x0080_0082
+    assert(unpacked == 0x00800082);
     asm volatile("mnn.exthz.b32 %0, %1" : "=r" (unpacked) : "r" (v4i8weights4));
     printf("unpacked[mnn.exthz.b32] = %08x\n", unpacked);    // expect 0x0080_0081
+    assert(unpacked == 0x00800081);
 }
