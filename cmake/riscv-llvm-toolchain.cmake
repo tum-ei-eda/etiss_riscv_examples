@@ -75,7 +75,7 @@ if(LLVM_DIR)
 else()
     # No explicit LLVM installation:
     # find clang first...
-    find_program(LLVM_CLANG NAMES clang REQUIRED)
+    find_program(LLVM_CLANG NAMES clang clang-24 clang-23 clang-22 clang-21 clang-20 clang-19 clang-18 REQUIRED)
     file(REAL_PATH "${LLVM_CLANG}" LLVM_CLANG_REAL)
     message(STATUS "LLVM_CLANG=${LLVM_CLANG}")
     message(STATUS "LLVM_CLANG_REAL=${LLVM_CLANG_REAL}")
