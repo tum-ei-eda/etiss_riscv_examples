@@ -2164,9 +2164,9 @@ void readCam() {
  */
 int S1[3][3] = { { 1, 0, -1 }, { 2, 0, -2 }, { 1, 0, -1 } };
 int S2[3][3] = { { -1, -2, -1 }, { 0, 0, 0 }, { 1, 2, 1 } };
-char pixBuf1[128];
-char pixBuf2[128];
-char pixBuf3[128];
+unsigned char pixBuf1[128];
+unsigned char pixBuf2[128];
+unsigned char pixBuf3[128];
 int edgeDetect()
 {
 

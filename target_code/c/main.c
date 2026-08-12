@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
+#include <inttypes.h>
 #include <time.h>
 #include "csr.h"
 
@@ -35,17 +36,15 @@ int main()
         printf("time_l: %u, time_h: %u\n", time_l, time_h);
         printf("instret_l: %u, instret_h: %u\n", instret_l, instret_h);
 
-        printf("cycle: %llu\n", cycle);
-        printf("time: %llu\n", time);
-        printf("instret: %llu\n", instret);
+        printf("cycle: %" PRIu64 "\n", cycle);
+        printf("time: %" PRIu64 "\n", time);
+        printf("instret: %" PRIu64 "\n", instret);
 
         printf("---\n");
     }
 
-    uint64_t time_now = rdtime64() / 1000000;
-    struct tm* timeinfo;
-
-    timeinfo = gmtime(&time_now);
+    time_t time_now = (time_t)(rdtime64() / 1000000);
+    struct tm *timeinfo = gmtime(&time_now);
 
     printf("current time: %s\n", asctime(timeinfo));
 }
