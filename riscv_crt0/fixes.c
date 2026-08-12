@@ -1,4 +1,6 @@
 #include <stdint.h>
+#include <stddef.h>
+#include <errno.h>
 #include <sys/time.h>
 #include <sys/timeb.h>
 
@@ -15,4 +17,13 @@ int _gettimeofday(struct timeval *tv, void *_)
     tv->tv_sec = us / US_PER_S;
     tv->tv_usec = us % US_PER_S;
     return 0;
+}
+
+
+int _getentropy(void *buf, size_t buflen)
+{
+    (void)buf;
+    (void)buflen;
+    errno = ENOSYS;
+    return -1;
 }
