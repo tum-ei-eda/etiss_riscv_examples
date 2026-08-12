@@ -11,14 +11,14 @@ jobs:
         config:
           # GCC, Multilib
           - {bits: 32, arch: rv32gc, abi: ilp32d, toolchain: gcc, gnu_name: riscv-none-elf,
-             gnu_url: https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/,
-             gnu_archive: xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz, gnu_strip: 1}
+             gnu_url: https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v15.2.0-1/,
+             gnu_archive: xpack-riscv-none-elf-gcc-15.2.0-1-linux-x64.tar.gz, gnu_strip: 1}
           - {bits: 32, arch: rv32im_zicsr_zifencei, abi: ilp32, toolchain: gcc, gnu_name: riscv-none-elf,
-             gnu_url: https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/,
-             gnu_archive: xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz, gnu_strip: 1}
+             gnu_url: https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v15.2.0-1/,
+             gnu_archive: xpack-riscv-none-elf-gcc-15.2.0-1-linux-x64.tar.gz, gnu_strip: 1}
           - {bits: 64, arch: rv64gc, abi: lp64d, toolchain: gcc, gnu_name: riscv-none-elf,
-             gnu_url: https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v13.2.0-2/,
-             gnu_archive: xpack-riscv-none-elf-gcc-13.2.0-2-linux-x64.tar.gz, gnu_strip: 1}
+             gnu_url: https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v15.2.0-1/,
+             gnu_archive: xpack-riscv-none-elf-gcc-15.2.0-1-linux-x64.tar.gz, gnu_strip: 1}
           # System LLVM, Non-Multilib
           - {bits: 32, arch: rv32gc, abi: ilp32d, toolchain: llvm, gnu_name: riscv32-unknown-elf,
              gnu_url: https://github.com/PhilippvK/riscv-tools/releases/download/gnu_2025.06.13,
